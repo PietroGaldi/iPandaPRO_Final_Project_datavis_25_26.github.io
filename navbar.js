@@ -6,10 +6,10 @@ document.addEventListener("DOMContentLoaded", function() {
         </div>
         
         <div class="nav-links-container">
-            <a href="index.html" class="nav-item"><i class="fa-solid fa-house"></i> Home</a>
-            <a href="#" class="nav-item"><i class="fa-solid fa-chart-line"></i> Page A</a>
-            <a href="#" class="nav-item"><i class="fa-solid fa-users"></i> Page B</a>
-            <a href="#" class="nav-item"><i class="fa-solid fa-circle-info"></i> Page C</a>
+            <a href="index.html" class="nav-item"><i class="fa-solid fa-house"></i> The RAISE Project</a>
+            <a href="#" class="nav-item"><i class="fa-solid fa-chart-line"></i> People</a>
+            <a href="#" class="nav-item"><i class="fa-solid fa-users"></i> Institutions</a>
+            <a href="#" class="nav-item"><i class="fa-solid fa-circle-info"></i> Collaborations</a>
         </div>
     </nav>`;
 
