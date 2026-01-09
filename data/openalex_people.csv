@@ -1,0 +1,893 @@
+openalex_id,display_name_or_alias,orcid,institutions,n_institutions,n_works_in_input
+https://openalex.org/A5007218240,Massimo De Vittorio,https://orcid.org/0000-0003-1601-6392,Center for Biomolecular Nanotechnologies; Ecosystem (Spain); Health First; Innovation Engineering (Italy); Italian Institute of Technology; Technical University of Denmark; Trento RISE (Italy); University of Salento,8,22
+https://openalex.org/A5028454417,Ferruccio Pisanello,https://orcid.org/0000-0002-1489-7758,Center for Biomolecular Nanotechnologies; Ecosystem (Spain); Health First; Italian Institute of Technology; Trento RISE (Italy); University of Salento,6,17
+https://openalex.org/A5043864991,Maura Casadio,https://orcid.org/0000-0003-2338-8995,University of Genoa,1,16
+https://openalex.org/A5017047546,Liam Collard,https://orcid.org/0000-0002-9742-9043,Center for Biomolecular Nanotechnologies; Ecosystem (Spain); Italian Institute of Technology; King's College London; London Cancer; Trento RISE (Italy),6,12
+https://openalex.org/A5092828505,Linda Piscopo,https://orcid.org/0000-0002-1976-1518,Center for Biomolecular Nanotechnologies; Italian Institute of Technology; University of Salento,3,11
+https://openalex.org/A5072431247,Filippo Pisano,https://orcid.org/0000-0002-5499-160X,Center for Biomolecular Nanotechnologies; Italian Institute of Technology; University of Padua,3,10
+https://openalex.org/A5079829556,Giuseppe Patanè,https://orcid.org/0000-0002-2276-9553,Institute of Intelligent Systems for Automation; Istituto di Matematica Applicata e Tecnologie Informatiche; National Research Council,3,10
+https://openalex.org/A5055281228,Carlo S. Regazzoni,https://orcid.org/0000-0001-6617-1417,University of Genoa,1,9
+https://openalex.org/A5025286783,Silvia Biasotti,https://orcid.org/0000-0002-9992-825X,Istituto di Matematica Applicata e Tecnologie Informatiche,1,9
+https://openalex.org/A5038381549,Chiara Romanengo,https://orcid.org/0000-0002-9459-6209,Istituto di Matematica Applicata e Tecnologie Informatiche,1,8
+https://openalex.org/A5051447281,Francesco Crenna,https://orcid.org/0000-0002-4803-2082,University of Genoa,1,8
+https://openalex.org/A5026784255,Giorgia Marchesi,https://orcid.org/0000-0002-7864-3036,Technology Transfer and Innovation (Italy); University of Genoa,2,8
+https://openalex.org/A5087874445,Giovanni Battista Rossi,https://orcid.org/0000-0002-0970-1458,University of Genoa,1,8
+https://openalex.org/A5019722167,Lucio Marcenaro,https://orcid.org/0000-0003-1515-120X,University of Genoa,1,8
+https://openalex.org/A5054531747,Antonio Balena,https://orcid.org/0000-0003-4314-4314,Center for Biomolecular Nanotechnologies; Centre National de la Recherche Scientifique; Collège de France; Health First; Italian Institute of Technology; Laboratoire Kastler Brossel; Sorbonne University Abu Dhabi; Sorbonne Université; Université Paris Sciences et Lettres; École Normale Supérieure - PSL,10,7
+https://openalex.org/A5051340366,Camilla Pierella,https://orcid.org/0000-0002-8108-9363,University of Genoa,1,7
+https://openalex.org/A5101961834,David Martín,https://orcid.org/0000-0003-3764-5083,Universidad Carlos III de Madrid,1,7
+https://openalex.org/A5081247920,Enrico Simetti,https://orcid.org/0000-0003-4488-4680,University of Genoa,1,7
+https://openalex.org/A5082854095,Luca Caviglione,https://orcid.org/0000-0001-6466-3354,Informa (Italy); Istituto di Matematica Applicata e Tecnologie Informatiche; National Research Council,3,7
+https://openalex.org/A5090093768,Mohammadrahim Kazemzadeh,,Center for Biomolecular Nanotechnologies; Italian Institute of Technology,2,7
+https://openalex.org/A5085764965,Monica Gori,https://orcid.org/0000-0002-5616-865X,Italian Institute of Technology,1,7
+https://openalex.org/A5046971342,Alessio Del Bue,https://orcid.org/0000-0002-2262-4872,Italian Institute of Technology,1,6
+https://openalex.org/A5063789789,Alice De Luca,,Italian Institute of Technology; Technology Transfer and Innovation (Italy); University of Genoa,3,6
+https://openalex.org/A5033993195,Amy Bellitto,https://orcid.org/0000-0002-5085-6689,Azienda Sanitaria Locale N. 2 Savonese; Delft University of Technology; Ospedale Santa Corona; University of Genoa,4,6
+https://openalex.org/A5044159817,Bianca Falcidieno,https://orcid.org/0000-0002-9522-2874,Istituto di Matematica Applicata e Tecnologie Informatiche,1,6
+https://openalex.org/A5038988963,Di Zheng,https://orcid.org/0000-0002-9075-1857,Center for Biomolecular Nanotechnologies; Italian Institute of Technology; Shenzhen University,3,6
+https://openalex.org/A5073942223,Francesco Wanderlingh,https://orcid.org/0000-0001-6219-6692,University of Genoa,1,6
+https://openalex.org/A5066572669,Giovanni Indiveri,https://orcid.org/0000-0001-8683-2948,University of Genoa,1,6
+https://openalex.org/A5066219856,Leonardo S. Mattos,https://orcid.org/0000-0002-8511-9144,Italian Institute of Technology,1,6
+https://openalex.org/A5036413712,Marco Zuppelli,https://orcid.org/0000-0001-6932-3199,Informa (Italy); Istituto di Matematica Applicata e Tecnologie Informatiche; National Research Council,3,6
+https://openalex.org/A5039477899,Michela Robba,https://orcid.org/0000-0002-0032-9493,University of Genoa,1,6
+https://openalex.org/A5070163414,Ali Krayani,https://orcid.org/0000-0002-6598-2805,University of Genoa,1,5
+https://openalex.org/A5083020442,Angelo Bratta,https://orcid.org/0000-0002-1306-9344,Italian Institute of Technology,1,5
+https://openalex.org/A5010033061,Claudio Semini,https://orcid.org/0000-0002-3034-4686,Italian Institute of Technology,1,5
+https://openalex.org/A5002522142,Daniela Cabiddu,https://orcid.org/0000-0001-5797-4189,Istituto di Matematica Applicata e Tecnologie Informatiche,1,5
+https://openalex.org/A5053846381,Gian Luca Bailo,,Italian Institute of Technology,1,5
+https://openalex.org/A5029096627,Giulio Ferro,https://orcid.org/0000-0002-0641-6846,University of Genoa,1,5
+https://openalex.org/A5003304791,Maria Samuela Andriani,https://orcid.org/0000-0002-1447-1650,Center for Biomolecular Nanotechnologies; Italian Institute of Technology; University of Salento,3,5
+https://openalex.org/A5072467405,Matteo Moro,https://orcid.org/0000-0002-8644-0175,University of Genoa,1,5
+https://openalex.org/A5071205538,Matteo Pardini,https://orcid.org/0000-0002-4740-1982,Ospedale Policlinico San Martino; University of Genoa,2,5
+https://openalex.org/A5088453867,Michele Piana,https://orcid.org/0000-0003-1700-991X,Istituti di Ricovero e Cura a Carattere Scientifico; Ospedale Policlinico San Martino; University of Genoa,3,5
+https://openalex.org/A5052464729,Mohamad Khalil,https://orcid.org/0000-0002-5943-9531,University of Genoa,1,5
+https://openalex.org/A5002353368,Muhammad Fayyaz Kashif,https://orcid.org/0000-0002-7837-6679,Center for Biomolecular Nanotechnologies; Italian Institute of Technology; University of Naples Federico II,3,5
+https://openalex.org/A5084959323,Pamela Zontone,https://orcid.org/0009-0005-9119-4481,University of Genoa,1,5
+https://openalex.org/A5031842403,Sara Garbarino,https://orcid.org/0000-0002-3583-3630,Istituti di Ricovero e Cura a Carattere Scientifico; Ospedale Policlinico San Martino; University of Genoa,3,5
+https://openalex.org/A5098680735,Shehzaib Shafique,,Italian Institute of Technology,1,5
+https://openalex.org/A5034953500,Silvia Zanchi,https://orcid.org/0000-0003-0572-0480,Italian Institute of Technology,1,5
+https://openalex.org/A5077319872,Simone Cammarasana,https://orcid.org/0000-0002-2549-8330,Institute of Intelligent Systems for Automation; Istituto di Matematica Applicata e Tecnologie Informatiche,2,5
+https://openalex.org/A5000034751,Simone Pittaluga,https://orcid.org/0000-0001-7416-3484,Istituto di Matematica Applicata e Tecnologie Informatiche,1,5
+https://openalex.org/A5043426516,Tommaso Sorgente,https://orcid.org/0000-0001-8699-6379,Istituto di Matematica Applicata e Tecnologie Informatiche,1,5
+https://openalex.org/A5004012873,Andrea Tacchino,https://orcid.org/0000-0002-2263-7315,Associazione Italiana Sclerosi Multipla,1,4
+https://openalex.org/A5076626140,Antonino Massone,,Azienda Sanitaria Locale N. 2 Savonese; Ospedale Santa Corona,2,4
+https://openalex.org/A5071235099,Brigida Bonino,https://orcid.org/0000-0002-4264-3958,Istituto di Matematica Applicata e Tecnologie Informatiche; National Research Council,2,4
+https://openalex.org/A5053276966,Enrico Zero,https://orcid.org/0000-0002-9995-1724,University of Genoa,1,4
+https://openalex.org/A5032083229,Francesca Odone,https://orcid.org/0000-0002-3463-2263,University of Genoa,1,4
+https://openalex.org/A5016510324,Giampaolo Brichetto,https://orcid.org/0000-0003-2026-3572,Associazione Italiana Sclerosi Multipla,1,4
+https://openalex.org/A5091579568,Jessica Podda,https://orcid.org/0000-0002-9327-9148,Associazione Italiana Sclerosi Multipla,1,4
+https://openalex.org/A5033236229,Katia Lupinetti,https://orcid.org/0000-0002-0202-4909,Istituto di Matematica Applicata e Tecnologie Informatiche; National Research Council,2,4
+https://openalex.org/A5009548607,Ludovico Pedullà,https://orcid.org/0000-0002-2547-382X,Associazione Italiana Sclerosi Multipla,1,4
+https://openalex.org/A5073062701,Marco Pisanello,https://orcid.org/0000-0003-2179-7883,Center for Biomolecular Nanotechnologies; Italian Institute of Technology,2,4
+https://openalex.org/A5045859375,Martina Paccini,https://orcid.org/0000-0002-9751-6104,Istituto di Matematica Applicata e Tecnologie Informatiche,1,4
+https://openalex.org/A5025844977,Massimo Guarascio,https://orcid.org/0000-0001-7711-9833,Institute for High Performance Computing and Networking; National Research Council,2,4
+https://openalex.org/A5068329396,Michela Spagnuolo,https://orcid.org/0000-0002-5682-6990,Istituto di Matematica Applicata e Tecnologie Informatiche,1,4
+https://openalex.org/A5056952732,Roberto Sacile,https://orcid.org/0000-0003-4086-8747,University of Genoa,1,4
+https://openalex.org/A5076801567,Vincenzo Mastronardi,https://orcid.org/0000-0002-7782-8071,Center for Biomolecular Nanotechnologies; Innovation Engineering (Italy); Italian Institute of Technology; University of Salento,4,4
+https://openalex.org/A5104124319,Alberto Neri,,Brigham and Women's Hospital; Engineering (Italy); Harvard University; Italian Institute of Technology; University of Genoa,5,3
+https://openalex.org/A5013104931,Angelica Liguori,https://orcid.org/0000-0001-9402-7375,Institute for High Performance Computing and Networking; National Research Council,2,3
+https://openalex.org/A5020120126,Angelo Schenone,https://orcid.org/0000-0002-2604-7830,Ospedale Policlinico San Martino; University of Genoa,2,3
+https://openalex.org/A5034749265,Antonella Priarone,https://orcid.org/0000-0002-3613-8592,University of Genoa,1,3
+https://openalex.org/A5044245930,Antonio Uccelli,https://orcid.org/0000-0002-2008-6038,Ospedale Policlinico San Martino; University of Genoa,2,3
+https://openalex.org/A5115545780,Beatrice Lagomarsino,,University of Genoa,1,3
+https://openalex.org/A5086364062,Beatrice Orso,https://orcid.org/0000-0001-9983-7940,University of Genoa,1,3
+https://openalex.org/A5047432056,Carlos Beltrán,https://orcid.org/0000-0001-7721-0979,Italian Institute of Technology,1,3
+https://openalex.org/A5101815416,Chiara Baldini,https://orcid.org/0009-0006-5287-2478,Engineering (Italy); Italian Institute of Technology; University of Genoa,3,3
+https://openalex.org/A5090273154,Claudio Campus,https://orcid.org/0000-0002-7097-4500,Italian Institute of Technology,1,3
+https://openalex.org/A5072706792,Cristina Campi,https://orcid.org/0000-0003-2105-8554,Ospedale Policlinico San Martino; University of Genoa,2,3
+https://openalex.org/A5083708156,Dario Arnaldi,https://orcid.org/0000-0001-6823-6069,Ospedale Policlinico San Martino; University of Genoa,2,3
+https://openalex.org/A5081683451,Davide Vurro,,Institute of Materials for Electronics and Magnetism; National Research Council,2,3
+https://openalex.org/A5013220138,Domenico Gallipoli,https://orcid.org/0000-0003-1576-0742,University of Genoa,1,3
+https://openalex.org/A5089083478,Erica Grange,https://orcid.org/0000-0001-5114-9276,Associazione Italiana Sclerosi Multipla,1,3
+https://openalex.org/A5012557750,Franca Giannini,https://orcid.org/0000-0002-3608-6737,Istituto di Matematica Applicata e Tecnologie Informatiche; National Research Council,2,3
+https://openalex.org/A5067154891,Francesco Rizzi,https://orcid.org/0000-0002-5142-5231,Center for Biomolecular Nanotechnologies; Italian Institute of Technology,2,3
+https://openalex.org/A5083940595,Gaia de Marzo,https://orcid.org/0000-0002-8073-9395,Center for Biomolecular Nanotechnologies; Italian Institute of Technology,2,3
+https://openalex.org/A5014223403,Gianmarco Manzini,https://orcid.org/0000-0003-3626-3112,Istituto di Matematica Applicata e Tecnologie Informatiche,1,3
+https://openalex.org/A5079017232,Giorgio Grioli,https://orcid.org/0000-0002-5310-2997,Italian Institute of Technology; Piaggio (Italy); University of Pisa,3,3
+https://openalex.org/A5115059683,Giulio Sciortino,,Italian Institute of Technology,1,3
+https://openalex.org/A5048219701,Giuseppe De Giorgio,https://orcid.org/0000-0001-7368-2629,Institute of Materials for Electronics and Magnetism; National Research Council,2,3
+https://openalex.org/A5052165793,Giuseppe Tarabella,https://orcid.org/0000-0002-8898-714X,Institute of Materials for Electronics and Magnetism; National Research Council,2,3
+https://openalex.org/A5030447198,Leonardo Maria Lalicata,https://orcid.org/0000-0001-6321-5218,University of Genoa,1,3
+https://openalex.org/A5004787217,Luca Fachechi,https://orcid.org/0000-0001-8911-3148,Center for Biomolecular Nanotechnologies; Italian Institute of Technology,2,3
+https://openalex.org/A5019439848,Luca Tarasi,https://orcid.org/0000-0002-4977-3173,University of Genoa,1,3
+https://openalex.org/A5009920702,Marco Bianco,https://orcid.org/0000-0001-9693-1106,Center for Biomolecular Nanotechnologies; Health First; Italian Institute of Technology,3,3
+https://openalex.org/A5078647367,Marco Fossa,https://orcid.org/0000-0003-4219-3229,University of Genoa,1,3
+https://openalex.org/A5057523445,Marta Berardengo,https://orcid.org/0000-0002-8625-0822,University of Genoa,1,3
+https://openalex.org/A5020262838,Michael Pusch,https://orcid.org/0000-0002-8644-8847,Instituto di Biofisica,1,3
+https://openalex.org/A5056032133,Michela Mortara,https://orcid.org/0000-0003-1074-1024,,0,3
+https://openalex.org/A5077002739,Michele Ferrari,https://orcid.org/0000-0001-6370-605X,Institut de Nanociència i Nanotecnologia de la Universitat de Barcelona; Institute of Condensed Matter Chemistry and Technologies for Energy; National Research Council; Universitat de Barcelona; University of Genoa,5,3
+https://openalex.org/A5020939882,Pasquale D’Angelo,https://orcid.org/0000-0002-4500-4457,Institute of Materials for Electronics and Magnetism; National Research Council,2,3
+https://openalex.org/A5049564203,Pietro Mattioli,https://orcid.org/0000-0003-2563-5830,Ospedale Policlinico San Martino; University of Genoa,2,3
+https://openalex.org/A5013954259,Samuele Memme,https://orcid.org/0000-0002-4126-6353,University of Genoa,1,3
+https://openalex.org/A5066319682,Stefano Morchio,https://orcid.org/0000-0002-9045-9194,University of Genoa,1,3
+https://openalex.org/A5115545781,T. Falchi Delitala,,Technology Transfer and Innovation (Italy),1,3
+https://openalex.org/A5086973694,Valentina Squeri,,Istituto Nazionale per l'Assicurazione Contro gli Infortuni sul Lavoro; Italian Institute of Technology; Technology Transfer and Innovation (Italy),3,3
+https://openalex.org/A5014405571,Veronica Penza,https://orcid.org/0000-0003-1096-560X,Italian Institute of Technology,1,3
+https://openalex.org/A5048105470,Walter Setti,https://orcid.org/0000-0002-2336-6051,Italian Institute of Technology,1,3
+https://openalex.org/A5089469997,Wojciech Mazurczyk,https://orcid.org/0000-0002-8509-4127,University of Hagen; Warsaw University of Technology,2,3
+https://openalex.org/A5012147438,A. Alessandri,https://orcid.org/0000-0001-6878-9106,University of Genoa,1,2
+https://openalex.org/A5017973608,Abraham Tettey‐Matey,https://orcid.org/0000-0001-9260-0940,Instituto di Biofisica,1,2
+https://openalex.org/A5044997390,Alberto Baudena,https://orcid.org/0000-0002-8890-4324,Centre National de la Recherche Scientifique; Institute of Structure of Matter; Istituto di Scienze Marine del Consiglio Nazionale delle Ricerche; Laboratoire d’Océanographie de Villefranche; Sorbonne Université,5,2
+https://openalex.org/A5004636149,Alessandra Picollo,https://orcid.org/0000-0003-2980-7951,Instituto di Biofisica; National Research Council,2,2
+https://openalex.org/A5066743897,Alessandro Barcellona,,Italian Institute of Technology,1,2
+https://openalex.org/A5028002342,Alessandro Bozzi,https://orcid.org/0000-0002-2436-0946,University of Genoa,1,2
+https://openalex.org/A5010580164,Alessandro Ioppi,https://orcid.org/0000-0002-2764-715X,Hospital Clínic de Barcelona,1,2
+https://openalex.org/A5004619817,Alessandro Lo Schiavo,https://orcid.org/0000-0003-3335-4182,"University of Campania ""Luigi Vanvitelli""",1,2
+https://openalex.org/A5037420340,Ali Dabbous,https://orcid.org/0009-0004-8978-4979,University of Genoa,1,2
+https://openalex.org/A5049104889,Andrea Bressan,https://orcid.org/0000-0003-3730-668X,Istituto di Matematica Applicata e Tecnologie Informatiche,1,2
+https://openalex.org/A5048856985,Andrea Canessa,https://orcid.org/0000-0001-8946-5290,University of Genoa,1,2
+https://openalex.org/A5090043163,Andrea Ranieri,https://orcid.org/0000-0001-8317-3158,Istituto di Matematica Applicata e Tecnologie Informatiche,1,2
+https://openalex.org/A5060004334,Andrei Stefanov,,MedCom,1,2
+https://openalex.org/A5033331100,Angela Tafadzwa Shumba,https://orcid.org/0000-0002-5888-7180,Center for Biomolecular Nanotechnologies; Innovation Engineering (Italy); Italian Institute of Technology; University of Salento,4,2
+https://openalex.org/A5053250970,Angelo Ferrando,https://orcid.org/0000-0002-8711-4670,University of Modena and Reggio Emilia,1,2
+https://openalex.org/A5082180334,Antonio Bicchi,https://orcid.org/0000-0001-8635-5571,Italian Institute of Technology; Piaggio (Italy),2,2
+https://openalex.org/A5073759688,Antonio Qualtieri,https://orcid.org/0000-0002-2207-8111,Center for Biomolecular Nanotechnologies; Italian Institute of Technology,2,2
+https://openalex.org/A5040970827,Aris Liboà,https://orcid.org/0009-0009-3329-2445,Institute of Materials for Electronics and Magnetism; University of Parma,2,2
+https://openalex.org/A5041063778,Athanassia Athanassiou,https://orcid.org/0000-0002-6533-3231,Italian Institute of Technology,1,2
+https://openalex.org/A5016588102,C. Boragno,https://orcid.org/0000-0001-5038-0214,University of Genoa,1,2
+https://openalex.org/A5043549907,C. Pierella,,University of Genoa,1,2
+https://openalex.org/A3176699038,"Cabiddu, Daniela",,,0,2
+https://openalex.org/A2343238393,Carlo Regazzoni,,University of Genoa,1,2
+https://openalex.org/A5031224507,Carmine Dodaro,https://orcid.org/0000-0002-5617-5286,University of Calabria,1,2
+https://openalex.org/A5077810477,Cinzia Montinaro,https://orcid.org/0000-0002-7184-0854,Center for Biomolecular Nanotechnologies; Italian Institute of Technology,2,2
+https://openalex.org/A5002739707,Claudio Sampieri,https://orcid.org/0000-0002-7699-2291,University of Genoa,1,2
+https://openalex.org/A5075326339,Corrado Cabona,https://orcid.org/0000-0002-4282-8805,Ospedale Policlinico San Martino,1,2
+https://openalex.org/A5081133789,Cristian Ciracì,https://orcid.org/0000-0003-3349-8389,Center for Biomolecular Nanotechnologies; Italian Institute of Technology,2,2
+https://openalex.org/A5086509443,Daniela Ambrosino,https://orcid.org/0000-0001-6532-2287,University of Genoa,1,2
+https://openalex.org/A5030704470,Daniela Gallo,https://orcid.org/0009-0009-3245-7738,,0,2
+https://openalex.org/A5036812254,Davide Ancona,https://orcid.org/0000-0002-6297-2011,University of Genoa,1,2
+https://openalex.org/A5042267442,Davide Menegazzo,https://orcid.org/0000-0001-9555-4599,,0,2
+https://openalex.org/A5116454157,E. Misley,,University of Genoa,1,2
+https://openalex.org/A5028547828,Elisa Pelosin,https://orcid.org/0000-0002-9880-2241,Ospedale Policlinico San Martino; University of Genoa,2,2
+https://openalex.org/A5028891548,Fabio Vicini,https://orcid.org/0000-0001-7123-9199,Polytechnic University of Turin,1,2
+https://openalex.org/A5057540350,Federico Gatti,https://orcid.org/0000-0002-2318-4039,Istituto di Matematica Applicata e Tecnologie Informatiche; Politecnico di Milano; Universidad Politécnica de Madrid,3,2
+https://openalex.org/A5065904821,Federico Massa,https://orcid.org/0000-0001-5667-204X,Ospedale Policlinico San Martino; University of Genoa,2,2
+https://openalex.org/A5106490636,Filippo Nicora,,University of Genoa,1,2
+https://openalex.org/A5038401166,Florencia Garro,https://orcid.org/0000-0001-8845-0281,Italian Institute of Technology,1,2
+https://openalex.org/A5045241890,Francesca Cirisano,https://orcid.org/0000-0003-3781-8466,Institute of Condensed Matter Chemistry and Technologies for Energy; National Research Council,2,2
+https://openalex.org/A5049119710,Francesca Sbrana,https://orcid.org/0000-0001-7500-7774,Instituto di Biofisica; National Research Council,2,2
+https://openalex.org/A5082344846,Francesco Bellotti,https://orcid.org/0000-0003-4109-4675,University of Genoa,1,2
+https://openalex.org/A5046176286,Francesco Dagnino,https://orcid.org/0000-0003-3599-3535,University of Genoa,1,2
+https://openalex.org/A5017108129,Fulvio Mastrogiovanni,https://orcid.org/0000-0001-5913-1898,University of Genoa,1,2
+https://openalex.org/A5072423408,Gabriele Nardone,https://orcid.org/0000-0002-2724-4879,Istituto Superiore per la Protezione e la Ricerca Ambientale,1,2
+https://openalex.org/A5072269409,Giacomo Paschina,,Esaote (Italy),1,2
+https://openalex.org/A5052526781,Giorgio Peretti,https://orcid.org/0000-0003-2362-8936,Ospedale Policlinico San Martino; Ospedale Santa Chiara; University of Genoa,3,2
+https://openalex.org/A5025151485,Giulia Lombardo,https://orcid.org/0000-0002-1760-9926,,0,2
+https://openalex.org/A5048444161,Giulia Slavic,https://orcid.org/0000-0003-3641-3483,,0,2
+https://openalex.org/A5068135932,Giulio Settanta,https://orcid.org/0000-0002-6454-2859,Istituto Superiore per la Protezione e la Ricerca Ambientale,1,2
+https://openalex.org/A5018686179,Grazia Zambella,https://orcid.org/0000-0001-7546-9135,Piaggio (Italy); University of Pisa,2,2
+https://openalex.org/A5085360592,Indya Ceroni,,Italian Institute of Technology,1,2
+https://openalex.org/A5016650111,Isabella Cama,https://orcid.org/0000-0002-2096-4793,University of Genoa,1,2
+https://openalex.org/A5011213868,Kaleem Arshid,https://orcid.org/0000-0001-9071-360X,Universidad Carlos III de Madrid; University of Genoa,2,2
+https://openalex.org/A5078391768,Karim Lekadir,https://orcid.org/0000-0002-9456-1612,Universitat de Barcelona,1,2
+https://openalex.org/A5028662414,Laura Avanzino,https://orcid.org/0000-0001-6286-1509,Ospedale Policlinico San Martino; University of Genoa,2,2
+https://openalex.org/A5044921667,Laura Falcitano,https://orcid.org/0000-0002-8258-2184,Ospedale Policlinico San Martino,1,2
+https://openalex.org/A5112589175,Laura Vallese,,,0,2
+https://openalex.org/A5083408859,Lorenzo Tamellini,https://orcid.org/0000-0002-8008-0359,Istituto di Matematica Applicata e Tecnologie Informatiche,1,2
+https://openalex.org/A5034705217,Luca Lazzaroni,https://orcid.org/0000-0001-8092-5473,University of Genoa,1,2
+https://openalex.org/A5010356903,Luca Roccatagliata,https://orcid.org/0000-0001-8029-3947,Ospedale Policlinico San Martino; University of Genoa,2,2
+https://openalex.org/A5097875247,Lucia Argenti,,University of Genoa,1,2
+https://openalex.org/A5003804011,Lucia Pallottino,https://orcid.org/0000-0002-9480-8857,Piaggio (Italy); University of Pisa,2,2
+https://openalex.org/A5072550927,Luciana Algieri,https://orcid.org/0000-0003-3667-5432,Center for Biomolecular Nanotechnologies,1,2
+https://openalex.org/A2059146946,Lucio Marcenaro,https://orcid.org/0000-0003-1515-120X,University of Genoa,1,2
+https://openalex.org/A5023888895,Ludovico Danza,https://orcid.org/0000-0003-3305-4008,,0,2
+https://openalex.org/A5051033432,Luigi Patrono,https://orcid.org/0000-0002-8591-1190,Innovation Engineering (Italy); University of Salento,2,2
+https://openalex.org/A5054014003,Marco Crepaldi,https://orcid.org/0000-0002-5881-3720,Italian Institute of Technology,1,2
+https://openalex.org/A5077756388,Marco Maratea,https://orcid.org/0000-0002-9034-2527,University of Calabria,1,2
+https://openalex.org/A5059323901,Marco Picone,https://orcid.org/0000-0003-0126-7914,Istituto Superiore per la Protezione e la Ricerca Ambientale,1,2
+https://openalex.org/A5046113594,Margherita Festa,https://orcid.org/0000-0003-4990-7554,Instituto di Biofisica,1,2
+https://openalex.org/A5006563640,Maria Antonietta Coppola,https://orcid.org/0000-0001-8627-4421,Instituto di Biofisica; University of Bari Aldo Moro,2,2
+https://openalex.org/A5080511465,Maria Teresa Todaro,https://orcid.org/0000-0001-6471-0843,Center for Biomolecular Nanotechnologies; National Research Council,2,2
+https://openalex.org/A5021284670,Marianna Semprini,https://orcid.org/0000-0001-5504-0251,Italian Institute of Technology,1,2
+https://openalex.org/A5058241389,Marino Vetuschi Zuccolini,https://orcid.org/0000-0002-2874-631X,Istituto di Matematica Applicata e Tecnologie Informatiche; University of Genoa,2,2
+https://openalex.org/A5062775755,Matilde Inglese,https://orcid.org/0000-0002-9610-0297,Ospedale Policlinico San Martino,1,2
+https://openalex.org/A5029456664,Matteo Laffranchi,https://orcid.org/0000-0003-1189-281X,Italian Institute of Technology,1,2
+https://openalex.org/A5021636050,Mattia Barbieri,https://orcid.org/0009-0004-5587-1142,Italian Institute of Technology,1,2
+https://openalex.org/A5102606804,Mattia Losa,https://orcid.org/0009-0008-2942-1307,University of Genoa,1,2
+https://openalex.org/A5017942383,Mauro Gaggero,https://orcid.org/0000-0002-5048-4141,National Research Council,1,2
+https://openalex.org/A5006503793,Mehrnaz Hamedani,https://orcid.org/0000-0002-9371-4832,University of Genoa,1,2
+https://openalex.org/A5053139792,Michele Scaraggi,https://orcid.org/0000-0001-8964-9970,Center for Biomolecular Nanotechnologies; Imperial College London; Innovation Engineering (Italy); University of Salento,4,2
+https://openalex.org/A5111343690,Monica Gori,,Italian Institute of Technology,1,2
+https://openalex.org/A5008808988,Muhammad Adeel Azam,https://orcid.org/0000-0001-9226-1838,Italian Institute of Technology; University of Genoa,2,2
+https://openalex.org/A5040268333,Nazim Haouchine,https://orcid.org/0000-0002-1752-3479,Brigham and Women's Hospital; Harvard University,2,2
+https://openalex.org/A5070475631,Nicoletta Noceti,https://orcid.org/0000-0002-6482-4768,University of Genoa,1,2
+https://openalex.org/A2022152361,Pamela Zontone,https://orcid.org/0009-0005-9119-4481,University of Genoa,1,2
+https://openalex.org/A5048209831,Paola Gavazzo,https://orcid.org/0000-0002-2016-4702,Instituto di Biofisica,1,2
+https://openalex.org/A5048240419,Pietro Cataldi,https://orcid.org/0000-0001-9468-4009,Italian Institute of Technology,1,2
+https://openalex.org/A5017729463,Rafael Alejandro Martínez Márquez,https://orcid.org/0009-0007-6674-9435,Consorzio Roma Ricerche; University of Genoa,2,2
+https://openalex.org/A5056890512,Riccardo Berta,https://orcid.org/0000-0003-1937-3969,University of Genoa,1,2
+https://openalex.org/A5023653501,Samuele Depalo,,University of Genoa,1,2
+https://openalex.org/A5063795549,Serena Ricci,https://orcid.org/0000-0002-9042-6341,University of Genoa,1,2
+https://openalex.org/A5061825524,Sergio Bobbo,https://orcid.org/0000-0001-7107-5956,,0,2
+https://openalex.org/A5084333635,Silvia Morbelli,https://orcid.org/0000-0002-7833-6095,Azienda Ospedaliera Citta' della Salute e della Scienza di Torino; University of Turin,2,2
+https://openalex.org/A5021845461,Silvio P. Sabatini,https://orcid.org/0000-0002-0557-7306,,0,2
+https://openalex.org/A5064754948,Simone Graffione,https://orcid.org/0000-0003-0882-586X,University of Genoa,1,2
+https://openalex.org/A5062535182,Stefano Berrone,https://orcid.org/0000-0001-8642-4258,Polytechnic University of Turin,1,2
+https://openalex.org/A5044981097,Stefano De Beni,,Esaote (Italy),1,2
+https://openalex.org/A5024454281,Süleyman Mahircan Demir,https://orcid.org/0000-0002-6384-4062,Center for Biomolecular Nanotechnologies; Italian Institute of Technology; Polytechnic University of Turin,3,2
+https://openalex.org/A5044587957,Ulderico Fugacci,https://orcid.org/0000-0003-3062-997X,Istituto di Matematica Applicata e Tecnologie Informatiche,1,2
+https://openalex.org/A5066541892,V. Falzarano,,Technology Transfer and Innovation (Italy),1,2
+https://openalex.org/A5093471969,Valentina Antonaci,,Center for Biomolecular Nanotechnologies; Innovation Engineering (Italy); University of Salento,3,2
+https://openalex.org/A5042041063,Valentina Candiani,https://orcid.org/0000-0003-0669-8019,University of Genoa,1,2
+https://openalex.org/A5089884301,Velizar Kolev,,MedCom,1,2
+https://openalex.org/A5103008836,Walter Setti,https://orcid.org/0000-0003-3388-4765,Italian Institute of Technology,1,2
+https://openalex.org/A5020334595,Yassine Ennassiri,https://orcid.org/0000-0001-7445-2825,,0,2
+https://openalex.org/A5103145263,A. Bianconi,https://orcid.org/0000-0001-5647-0624,"Istituto Nazionale di Fisica Nucleare, Sezione di Pavia; University of Brescia",2,1
+https://openalex.org/A5020055315,A. Bressan,https://orcid.org/0000-0002-3718-6377,Istituto di Matematica Applicata e Tecnologie Informatiche,1,1
+https://openalex.org/A5006250198,A. Canessa,,University of Genoa,1,1
+https://openalex.org/A5084219469,A. Cirone,https://orcid.org/0000-0003-4299-8609,Ospedale Policlinico San Martino,1,1
+https://openalex.org/A5030529276,A. Ferrari,https://orcid.org/0000-0003-2887-5311,,0,1
+https://openalex.org/A5103369751,A. Ferretto Parodi,,,0,1
+https://openalex.org/A5090911176,A. Massone,,Azienda Sanitaria Locale N. 2 Savonese; Ospedale Santa Corona,2,1
+https://openalex.org/A5045540364,A. Pascual Bellosta,,University of Genoa,1,1
+https://openalex.org/A5101417027,A. Pilloni,https://orcid.org/0000-0003-4257-0928,"Istituto Nazionale di Fisica Nucleare, Sezione di Catania; University of Messina",2,1
+https://openalex.org/A5084593936,Abdellatif Soussi,https://orcid.org/0000-0001-7418-5472,University of Genoa,1,1
+https://openalex.org/A5056678303,Abrham Shiferaw Alemaw,,,0,1
+https://openalex.org/A3195337798,Abrham Shiferaw Alemaw,,University of Genoa,1,1
+https://openalex.org/A5037588502,Adnane Cabani,https://orcid.org/0000-0001-5948-8950,Université de Rouen Normandie; École Supérieure d'Ingénieurs en Génie Électrique,2,1
+https://openalex.org/A2155851061,Agostino Bruzzone,,,0,1
+https://openalex.org/A5082041202,Aicha Diakite,https://orcid.org/0000-0002-8315-3891,,0,1
+https://openalex.org/A5049925516,Alberto Carlevaro,https://orcid.org/0000-0002-7206-5511,"Institute of Electronics, Computer and Telecommunication Engineering",1,1
+https://openalex.org/A5072707307,Alberto Parmiggiani,https://orcid.org/0000-0003-1677-9381,Italian Institute of Technology,1,1
+https://openalex.org/A5027744805,Alberto Serventi,https://orcid.org/0000-0003-3807-995X,Presidio Ospedaliero,1,1
+https://openalex.org/A5108322256,Alejandro Guzmán,,Universitat de Barcelona,1,1
+https://openalex.org/A5004997185,Alessandra Cinini,,Institute for Computational Linguistics “A. Zampolli”; National Research Council,2,1
+https://openalex.org/A5019426146,Alessandra Sciutti,https://orcid.org/0000-0002-1056-3398,Italian Institute of Technology; University of Genoa,2,1
+https://openalex.org/A5118867838,Alessandro Alessi,,,0,1
+https://openalex.org/A5083539729,Alessandro Carfì,https://orcid.org/0000-0001-9208-6910,University of Genoa,1,1
+https://openalex.org/A5104174066,Alessandro Pesaresi,https://orcid.org/0000-0002-4632-1710,University of Turin,1,1
+https://openalex.org/A5020143872,Alessandro Reali,https://orcid.org/0000-0002-0639-7067,Istituto di Matematica Applicata e Tecnologie Informatiche; University of Pavia,2,1
+https://openalex.org/A5106970068,Alessia Giulianetti,,,0,1
+https://openalex.org/A5025841474,Alessia Paglialonga,https://orcid.org/0000-0002-1341-2560,"Institute of Electronics, Computer and Telecommunication Engineering",1,1
+https://openalex.org/A3178858794,Alessia Polito,https://orcid.org/0000-0002-9392-5269,,0,1
+https://openalex.org/A5077706486,Alessia Polito,https://orcid.org/0000-0002-9392-5269,Italian Institute of Technology; University of Padua,2,1
+https://openalex.org/A5103233952,Alessia Tani,https://orcid.org/0000-0001-7992-0237,University of Florence,1,1
+https://openalex.org/A5084325263,Alessio Fumagalli,https://orcid.org/0000-0003-3039-5309,,0,1
+https://openalex.org/A2582390256,Alessio Paolo Buccino,https://orcid.org/0000-0003-3661-527X,,0,1
+https://openalex.org/A5058952985,Alex Coppola,https://orcid.org/0000-0002-3811-4260,Italian Institute of Technology,1,1
+https://openalex.org/A5062059261,Alexandre Mignot,https://orcid.org/0000-0002-1380-9488,,0,1
+https://openalex.org/A5006030886,Alexey Petrushin,,Italian Institute of Technology,1,1
+https://openalex.org/A5014884119,Alfredo Costa,https://orcid.org/0000-0001-7312-8011,,0,1
+https://openalex.org/A5101895582,Ali Yousefi,,University of Genoa,1,1
+https://openalex.org/A5027729180,Alice Fantazzini,https://orcid.org/0000-0001-5688-9003,Camelot Biomedical Systems (Italy),1,1
+https://openalex.org/A5106865538,Alice Giusto,https://orcid.org/0009-0008-3497-8775,Instituto di Biofisica,1,1
+https://openalex.org/A5099024055,Alice Parey,,IMT Atlantique,1,1
+https://openalex.org/A5000720206,Alice Tarzariol,https://orcid.org/0000-0001-6586-3649,University of Klagenfurt,1,1
+https://openalex.org/A5002009234,Alireza Tehrani,https://orcid.org/0000-0003-1308-8614,Queen's University,1,1
+https://openalex.org/A5083285687,Ambra Bisio,https://orcid.org/0000-0002-9385-1714,University of Genoa,1,1
+https://openalex.org/A5108184090,Amir H. Rad,,Italian Institute of Technology; University of Genoa,2,1
+https://openalex.org/A5090811473,Ana Tanevska,https://orcid.org/0000-0002-2628-4123,Uppsala University,1,1
+https://openalex.org/A5080653111,Anastasia Lechiara,https://orcid.org/0000-0002-7839-640X,Ospedale Policlinico San Martino,1,1
+https://openalex.org/A5082553246,Andrea Bianconi,https://orcid.org/0000-0002-1014-0731,Ospedale Policlinico San Martino,1,1
+https://openalex.org/A5048147683,Andrea Diociasi,https://orcid.org/0000-0002-5986-0406,Ospedale Policlinico San Martino,1,1
+https://openalex.org/A5079463197,Andrea Donniaquio,https://orcid.org/0000-0002-9353-8314,Ente Ospedaliero Ospedali Galliera,1,1
+https://openalex.org/A5004963579,Andrea Gerbi,https://orcid.org/0000-0002-7323-2908,Superconducting and other Innovative Materials and Devices Institute,1,1
+https://openalex.org/A5023331896,Andrea Lanfranchi,https://orcid.org/0000-0003-3642-2611,University of Genoa,1,1
+https://openalex.org/A5022202758,Andrea Lira‐Loarca,https://orcid.org/0000-0003-2251-6684,University of Genoa,1,1
+https://openalex.org/A5070936689,Andrea Nadalini,https://orcid.org/0000-0001-8859-9449,Institute for Computational Linguistics “A. Zampolli”; National Research Council,2,1
+https://openalex.org/A5032260133,Andrea Orlando,https://orcid.org/0000-0002-6347-6618,,0,1
+https://openalex.org/A5062498938,Andrea P. Reverberi,https://orcid.org/0000-0002-8081-931X,University of Genoa,1,1
+https://openalex.org/A5055762214,Andrea Raffo,https://orcid.org/0000-0003-3559-0533,University of Oslo,1,1
+https://openalex.org/A5120037337,Andrea Senacheribbe,,Italian Institute of Technology,1,1
+https://openalex.org/A5073846948,Andrea Tiranti,https://orcid.org/0009-0008-0745-5346,University of Genoa,1,1
+https://openalex.org/A5020169443,Andrea Vian,,University of Genoa,1,1
+https://openalex.org/A5091729487,Angela Maria Tomasoni,https://orcid.org/0000-0002-2097-3964,University of Genoa,1,1
+https://openalex.org/A3211077639,Angela-Tafadzwa Shumba,https://orcid.org/0000-0002-5888-7180,,0,1
+https://openalex.org/A5107491892,Angelica Fasan,https://orcid.org/0009-0005-1303-5012,Institute of Condensed Matter Chemistry and Technologies for Energy; National Research Council,2,1
+https://openalex.org/A5067865798,Angelo Carfì,https://orcid.org/0000-0002-9837-7003,University of Genoa,1,1
+https://openalex.org/A5055299558,Angelo Serani,https://orcid.org/0000-0002-8734-6543,Italian Institute of Technology,1,1
+https://openalex.org/A5089140181,Angelo Velle,https://orcid.org/0000-0002-4010-6390,,0,1
+https://openalex.org/A5020342643,Anna Boccaccio,https://orcid.org/0000-0002-6219-2285,National Research Council,1,1
+https://openalex.org/A5046157141,Anna Franca Cavaliere,https://orcid.org/0000-0001-7484-5573,Italian Institute of Technology,1,1
+https://openalex.org/A5082237259,Anna Pellegrino,https://orcid.org/0000-0001-8779-4613,,0,1
+https://openalex.org/A2006117197,Anna Sciomachen,https://orcid.org/0000-0001-7934-6992,,0,1
+https://openalex.org/A5004450046,Anna Sciomachen,https://orcid.org/0000-0001-7934-6992,University of Genoa,1,1
+https://openalex.org/A5003964675,Annalisa Barla,https://orcid.org/0000-0002-3436-035X,Ingegneria dei Sistemi (Italy); University of Genoa,2,1
+https://openalex.org/A5005266012,Annalisa Griffa,https://orcid.org/0000-0001-7296-531X,Istituto di Scienze Marine del Consiglio Nazionale delle Ricerche; National Research Council,2,1
+https://openalex.org/A5092620880,Annalisa Marzi,,Ospedale Policlinico San Martino; University of Genoa,2,1
+https://openalex.org/A5029667228,Anne Molcard,https://orcid.org/0000-0001-7376-0973,Centre National de la Recherche Scientifique; Institut de Recherche pour le Développement; Université de Toulon,3,1
+https://openalex.org/A5023506431,Antoine Poteau,https://orcid.org/0000-0002-0519-5180,Centre National de la Recherche Scientifique; Laboratoire d’Océanographie de Villefranche; Sorbonne Université,3,1
+https://openalex.org/A5052504843,Antonella Galizia,https://orcid.org/0000-0003-1672-3281,Istituto di Matematica Applicata e Tecnologie Informatiche,1,1
+https://openalex.org/A5043399255,Antonella Liantonio,https://orcid.org/0000-0002-4103-7577,University of Bari Aldo Moro,1,1
+https://openalex.org/A5043476001,Antonella Tatarelli,https://orcid.org/0000-0002-1315-1743,Italian Institute of Technology,1,1
+https://openalex.org/A5048060039,Antonino Fulci,https://orcid.org/0000-0002-3801-725X,"Istituto Nazionale di Fisica Nucleare, Sezione di Catania; University of Messina",2,1
+https://openalex.org/A5036201315,Antonio Altana,https://orcid.org/0000-0003-2568-4018,Free University of Bozen-Bolzano,1,1
+https://openalex.org/A225233962,Antonio Bicchi,https://orcid.org/0000-0001-8635-5571,,0,1
+https://openalex.org/A5075073655,Antonio Novellino,https://orcid.org/0000-0002-3263-5583,,0,1
+https://openalex.org/A5053560008,Antonio Parodi,https://orcid.org/0000-0002-8505-0634,CIMA Research Foundation,1,1
+https://openalex.org/A5059143303,Antonio Pievatolo,,,0,1
+https://openalex.org/A1540453699,Antonio Qualtieri,https://orcid.org/0000-0002-2207-8111,,0,1
+https://openalex.org/A5006199824,Antonio Sgorbissa,https://orcid.org/0000-0001-7789-4311,University of Genoa,1,1
+https://openalex.org/A5082528518,Anuradha M. Annaswamy,https://orcid.org/0000-0002-4354-0459,Massachusetts Institute of Technology,1,1
+https://openalex.org/A5070028115,Arash Ajoudani,https://orcid.org/0000-0002-1261-737X,Italian Institute of Technology,1,1
+https://openalex.org/A5014474553,Artemis Ioannou,https://orcid.org/0000-0002-0055-4981,Laboratoire de Météorologie Dynamique,1,1
+https://openalex.org/A5002265731,Arumugam Nallanathan,https://orcid.org/0000-0001-8337-5884,Queen Mary University of London,1,1
+https://openalex.org/A5030715644,Atm S. Alam,https://orcid.org/0000-0002-8299-754X,Queen Mary University of London,1,1
+https://openalex.org/A5090115700,Atsushi Tatsuma,,"National Institute of Technology, Tsuyama College",1,1
+https://openalex.org/A5114372046,Aurora Freccero,,University of Genoa,1,1
+https://openalex.org/A5011257448,Ausonio Tuissi,https://orcid.org/0000-0003-2813-4257,Institute of Condensed Matter Chemistry and Technologies for Energy; National Research Council,2,1
+https://openalex.org/A5035427970,Avadesh Meduri,https://orcid.org/0000-0001-7742-3130,New York University,1,1
+https://openalex.org/A5055751982,Aziz Guergachi,https://orcid.org/0000-0001-9785-9097,Toronto Metropolitan University,1,1
+https://openalex.org/A5106376520,Barbara Spagnola,,Center for Biomolecular Nanotechnologies; Italian Institute of Technology,2,1
+https://openalex.org/A5003677392,Barbara Spagnolo,https://orcid.org/0000-0001-7377-2819,Center for Biomolecular Nanotechnologies; Italian Institute of Technology,2,1
+https://openalex.org/A5066165192,Barbara Vercelli,https://orcid.org/0000-0003-1549-7032,Institute of Condensed Matter Chemistry and Technologies for Energy; National Research Council,2,1
+https://openalex.org/A5031574778,Beata Koszarna,https://orcid.org/0000-0003-4716-7169,Institute of Organic Chemistry; Polish Academy of Sciences,2,1
+https://openalex.org/A5094114905,Beatrice Maddalena Scotto,https://orcid.org/0009-0005-3496-6844,University of Genoa,1,1
+https://openalex.org/A5090308884,Benedetta Guagnini,https://orcid.org/0000-0002-0061-9124,University of Trieste,1,1
+https://openalex.org/A5043679513,Bernardo L. Sabatini,https://orcid.org/0000-0003-0095-9177,Harvard University; Howard Hughes Medical Institute,2,1
+https://openalex.org/A2106656113,Bertini F,https://orcid.org/0000-0002-5743-0314,University of Palermo,1,1
+https://openalex.org/A5099844150,Bianca Zumbo,https://orcid.org/0009-0008-9660-7873,University of Trieste,1,1
+https://openalex.org/A5052715837,Bruno Fabiano,https://orcid.org/0000-0002-5646-2568,University of Genoa,1,1
+https://openalex.org/A2486763994,C La Corte,,University of Palermo,1,1
+https://openalex.org/A5021304503,C. Catalano,,Centre National de la Recherche Scientifique; Laboratoire d’Océanographie de Villefranche; Sorbonne Université,3,1
+https://openalex.org/A5119500887,C. Presicci,https://orcid.org/0009-0000-3981-3285,University of Genoa,1,1
+https://openalex.org/A5098958966,Camilla Rinaldi,,Italian Institute of Technology,1,1
+https://openalex.org/A5064290852,Camille Depenveiller,https://orcid.org/0009-0002-4553-0526,Conservatoire National des Arts et Métiers,1,1
+https://openalex.org/A5069330964,Carlo Alberto Biffi,https://orcid.org/0000-0001-5876-6007,Institute of Condensed Matter Chemistry and Technologies for Energy; National Research Council,2,1
+https://openalex.org/A5059154001,Carlo Mantovani,https://orcid.org/0000-0002-0659-6605,Istituto di Scienze Marine del Consiglio Nazionale delle Ricerche; National Research Council,2,1
+https://openalex.org/A5089552385,Carlo de Falco,https://orcid.org/0000-0002-9872-1425,Politecnico di Milano,1,1
+https://openalex.org/A5069238122,Carlos Beltrán-González,https://orcid.org/0000-0001-6537-2049,Italian Institute of Technology,1,1
+https://openalex.org/A5063111867,Carmine Tommaso Recchiuto,https://orcid.org/0000-0001-9550-3740,University of Genoa,1,1
+https://openalex.org/A5067916653,Carola Cosentino,https://orcid.org/0000-0001-6009-4350,University of Genoa,1,1
+https://openalex.org/A5069546253,Cecilia Marini,https://orcid.org/0000-0003-1682-578X,Institute of Molecular Bioimaging and Physiology; National Research Council,2,1
+https://openalex.org/A5037569858,Cecilia Mortalò,https://orcid.org/0000-0002-3320-9527,Institute of Condensed Matter Chemistry and Technologies for Energy; National Research Council,2,1
+https://openalex.org/A5042870755,Changhui Lee,https://orcid.org/0000-0001-5665-4001,Kyungpook National University,1,1
+https://openalex.org/A5111187200,Chiara Baldini,,,0,1
+https://openalex.org/A5120292247,Chiara Centanaro,https://orcid.org/0009-0005-7615-1854,,0,1
+https://openalex.org/A5075347225,Chiara Gemelli,https://orcid.org/0000-0003-1911-2726,Ospedale Policlinico San Martino,1,1
+https://openalex.org/A5081230228,Chiara Malagoli,https://orcid.org/0000-0001-6872-2315,,0,1
+https://openalex.org/A5084089950,Chiara Razzetta,,University of Genoa,1,1
+https://openalex.org/A5082717632,Chiara Romualdi,https://orcid.org/0000-0003-4792-9047,University of Padua,1,1
+https://openalex.org/A5006268751,Chiara Sassoli,https://orcid.org/0000-0002-1337-0938,University of Florence,1,1
+https://openalex.org/A5004581588,Chiara Tacchino,https://orcid.org/0000-0002-4338-5356,,0,1
+https://openalex.org/A2099870171,Christian Ott,https://orcid.org/0000-0002-2867-1071,,0,1
+https://openalex.org/A5100719415,Chunlei Liu,https://orcid.org/0000-0001-8816-4832,"University of California, Berkeley",1,1
+https://openalex.org/A5100409213,Chunyan Li,https://orcid.org/0000-0001-7128-0191,Yunnan Normal University,1,1
+https://openalex.org/A5067207542,Cinzia Marte,https://orcid.org/0000-0003-3920-8186,University of Calabria,1,1
+https://openalex.org/A5038184262,Clara Leoncini,,Azienda Sanitaria Locale N. 2 Savonese; Ospedale Santa Corona,2,1
+https://openalex.org/A5015547547,Claudia La Corte,https://orcid.org/0000-0002-5816-2657,University of Palermo,1,1
+https://openalex.org/A5005650401,Claudia Latella,https://orcid.org/0000-0003-4792-4588,Italian Institute of Technology,1,1
+https://openalex.org/A5029074670,Claudia Marzi,https://orcid.org/0000-0002-3427-2827,Institute for Computational Linguistics “A. Zampolli”; National Research Council,2,1
+https://openalex.org/A5079883886,Claudia Porfirione,https://orcid.org/0000-0002-1270-2523,,0,1
+https://openalex.org/A5005813718,Claudio Iuppa,https://orcid.org/0000-0001-9257-2230,,0,1
+https://openalex.org/A5078567178,Cláudia Naves David Amorim,https://orcid.org/0000-0001-6769-1983,,0,1
+https://openalex.org/A5011282092,Concetta Nobile,https://orcid.org/0000-0002-4779-5301,Istituto di Nanotecnologia,1,1
+https://openalex.org/A5038868616,Corrado Sciancalepore,https://orcid.org/0000-0002-8182-6618,University of Parma,1,1
+https://openalex.org/A5117540699,Costanza Chiesa,,,0,1
+https://openalex.org/A5076579116,Costanza Iester,https://orcid.org/0000-0003-4584-5149,University of Genoa,1,1
+https://openalex.org/A5038418968,Cristiana Picco,https://orcid.org/0000-0002-6512-1802,Instituto di Biofisica,1,1
+https://openalex.org/A5077463818,Cristiano Petrocelli,,Italian Institute of Technology,1,1
+https://openalex.org/A5080681641,Cristina D’Arrigo,https://orcid.org/0000-0002-5352-5287,National Research Council,1,1
+https://openalex.org/A5078061890,Cristina Schenone,https://orcid.org/0009-0009-0442-3549,University of Genoa,1,1
+https://openalex.org/A5039222038,Curzio Basso,https://orcid.org/0000-0001-6364-6544,Camelot Biomedical Systems (Italy),1,1
+https://openalex.org/A2805404623,D Parrinello,,University of Palermo,1,1
+https://openalex.org/A5084951692,D. Bouhadjra,https://orcid.org/0000-0002-8983-5084,National Research Council,1,1
+https://openalex.org/A5062293219,Daisuke Kihara,https://orcid.org/0000-0003-4091-6614,Purdue University West Lafayette,1,1
+https://openalex.org/A5080577220,Daniel Milanese,https://orcid.org/0000-0002-6257-3600,University of Parma,1,1
+https://openalex.org/A5063867141,Daniel T. Gryko,https://orcid.org/0000-0002-2146-1282,Institute of Organic Chemistry; Polish Academy of Sciences,2,1
+https://openalex.org/A5045709085,Daniela Parrinello,https://orcid.org/0000-0001-9224-7737,University of Palermo,1,1
+https://openalex.org/A5119582575,Daniela Treska,,Institute of Condensed Matter Chemistry and Technologies for Energy; National Research Council,2,1
+https://openalex.org/A5009204109,Daniele Berardini,https://orcid.org/0000-0001-7009-6317,Marche Polytechnic University,1,1
+https://openalex.org/A5059271285,Daniele D. Caviglia,https://orcid.org/0000-0002-2145-1869,University of Genoa,1,1
+https://openalex.org/A5002026919,Daniele D’Agostino,https://orcid.org/0000-0003-2649-0071,University of Genoa,1,1
+https://openalex.org/A5088238528,Daniele Pretolesi,https://orcid.org/0000-0001-9075-0187,Austrian Institute of Technology,1,1
+https://openalex.org/A5081455901,Daniele Pucci,https://orcid.org/0000-0002-7600-3203,Italian Institute of Technology,1,1
+https://openalex.org/A5023697599,Danila Merino,https://orcid.org/0000-0002-5098-8550,Italian Institute of Technology,1,1
+https://openalex.org/A5006094010,Danilo Caporale,https://orcid.org/0000-0003-2665-3950,Technology Innovation Institute,1,1
+https://openalex.org/A5011944996,Danilo Demarchi,https://orcid.org/0000-0001-5374-1679,Polytechnic University of Turin,1,1
+https://openalex.org/A5036123913,Danilo Pau,https://orcid.org/0000-0003-1585-2313,STMicroelectronics (Italy),1,1
+https://openalex.org/A5044243940,Darwin G. Caldwell,https://orcid.org/0000-0002-6233-9961,,0,1
+https://openalex.org/A2562679708,David Martín Gómez,,Universidad Carlos III de Madrid,1,1
+https://openalex.org/A5012412084,Davide Barreca,https://orcid.org/0000-0002-8779-3386,Institute of Condensed Matter Chemistry and Technologies for Energy; National Research Council,2,1
+https://openalex.org/A5015067373,Davide Chiarella,https://orcid.org/0000-0002-3185-9913,Institute for Computational Linguistics “A. Zampolli”; National Research Council,2,1
+https://openalex.org/A5026142537,Davide Comoretto,https://orcid.org/0000-0002-2168-2851,University of Genoa,1,1
+https://openalex.org/A5008304428,Davide Giglio,https://orcid.org/0000-0002-5489-4412,University of Genoa,1,1
+https://openalex.org/A5119882441,Davide Gorbani,,Italian Institute of Technology,1,1
+https://openalex.org/A5109728693,Davide Parodi,,Università Campus Bio-Medico,1,1
+https://openalex.org/A5057801251,Denise Galante,https://orcid.org/0000-0002-6326-5888,National Research Council,1,1
+https://openalex.org/A5014066848,Djordje Romanić,https://orcid.org/0000-0002-5935-807X,McGill University,1,1
+https://openalex.org/A5016029953,Domenico Plantone,https://orcid.org/0000-0001-6666-7244,University of Siena,1,1
+https://openalex.org/A5044188312,Donatella Giuranno,https://orcid.org/0000-0002-7241-5032,Institute of Condensed Matter Chemistry and Technologies for Energy; National Research Council,2,1
+https://openalex.org/A5114373213,E. Girardo,,University of Genoa,1,1
+https://openalex.org/A5082858405,E. Torello,https://orcid.org/0000-0003-0203-0089,University of Genoa,1,1
+https://openalex.org/A2572604161,E. Torello,https://orcid.org/0000-0003-0203-0089,University of Genoa,1,1
+https://openalex.org/A5106528323,Edemar O. Prado,,,0,1
+https://openalex.org/A5074190677,Edoardo Balzani,https://orcid.org/0000-0002-3702-5856,Italian Institute of Technology; Simons Foundation,2,1
+https://openalex.org/A5099022517,Edoardo Dighero,,University of Genoa,1,1
+https://openalex.org/A5082623681,Elena Angeli,https://orcid.org/0000-0003-4774-2223,University of Genoa,1,1
+https://openalex.org/A5058338392,Elena Cid,https://orcid.org/0000-0003-4852-595X,Instituto Cajal,1,1
+https://openalex.org/A5090245377,Elena Gatta,https://orcid.org/0000-0002-7073-8399,University of Genoa,1,1
+https://openalex.org/A5116190576,Elena Parodi,,,0,1
+https://openalex.org/A5049185709,Elena Prosdocimi,https://orcid.org/0000-0002-4358-9375,,0,1
+https://openalex.org/A5018249580,Elena Tagliabue,https://orcid.org/0000-0002-9200-197X,Ospedale Policlinico San Martino,1,1
+https://openalex.org/A5038325439,Elia Moscoso Thompson,https://orcid.org/0000-0003-1230-8291,,0,1
+https://openalex.org/A5001447334,Elisa Castro,https://orcid.org/0000-0003-2884-9295,,0,1
+https://openalex.org/A5036889865,Elisa Galofaro,https://orcid.org/0000-0002-6476-5112,University of Genoa,1,1
+https://openalex.org/A5054448813,Elisa Gelli,https://orcid.org/0000-0002-1673-4039,Italian Institute of Technology,1,1
+https://openalex.org/A5086461038,Elisa Stefanini,https://orcid.org/0000-0003-0033-314X,,0,1
+https://openalex.org/A5082323075,Elisabetta Perrone,https://orcid.org/0000-0002-4581-8602,Istituto di Nanotecnologia,1,1
+https://openalex.org/A5006196984,Emanuela Barisione,https://orcid.org/0000-0001-5365-134X,Ospedale Policlinico San Martino,1,1
+https://openalex.org/A5091459634,Emanuele Alberto Slejko,https://orcid.org/0000-0003-4946-2612,Institute of Materials for Electronics and Magnetism; National Research Council,2,1
+https://openalex.org/A5114738810,Emanuele Sessa,,Italian Institute of Technology,1,1
+https://openalex.org/A5071785720,Emine Mine Thompson,,National Research Council,1,1
+https://openalex.org/A5037373748,Enrico Foti,https://orcid.org/0000-0001-8407-1890,,0,1
+https://openalex.org/A5107957106,Enrico Junior Schioppa,,,0,1
+https://openalex.org/A5104831321,Enrico Miorin,https://orcid.org/0000-0002-8419-656X,Institute of Condensed Matter Chemistry and Technologies for Energy; National Research Council,2,1
+https://openalex.org/A5045959669,Enrico Valli,https://orcid.org/0000-0002-0126-453X,Italian Institute of Technology,1,1
+https://openalex.org/A5117579016,Eugen Rusakov,,Phoenix Contact (Germany),1,1
+https://openalex.org/A5111436123,F Bertini,https://orcid.org/0000-0002-8623-0725,University of Palermo,1,1
+https://openalex.org/A5080364237,F. Guastavino,https://orcid.org/0000-0001-6733-4644,University of Genoa,1,1
+https://openalex.org/A2201183092,F. Guastavino,https://orcid.org/0000-0001-6733-4644,University of Genoa,1,1
+https://openalex.org/A5107941550,F. Parodi,,,0,1
+https://openalex.org/A5012140426,F. Silvestro,,University of Genoa,1,1
+https://openalex.org/A5088506600,F. Silvestro,https://orcid.org/0000-0002-2228-9832,University of Genoa,1,1
+https://openalex.org/A5083499606,Fabio Currò,https://orcid.org/0000-0003-1055-5483,University of Genoa,1,1
+https://openalex.org/A5040468266,Fabio D’Agostino,https://orcid.org/0000-0001-6936-9365,University of Genoa,1,1
+https://openalex.org/A5063526674,Fabio Rizzoglio,https://orcid.org/0000-0002-6744-4605,,0,1
+https://openalex.org/A5107936277,Fabrizio D’Ortenzio,,,0,1
+https://openalex.org/A5018730040,Fabrizio Piazza,https://orcid.org/0000-0002-3385-3224,University of Milano-Bicocca,1,1
+https://openalex.org/A5028575502,Fabrizio Ravicchio,https://orcid.org/0000-0002-1344-2209,,0,1
+https://openalex.org/A5080974920,Fabrizio Rocchi,,Italian Institute of Technology,1,1
+https://openalex.org/A5003989655,Fanwang Meng,https://orcid.org/0000-0003-2886-7012,Queen's University,1,1
+https://openalex.org/A5032595492,Farnaz Heidar‐Zadeh,https://orcid.org/0000-0002-2069-050X,Queen's University,1,1
+https://openalex.org/A5093719388,Federica Di Antonio,https://orcid.org/0009-0007-1552-0737,Associazione Italiana Sclerosi Multipla,1,1
+https://openalex.org/A5019072618,Federico Benvenuto,https://orcid.org/0000-0002-4776-0256,University of Genoa,1,1
+https://openalex.org/A5118867839,Federico Bottino,,,0,1
+https://openalex.org/A5114349891,Federico Graffione,,University of Genoa,1,1
+https://openalex.org/A5091627430,Federico Mazzacane,https://orcid.org/0000-0002-2224-8002,,0,1
+https://openalex.org/A5019405932,Federico P. Cortese,https://orcid.org/0000-0002-6931-3924,,0,1
+https://openalex.org/A5019756252,Felix Obite,https://orcid.org/0000-0001-7644-8571,University of Genoa,1,1
+https://openalex.org/A5037686301,Felix Siebenhühner,https://orcid.org/0000-0002-2621-9145,University of Helsinki,1,1
+https://openalex.org/A5011518597,Filippo Agresti,https://orcid.org/0000-0001-5954-449X,Institute of Condensed Matter Chemistry and Technologies for Energy; National Research Council,2,1
+https://openalex.org/A5080691226,Filippo Sante,,University of Genoa,1,1
+https://openalex.org/A5041166236,Flaminia Chellini,https://orcid.org/0000-0002-8974-1299,University of Florence,1,1
+https://openalex.org/A5029949770,Fouad Sakr,https://orcid.org/0000-0002-6905-5814,Aptiv (Germany),1,1
+https://openalex.org/A5015653043,Francesca D’Amico,https://orcid.org/0000-0002-1859-8958,University of Genoa,1,1
+https://openalex.org/A5117126534,Francesca Oliveri,,University of Genoa,1,1
+https://openalex.org/A5037095253,Francesca Villa,https://orcid.org/0000-0002-6684-9635,Institute of Condensed Matter Chemistry and Technologies for Energy; National Research Council,2,1
+https://openalex.org/A5024369003,Francesca Visentin,https://orcid.org/0000-0002-4266-7001,Institute of Condensed Matter Chemistry and Technologies for Energy; National Research Council,2,1
+https://openalex.org/A5063879277,Francesco Burlando,https://orcid.org/0000-0001-5535-8382,,0,1
+https://openalex.org/A5011185572,Francesco Calizzano,,University of Genoa,1,1
+https://openalex.org/A5105761882,Francesco De Angelis,https://orcid.org/0000-0001-6053-2488,Italian Institute of Technology,1,1
+https://openalex.org/A5045568861,Francesco Famà,https://orcid.org/0000-0002-9084-9037,Ospedale Policlinico San Martino; University of Genoa,2,1
+https://openalex.org/A5023530253,Francesco Gentile,https://orcid.org/0000-0002-1724-6301,Magna Graecia University,1,1
+https://openalex.org/A5034610243,Francesco Montagner,https://orcid.org/0000-0002-0590-9040,Institute of Condensed Matter Chemistry and Technologies for Energy; National Research Council,2,1
+https://openalex.org/A5101664784,Francesco Palmieri,https://orcid.org/0000-0002-4585-2261,University of Florence,1,1
+https://openalex.org/A5099342965,Francesco Pelusi,,,0,1
+https://openalex.org/A5046028450,Francesco Rea,https://orcid.org/0000-0001-8535-223X,Italian Institute of Technology; University of Genoa,2,1
+https://openalex.org/A2019452093,Francesco Rizzi,https://orcid.org/0000-0001-6226-6320,,0,1
+https://openalex.org/A5017183696,Francesco Salamone,https://orcid.org/0000-0003-3215-3979,,0,1
+https://openalex.org/A5044926937,Francesco Salvatore,https://orcid.org/0000-0002-2346-3564,Sapienza University of Rome,1,1
+https://openalex.org/A5089644793,Francesco Sergio Pisani,https://orcid.org/0000-0003-2922-0835,,0,1
+https://openalex.org/A5107154604,Francesco Soardi,https://orcid.org/0009-0003-4201-8815,University of Genoa,1,1
+https://openalex.org/A5014302024,Francesco Tantussi,https://orcid.org/0000-0002-0812-082X,Italian Institute of Technology,1,1
+https://openalex.org/A5066853663,Frank Stein,https://orcid.org/0000-0001-9695-1692,European Molecular Biology Organization,1,1
+https://openalex.org/A5036141441,G. Gosta,https://orcid.org/0000-0001-7431-2179,"Istituto Nazionale di Fisica Nucleare, Sezione di Pavia",1,1
+https://openalex.org/A5060540820,G. Mandaglio,https://orcid.org/0000-0003-4486-4807,"Istituto Nazionale di Fisica Nucleare, Sezione di Catania; University of Messina",2,1
+https://openalex.org/A5053092854,Gabriele Arnulfo,https://orcid.org/0000-0002-1140-0320,University of Genoa; University of Helsinki,2,1
+https://openalex.org/A5017722537,Gabriele Loli,https://orcid.org/0000-0002-2192-3889,University of Pavia,1,1
+https://openalex.org/A5004038037,Gabriele Mosaico,https://orcid.org/0000-0002-7656-8968,University of Genoa,1,1
+https://openalex.org/A5102966929,Gaia Bonassi,https://orcid.org/0000-0003-2697-4113,University of Genoa,1,1
+https://openalex.org/A5050214279,Giacinto Barresi,https://orcid.org/0000-0001-7116-4967,Bristol Robotics Laboratory; Italian Institute of Technology; University of the West of England,3,1
+https://openalex.org/A5056127683,Giacomo Boffa,https://orcid.org/0000-0003-2220-9422,Ospedale Policlinico San Martino,1,1
+https://openalex.org/A5035003258,Giacomo Turri,https://orcid.org/0000-0002-3405-9292,,0,1
+https://openalex.org/A5048673781,Giampaola Pesce,https://orcid.org/0000-0002-6294-9110,Ospedale Policlinico San Martino,1,1
+https://openalex.org/A5059834393,Gian Domenico Pinna,https://orcid.org/0000-0001-7667-6662,University of Genoa,1,1
+https://openalex.org/A5087471849,Giancarlo Camera,,,0,1
+https://openalex.org/A5059485119,Giancarlo Sangalli,https://orcid.org/0000-0002-5642-1969,Istituto di Matematica Applicata e Tecnologie Informatiche; University of Pavia,2,1
+https://openalex.org/A5030334035,Gianluca Antonelli,https://orcid.org/0000-0002-5511-0165,Università degli studi di Cassino e del Lazio Meridionale,1,1
+https://openalex.org/A5068604924,Gianluca Lentini,https://orcid.org/0000-0001-9604-9519,Italian Institute of Technology,1,1
+https://openalex.org/A5066835180,Gianluca Milani,https://orcid.org/0000-0002-4012-7415,Italian Institute of Technology,1,1
+https://openalex.org/A5027827142,Gianluca Turco,https://orcid.org/0000-0001-5699-2131,University of Trieste,1,1
+https://openalex.org/A5005007355,Gianluca Zaza,https://orcid.org/0000-0003-3272-9739,,0,1
+https://openalex.org/A5060876128,Gianluigi Zona,https://orcid.org/0000-0002-3577-7894,Ospedale Policlinico San Martino; University of Genoa,2,1
+https://openalex.org/A5024225840,Gianmario Sambuceti,https://orcid.org/0000-0003-2979-6500,Ospedale Policlinico San Martino,1,1
+https://openalex.org/A5090139107,Gilney Damm,https://orcid.org/0000-0002-1392-4582,,0,1
+https://openalex.org/A5083836964,Giorgia Biddau,,University of Genoa,1,1
+https://openalex.org/A5064340327,Giorgio Carlini,,University of Genoa,1,1
+https://openalex.org/A5008728921,Giovanna Canu,https://orcid.org/0000-0003-0819-9352,Institute of Condensed Matter Chemistry and Technologies for Energy; National Research Council,2,1
+https://openalex.org/A5081040649,Giovanni Besio,https://orcid.org/0000-0002-0522-9635,University of Genoa,1,1
+https://openalex.org/A5035614056,Giovanni Carraro,https://orcid.org/0000-0003-1753-4933,Institute of Materials for Electronics and Magnetism; National Research Council,2,1
+https://openalex.org/A5052191019,Giovanni Ciampi,https://orcid.org/0000-0001-5200-292X,,0,1
+https://openalex.org/A5066182140,Giovanni Filippo Palmieri,https://orcid.org/0000-0002-5349-4978,Istituto di Matematica Applicata e Tecnologie Informatiche,1,1
+https://openalex.org/A5056052803,Giovanni Manfredi,https://orcid.org/0000-0003-0682-0731,,0,1
+https://openalex.org/A5032538228,Giovanni Mottola,https://orcid.org/0000-0002-5453-4062,University of Genoa,1,1
+https://openalex.org/A5062399881,Giovanni Naldi,https://orcid.org/0000-0001-9191-6003,,0,1
+https://openalex.org/A5114738809,Giovanni Rosato,,Italian Institute of Technology,1,1
+https://openalex.org/A5052470519,Giovanni Spinella,https://orcid.org/0000-0001-6373-0199,University of Genoa,1,1
+https://openalex.org/A5062635276,Giulia Ballardini,https://orcid.org/0000-0003-3138-2366,University of Genoa,1,1
+https://openalex.org/A5061509473,Giulia Biasotti,,Azienda Sanitaria Locale N. 2 Savonese; Ospedale Santa Corona,2,1
+https://openalex.org/A5071300506,Giulia Bodo,https://orcid.org/0000-0001-5075-7077,Italian Institute of Technology,1,1
+https://openalex.org/A5050022695,Giulia Bozzo,,University of Genoa,1,1
+https://openalex.org/A5067720735,Giulia Perini,https://orcid.org/0000-0002-9539-5150,,0,1
+https://openalex.org/A5067049644,Giuliano Angella,https://orcid.org/0000-0001-7632-7040,Institute of Condensed Matter Chemistry and Technologies for Energy; National Research Council,2,1
+https://openalex.org/A5072092155,Giuliano Vernengo,https://orcid.org/0000-0001-8191-8742,University of Genoa,1,1
+https://openalex.org/A5116567019,Giulio Mastrototaro,,Center for Biomolecular Nanotechnologies; Italian Institute of Technology; University of Salento,3,1
+https://openalex.org/A5090269671,Giulio Turrisi,https://orcid.org/0000-0003-3007-3553,Italian Institute of Technology,1,1
+https://openalex.org/A5085973568,Giuseppe Cittadini,https://orcid.org/0000-0003-0842-1419,Ospedale Policlinico San Martino,1,1
+https://openalex.org/A5052346571,Giuseppe Patanè,https://orcid.org/0000-0001-5845-9680,Istituto di Matematica Applicata e Tecnologie Informatiche,1,1
+https://openalex.org/A869810178,Giuseppe Patanè,https://orcid.org/0000-0001-5845-9680,Consorzio Roma Ricerche,1,1
+https://openalex.org/A5074143897,Giuseppe Stecca,https://orcid.org/0000-0001-5876-4538,Istituto di Analisi dei Sistemi ed Informatica Antonio Ruberti; National Research Council,2,1
+https://openalex.org/A5064376236,Grazia Biorci,,,0,1
+https://openalex.org/A2962528141,Grazia Zambella,https://orcid.org/0000-0001-7546-9135,,0,1
+https://openalex.org/A5104320501,Greta Arena,,Technology Transfer and Innovation (Italy),1,1
+https://openalex.org/A5001196488,H. S. Jo,https://orcid.org/0009-0005-5672-6948,Kyungpook National University,1,1
+https://openalex.org/A5083824127,Halim Benhabiles,https://orcid.org/0000-0003-2950-5312,Institut Mines-Télécom; Université de Lille,2,1
+https://openalex.org/A5021999307,Hana Zámečníková,,University of Ostrava,1,1
+https://openalex.org/A5100732399,Hao Huang,https://orcid.org/0000-0002-3759-4039,,0,1
+https://openalex.org/A5050494501,Haoqi Xie,,University of Genoa,1,1
+https://openalex.org/A5100397331,Haotian Li,https://orcid.org/0000-0002-0720-0262,Yunnan Normal University,1,1
+https://openalex.org/A5015703880,Heba Megahd,https://orcid.org/0000-0003-2385-6648,University of Genoa,1,1
+https://openalex.org/A5118867837,Hisham Unniyankal,,University of Genoa,1,1
+https://openalex.org/A5083136110,Humaira Arshad,https://orcid.org/0000-0003-2806-3276,Institute of Condensed Matter Chemistry and Technologies for Energy; National Research Council,2,1
+https://openalex.org/A2107714510,I A Khan,https://orcid.org/0000-0002-3355-884X,University of Genoa,1,1
+https://openalex.org/A5103609850,I.A. Khan,https://orcid.org/0009-0006-7814-994X,University of Genoa,1,1
+https://openalex.org/A5099517671,Igor Ingegnosi,https://orcid.org/0009-0008-6372-0474,,0,1
+https://openalex.org/A5044583511,Ilaria Carpinella,https://orcid.org/0000-0001-7486-0706,Don Carlo Gnocchi Foundation,1,1
+https://openalex.org/A5047585580,Ilaria Gandoglia,https://orcid.org/0000-0003-4429-914X,Ospedale Policlinico San Martino,1,1
+https://openalex.org/A5117774809,Ilaria Schizzi,,,0,1
+https://openalex.org/A5115871304,Ilaria Stanzani,,Ingegneria dei Sistemi (Italy); University of Genoa,2,1
+https://openalex.org/A5104988527,Ilenia D’Onofrio,https://orcid.org/0009-0008-6154-0461,Institute of Materials for Electronics and Magnetism; University of Parma,2,1
+https://openalex.org/A5003127385,Iman Mehdipour,https://orcid.org/0000-0003-1867-636X,Center for Biomolecular Nanotechnologies; Italian Institute of Technology,2,1
+https://openalex.org/A5087533228,Irene Capasso,,,0,1
+https://openalex.org/A5106900056,Irene Mazza,,Instituto di Biofisica,1,1
+https://openalex.org/A5020080025,Irina Perfilieva,https://orcid.org/0000-0003-1531-1111,University of Ostrava,1,1
+https://openalex.org/A5102991473,J. Matias Palva,https://orcid.org/0000-0003-1885-2749,Aalto University; University of Helsinki,2,1
+https://openalex.org/A5053812552,Jacopo Aguzzi,https://orcid.org/0000-0002-1484-8219,Institut de Ciències del Mar; Stazione Zoologica Anton Dohrn,2,1
+https://openalex.org/A5085021362,Jacopo Fiocchi,https://orcid.org/0000-0002-7646-4595,Institute of Condensed Matter Chemistry and Technologies for Energy; National Research Council,2,1
+https://openalex.org/A5036242254,Jacopo Isopi,https://orcid.org/0000-0003-0052-0201,Institute of Condensed Matter Chemistry and Technologies for Energy; National Research Council,2,1
+https://openalex.org/A5074856819,Jacopo Vizioli,https://orcid.org/0000-0002-4310-8033,"Inserm; Protéomique, Réponse Inflammatoire et Spectrométrie de Masse; Université de Lille",3,1
+https://openalex.org/A5078149994,James Segre,,,0,1
+https://openalex.org/A5093249858,John Sabelo Mahlalela,,University of Genoa,1,1
+https://openalex.org/A5045803642,Joon Hong Park,,Purdue University West Lafayette,1,1
+https://openalex.org/A5100700307,José Fernando Jiménez Mejía,https://orcid.org/0000-0003-2109-2373,Université Savoie Mont Blanc,1,1
+https://openalex.org/A5030702043,João Carlos Virgolino Soares,https://orcid.org/0000-0002-6278-378X,Italian Institute of Technology,1,1
+https://openalex.org/A5053619421,Juan D. Gamba,https://orcid.org/0000-0002-0283-1305,,0,1
+https://openalex.org/A5071321132,Jun Zhao,https://orcid.org/0000-0002-3004-7091,,0,1
+https://openalex.org/A5013690751,Juri Iurato,,Osservatorio Astronomico di Cagliari,1,1
+https://openalex.org/A5108183849,Juri Khanmeh,https://orcid.org/0009-0001-3665-5565,University of Genoa,1,1
+https://openalex.org/A5105081002,Kai Hölk,,University of Hagen; Warsaw University of Technology,2,1
+https://openalex.org/A5008578692,Kaisar Kushibar,https://orcid.org/0000-0001-7507-5208,,0,1
+https://openalex.org/A5016963620,Kamran Ali Memon,https://orcid.org/0000-0003-1353-2586,University of Genoa,1,1
+https://openalex.org/A5051025413,Karim Hammoudi,https://orcid.org/0000-0002-4804-4796,Université de Haute-Alsace,1,1
+https://openalex.org/A5037765390,Karim Keshavjee,https://orcid.org/0000-0003-1317-7035,University of Toronto,1,1
+https://openalex.org/A5101663812,Khalid Khan,https://orcid.org/0000-0002-6195-3134,University of Genoa,1,1
+https://openalex.org/A5001746807,Kim‐Kwang Raymond Choo,https://orcid.org/0000-0001-9208-5336,,0,1
+https://openalex.org/A5091808976,L Bisanti,https://orcid.org/0000-0001-8213-3154,University of Palermo,1,1
+https://openalex.org/A3025782657,L Scire' Calabrisotto,,,0,1
+https://openalex.org/A2600882429,L. Bisanti,https://orcid.org/0000-0001-8213-3154,University of Palermo,1,1
+https://openalex.org/A5102790141,L. Della Giovanna,https://orcid.org/0000-0003-3420-0505,University of Genoa,1,1
+https://openalex.org/A2138996981,L. Della Giovanna,https://orcid.org/0000-0003-3420-0505,University of Genoa,1,1
+https://openalex.org/A5000122670,L. Losio,,Azienda Sanitaria Locale N. 2 Savonese; Ospedale Santa Corona,2,1
+https://openalex.org/A5084000940,L. Venturelli,https://orcid.org/0000-0001-7865-8820,"Istituto Nazionale di Fisica Nucleare, Sezione di Pavia; University of Brescia",2,1
+https://openalex.org/A5009082263,Lars Stemmann,https://orcid.org/0000-0001-8935-4531,Centre National de la Recherche Scientifique; Laboratoire d’Océanographie de Villefranche; Sorbonne Université,3,1
+https://openalex.org/A5108141615,Laura Avanzino,,Ospedale Policlinico San Martino,1,1
+https://openalex.org/A5054360878,Laura Blasi,https://orcid.org/0000-0002-9702-0272,Center for Biomolecular Nanotechnologies; Institute for Microelectronics and Microsystems; National Research Council,3,1
+https://openalex.org/A5089748364,Laura Bonzano,https://orcid.org/0000-0001-8186-2566,Ospedale Policlinico San Martino; University of Genoa,2,1
+https://openalex.org/A5037890187,Laura Fedele,https://orcid.org/0000-0002-8459-0700,,0,1
+https://openalex.org/A5014684035,Laura Magnasco,https://orcid.org/0000-0002-6343-3271,University of Genoa,1,1
+https://openalex.org/A5016086176,Laura Mori,https://orcid.org/0000-0003-2762-8327,Ospedale Policlinico San Martino; University of Genoa,2,1
+https://openalex.org/A5070455704,Lea Turolla,https://orcid.org/0009-0005-7805-1582,University of Genoa,1,1
+https://openalex.org/A5084000741,Leonardo Sileo,,,0,1
+https://openalex.org/A5006836444,Lisa Maria Farina,https://orcid.org/0000-0002-4993-0415,,0,1
+https://openalex.org/A5070746103,Liset Menéndez de la Prida,https://orcid.org/0000-0002-0160-6472,Instituto Cajal,1,1
+https://openalex.org/A5091247002,Loredana Magistri,,,0,1
+https://openalex.org/A5080191249,Lorenzo Amatucci,https://orcid.org/0009-0006-6764-8102,Ingegneria dei Sistemi (Italy); Italian Institute of Technology,2,1
+https://openalex.org/A5014852723,Lorenzo Belussi,https://orcid.org/0000-0002-1341-0602,,0,1
+https://openalex.org/A5066567705,Lorenzo Corgnati,https://orcid.org/0000-0001-5819-7713,Istituto di Scienze Marine del Consiglio Nazionale delle Ricerche; National Research Council,2,1
+https://openalex.org/A5056633882,Lorenzo Gualco,https://orcid.org/0000-0001-8511-1022,Azienda Ospedaliera Nazionale SS. Antonio e Biagio e Cesare Arrigo; University of Genoa,2,1
+https://openalex.org/A5066218814,Lorenzo Landolfi,https://orcid.org/0000-0002-6561-0657,Italian Institute of Technology,1,1
+https://openalex.org/A5110024139,Lorenzo Lombardo,https://orcid.org/0009-0009-4251-0512,University of Genoa,1,1
+https://openalex.org/A5067610543,Lorenzo Picinali,https://orcid.org/0000-0001-9297-2613,Imperial College London,1,1
+https://openalex.org/A5021419385,Luana Benedetti,https://orcid.org/0000-0002-9540-9727,Ospedale Policlinico San Martino,1,1
+https://openalex.org/A5020667924,Luca A. Ramenghi,https://orcid.org/0000-0003-0065-762X,,0,1
+https://openalex.org/A5117540698,Luca Abatello,,,0,1
+https://openalex.org/A5088983421,Luca Berdondini,https://orcid.org/0000-0001-9521-2812,Italian Institute of Technology,1,1
+https://openalex.org/A5030988304,Luca Cavallaro,https://orcid.org/0000-0002-9356-7289,,0,1
+https://openalex.org/A5065931812,Luca Ciccone,https://orcid.org/0000-0001-9515-5280,University of Turin,1,1
+https://openalex.org/A3124785653,Luca Fachechi,https://orcid.org/0000-0001-8911-3148,,0,1
+https://openalex.org/A5030787381,Luca Formaggia,https://orcid.org/0000-0003-2628-1683,Politecnico di Milano,1,1
+https://openalex.org/A5050432710,Luca J. Tagliapietra,https://orcid.org/0000-0002-8682-9471,,0,1
+https://openalex.org/A5030822959,Luca Liparulo,https://orcid.org/0000-0001-9901-6501,,0,1
+https://openalex.org/A5047694866,Luca Padovani,https://orcid.org/0000-0001-9097-1297,Università di Camerino,1,1
+https://openalex.org/A5086919822,Luca Parodi,https://orcid.org/0000-0002-9288-0273,,0,1
+https://openalex.org/A5087580243,Luca Pezzato,https://orcid.org/0000-0001-5016-8790,Institute of Condensed Matter Chemistry and Technologies for Energy; National Research Council,2,1
+https://openalex.org/A5083456765,Luca Romeo,https://orcid.org/0000-0003-1707-0147,,0,1
+https://openalex.org/A5034150203,Lucia Ferlino,https://orcid.org/0000-0002-8021-1793,,0,1
+https://openalex.org/A5091783140,Lucia Migliorelli,https://orcid.org/0000-0003-2388-1501,Italian Institute of Technology; Marche Polytechnic University,2,1
+https://openalex.org/A5017877571,Lucia Pellegrino,,Ospedale Policlinico San Martino; University of Genoa,2,1
+https://openalex.org/A5062419140,Lucio Castellan,https://orcid.org/0000-0002-5463-8785,Ospedale Policlinico San Martino,1,1
+https://openalex.org/A5026007843,Ludovic Righetti,https://orcid.org/0000-0002-6458-9112,New York University,1,1
+https://openalex.org/A5119882442,Ludovica Danovaro,,Italian Institute of Technology,1,1
+https://openalex.org/A5009269122,Luigi Carbone,https://orcid.org/0000-0002-1369-6890,Center for Biomolecular Nanotechnologies; Istituto di Nanotecnologia; Italian Institute of Technology,3,1
+https://openalex.org/A5021284980,Luigi Lorenzini,https://orcid.org/0000-0002-9756-881X,Amsterdam University Medical Centers; Vrije Universiteit Amsterdam,2,1
+https://openalex.org/A2085603077,Luigi Patrono,https://orcid.org/0000-0002-8591-1190,,0,1
+https://openalex.org/A5114357099,Luigi Portaluri,,,0,1
+https://openalex.org/A5032330307,Luisa Pagnini,https://orcid.org/0000-0003-4978-3352,,0,1
+https://openalex.org/A5030656573,Luisa Petti,https://orcid.org/0000-0003-0264-7185,Free University of Bozen-Bolzano,1,1
+https://openalex.org/A2043561994,M Dara,,University of Palermo,1,1
+https://openalex.org/A5012101370,M. Aicardi,https://orcid.org/0000-0001-6462-8815,,0,1
+https://openalex.org/A5102781357,M. Aicardi,https://orcid.org/0009-0003-7930-9528,University of Genoa,1,1
+https://openalex.org/A5023425661,M. Battaglieri,https://orcid.org/0000-0001-5002-8771,"Istituto Nazionale di Fisica Nucleare, Sezione di Genova",1,1
+https://openalex.org/A5082650144,M. Bondì,https://orcid.org/0000-0001-8297-9184,"Istituto Nazionale di Fisica Nucleare, Sezione di Catania",1,1
+https://openalex.org/A2324328467,M. Cammarata,,University of Palermo,1,1
+https://openalex.org/A5014803010,M. Carmen Morán,https://orcid.org/0000-0003-2336-9540,Institut de Nanociència i Nanotecnologia de la Universitat de Barcelona; Universitat de Barcelona,2,1
+https://openalex.org/A5003031737,M. Casadio,,,0,1
+https://openalex.org/A2391653676,M. G. Parisi,https://orcid.org/0000-0002-1536-5438,University of Palermo,1,1
+https://openalex.org/A5039690445,M. Grande,https://orcid.org/0000-0001-5497-4722,,0,1
+https://openalex.org/A2423046758,M. H. Raza,,University of Genoa,1,1
+https://openalex.org/A5086939906,M. Saviozzi,https://orcid.org/0000-0002-2290-4364,University of Genoa,1,1
+https://openalex.org/A4308975338,M. Staropoli,,University of Palermo,1,1
+https://openalex.org/A5118956784,M.C. Delatto,,University of Genoa,1,1
+https://openalex.org/A5108160680,Madelaine Thorniley,,Italian Institute of Technology,1,1
+https://openalex.org/A5012887107,Maedeh Najafi,https://orcid.org/0000-0001-5996-2018,Italian Institute of Technology,1,1
+https://openalex.org/A5083932089,Magdalena Bachmann,https://orcid.org/0000-0001-5202-4141,,0,1
+https://openalex.org/A5015872341,Mandana Sarey Khanie,https://orcid.org/0000-0001-8096-4261,,0,1
+https://openalex.org/A5040879090,Manuel Barbarossa,,Italian Institute of Technology,1,1
+https://openalex.org/A5106519406,Manuel Bicaj,,Ospedale Policlinico San Martino,1,1
+https://openalex.org/A5056194661,Manuel G. Catalano,https://orcid.org/0000-0003-1950-6186,Italian Institute of Technology,1,1
+https://openalex.org/A5103799888,Manuel Gausa Navarro,https://orcid.org/0000-0002-9007-1974,,0,1
+https://openalex.org/A5028153011,Manuel Pastor,https://orcid.org/0000-0001-8080-0013,Universidad Politécnica de Madrid,1,1
+https://openalex.org/A5056747631,Manuel Valiente,https://orcid.org/0000-0002-0647-7542,,0,1
+https://openalex.org/A5073030051,Marc Gouttefarde,https://orcid.org/0000-0002-4369-6867,,0,1
+https://openalex.org/A5046215756,Marc Picheral,https://orcid.org/0000-0001-8172-5473,Centre National de la Recherche Scientifique; Laboratoire d’Océanographie de Villefranche; Sorbonne Université,3,1
+https://openalex.org/A5019645413,Marcello Ferro,https://orcid.org/0000-0002-1324-3699,Institute for Computational Linguistics “A. Zampolli”; National Research Council,2,1
+https://openalex.org/A5016748139,Marcello G. Magaldi,https://orcid.org/0000-0002-0742-9673,Istituto di Scienze Marine del Consiglio Nazionale delle Ricerche; National Research Council,2,1
+https://openalex.org/A5086009293,Marcello Sanguineti,https://orcid.org/0000-0003-0355-8483,National Research Council; University of Genoa,2,1
+https://openalex.org/A5065163167,Marco Baglietto,https://orcid.org/0000-0001-8142-3379,University of Genoa,1,1
+https://openalex.org/A5020178023,Marco Bove,https://orcid.org/0000-0001-8129-4298,Ospedale Policlinico San Martino; University of Genoa,2,1
+https://openalex.org/A2550057785,Marco Cinquino,https://orcid.org/0000-0001-9684-7860,,0,1
+https://openalex.org/A5064870141,Marco Cinquino,https://orcid.org/0000-0001-9684-7860,Center for Biomolecular Nanotechnologies; Italian Institute of Technology,2,1
+https://openalex.org/A5081331973,Marco Crocco,https://orcid.org/0000-0001-8775-3504,Esaote (Italy),1,1
+https://openalex.org/A5041344878,Marco Forleo,,Italian Institute of Technology,1,1
+https://openalex.org/A5101842402,Marco Fortunato,https://orcid.org/0009-0006-7964-6438,Institute of Condensed Matter Chemistry and Technologies for Energy; National Research Council,2,1
+https://openalex.org/A5026404310,Marco Gallo,https://orcid.org/0000-0001-7166-0848,University of Genoa,1,1
+https://openalex.org/A2997270090,Marco Gotelli,https://orcid.org/0000-0002-9926-0237,,0,1
+https://openalex.org/A5009842183,Marco Guerra,https://orcid.org/0000-0003-0033-3748,Istituto di Matematica Applicata e Tecnologie Informatiche,1,1
+https://openalex.org/A5050783045,Marco Livesu,https://orcid.org/0000-0002-4688-7060,Istituto di Matematica Applicata e Tecnologie Informatiche,1,1
+https://openalex.org/A5086141757,Marco Magliocco,,University of Genoa,1,1
+https://openalex.org/A5065073734,Marco Mochi,https://orcid.org/0000-0002-5849-3667,,0,1
+https://openalex.org/A5083239548,Marco Smerieri,https://orcid.org/0000-0002-1564-1121,Institute of Materials for Electronics and Magnetism; National Research Council,2,1
+https://openalex.org/A5087875349,Marco Spreafico,https://orcid.org/0000-0002-2131-8160,"Istituto Nazionale di Fisica Nucleare, Sezione di Genova; University of Genoa",2,1
+https://openalex.org/A5041286387,Margherita Bellucci,https://orcid.org/0000-0002-2016-0031,University of Genoa,1,1
+https://openalex.org/A5053975747,Margherita Pettinato,https://orcid.org/0000-0002-5316-7694,University of Genoa,1,1
+https://openalex.org/A5019343161,Maria Cellerino,https://orcid.org/0000-0002-4359-9872,Ospedale Policlinico San Martino,1,1
+https://openalex.org/A5119408270,Maria Eugenia Cordera,,University of Genoa,1,1
+https://openalex.org/A5062195312,Maria Giovanna Parisi,https://orcid.org/0000-0001-5462-0596,University of Palermo,1,1
+https://openalex.org/A5021642537,Maria Pía Repetto,https://orcid.org/0000-0002-9061-6604,,0,1
+https://openalex.org/A5043027330,Mariam Masmudi‐Martín,https://orcid.org/0000-0001-5005-9199,,0,1
+https://openalex.org/A5012286821,Marianna Miola,https://orcid.org/0000-0001-8711-6695,,0,1
+https://openalex.org/A5031026192,Mariano Dara,https://orcid.org/0000-0002-1122-6131,University of Palermo,1,1
+https://openalex.org/A5035230957,Mariel G. Kozberg,https://orcid.org/0000-0002-9358-3262,Harvard University; Massachusetts General Hospital,2,1
+https://openalex.org/A5095377633,Mariele Staropoli,https://orcid.org/0009-0002-4049-6744,University of Palermo,1,1
+https://openalex.org/A5038524369,Marina Monti,https://orcid.org/0000-0001-5198-7798,Istituto di Matematica Applicata e Tecnologie Informatiche,1,1
+https://openalex.org/A5000019489,Marina Monti,https://orcid.org/0000-0002-1627-3551,National Research Council,1,1
+https://openalex.org/A5077830592,Mario Alberto Battaglia,https://orcid.org/0000-0002-8106-8239,University of Siena,1,1
+https://openalex.org/A5048748690,Mario Meloni,https://orcid.org/0000-0002-6319-3458,Azienda Ospedaliero-Universitaria Cagliari,1,1
+https://openalex.org/A5007197652,Maristella Berta,https://orcid.org/0000-0001-5428-9741,Istituto di Scienze Marine del Consiglio Nazionale delle Ricerche; National Research Council,2,1
+https://openalex.org/A5036990194,Marshal Maskarenj,https://orcid.org/0000-0001-9546-8236,,0,1
+https://openalex.org/A5078716340,Marta Carè,https://orcid.org/0000-0002-7100-1639,Ospedale Policlinico San Martino,1,1
+https://openalex.org/A5083335211,Marta Cillerai,,University of Genoa,1,1
+https://openalex.org/A5008219545,Marta Lenatti,https://orcid.org/0000-0003-0731-7505,"Institute of Electronics, Computer and Telecommunication Engineering",1,1
+https://openalex.org/A5092842664,Martina Martusciello,,University of Genoa,1,1
+https://openalex.org/A5003224178,Martina Parigi,,University of Florence,1,1
+https://openalex.org/A5092834876,Martina Pulze,https://orcid.org/0009-0006-7427-4591,University of Genoa,1,1
+https://openalex.org/A5070370136,Martina Putzolu,https://orcid.org/0000-0001-8972-9188,University of Genoa,1,1
+https://openalex.org/A5075542960,María Losurdo,https://orcid.org/0000-0002-8008-5192,Institute of Condensed Matter Chemistry and Technologies for Energy; National Research Council,2,1
+https://openalex.org/A5003153775,María Teresa Buscaglia,https://orcid.org/0000-0003-1694-2441,Institute of Condensed Matter Chemistry and Technologies for Energy; National Research Council,2,1
+https://openalex.org/A5052176853,Massimiliano Burlando,https://orcid.org/0000-0002-9729-4820,University of Genoa,1,1
+https://openalex.org/A2017706345,Massimo De Vittorio,https://orcid.org/0000-0003-1601-6392,,0,1
+https://openalex.org/A5035404137,Massimo Del Sette,https://orcid.org/0000-0002-4551-0675,Ospedale Policlinico San Martino,1,1
+https://openalex.org/A5017176089,Massimo Milelli,https://orcid.org/0000-0003-3078-702X,CIMA Research Foundation,1,1
+https://openalex.org/A5038942338,Matteo Bauckneht,https://orcid.org/0000-0002-1937-9116,University of Genoa,1,1
+https://openalex.org/A5089015210,Matteo Cammarata,https://orcid.org/0000-0002-5497-1246,University of Palermo,1,1
+https://openalex.org/A5086608723,Matteo Cotta Ramusino,https://orcid.org/0000-0003-3090-9648,,0,1
+https://openalex.org/A5011407422,Matteo Fresta,https://orcid.org/0009-0000-7265-7501,University of Genoa,1,1
+https://openalex.org/A5044297669,Matteo Gatti,https://orcid.org/0000-0003-4195-7709,,0,1
+https://openalex.org/A5026014425,Matteo Ghellere,https://orcid.org/0000-0001-8448-3705,,0,1
+https://openalex.org/A5013902849,Matteo Pinasco,,,0,1
+https://openalex.org/A5069914744,Matteo Villa,https://orcid.org/0000-0001-5083-9494,Italian Institute of Technology,1,1
+https://openalex.org/A5033367596,Matteo Zoppi,https://orcid.org/0000-0003-0122-3196,University of Genoa,1,1
+https://openalex.org/A5087675495,Matthieu Montès,https://orcid.org/0000-0001-5921-460X,Conservatoire National des Arts et Métiers; Institut Universitaire de France,2,1
+https://openalex.org/A5076080205,Mattia Di Florio,https://orcid.org/0000-0002-5263-1133,University of Genoa,1,1
+https://openalex.org/A5065989882,Mattia Parenti,https://orcid.org/0000-0002-3304-7441,,0,1
+https://openalex.org/A5018998476,Mattia Poggiani,,Italian Institute of Technology,1,1
+https://openalex.org/A5064415269,Maurice H. ter Beek,https://orcid.org/0000-0002-2930-6367,"Istituto di Scienza e Tecnologie dell'Informazione ""Alessandro Faedo""",1,1
+https://openalex.org/A5089262137,Maurizio Ferrarin,https://orcid.org/0000-0002-7797-2399,Don Carlo Gnocchi Foundation,1,1
+https://openalex.org/A5030029772,Maurizio Mongelli,https://orcid.org/0000-0001-6201-6225,"Institute of Electronics, Computer and Telecommunication Engineering",1,1
+https://openalex.org/A5009516310,Mauro Conti,,,0,1
+https://openalex.org/A5065555967,Mauro Costagli,https://orcid.org/0000-0001-9073-1082,Ospedale Policlinico San Martino; University of Genoa,2,1
+https://openalex.org/A5060872900,Mauro Riccò,https://orcid.org/0000-0002-6879-2687,Italian Institute of Technology,1,1
+https://openalex.org/A5001623378,Mauro Scattolini,,,0,1
+https://openalex.org/A5031899747,Max Kilger,https://orcid.org/0000-0001-7502-8313,,0,1
+https://openalex.org/A5118336974,Maximilan Fehrentz,,Brigham and Women's Hospital; Harvard University; Technical University of Munich,3,1
+https://openalex.org/A5119514809,Michael Adlerstein,,Italian Institute of Technology,1,1
+https://openalex.org/A5077893412,Michela Bogliolo,https://orcid.org/0000-0002-0765-8820,University of Genoa,1,1
+https://openalex.org/A2045244234,Michela Chiappalone,https://orcid.org/0000-0003-1427-5147,,0,1
+https://openalex.org/A5017434251,Michela Chiappalone,https://orcid.org/0000-0003-1427-5147,University of Genoa,1,1
+https://openalex.org/A5043401308,Michela Ponzio,https://orcid.org/0000-0001-5245-0474,Associazione Italiana Sclerosi Multipla,1,1
+https://openalex.org/A5057167962,Michelangelo Scorpio,https://orcid.org/0000-0002-3217-5695,,0,1
+https://openalex.org/A5069653622,Michele Conti,https://orcid.org/0000-0003-1275-0653,University of Pavia,1,1
+https://openalex.org/A5070148842,Michele Focchi,https://orcid.org/0000-0002-4888-5595,Italian Institute of Technology,1,1
+https://openalex.org/A5101881924,Miguel Fernandes,https://orcid.org/0000-0001-5892-2006,,0,1
+https://openalex.org/A5059571632,Milad Taleby Ahvanooey,https://orcid.org/0000-0002-5052-5492,,0,1
+https://openalex.org/A5106376519,Mohammad Mohammadiaria,,Center for Biomolecular Nanotechnologies; Health First; Italian Institute of Technology,3,1
+https://openalex.org/A5079942107,Mohammadrahim Kazemzadeh,https://orcid.org/0000-0003-3680-2921,Center for Biomolecular Nanotechnologies; Italian Institute of Technology,2,1
+https://openalex.org/A5067692388,Monica Biggio,https://orcid.org/0000-0001-5800-4643,University of Genoa,1,1
+https://openalex.org/A5023769286,Monica Favaro,https://orcid.org/0000-0003-4091-6163,Institute of Condensed Matter Chemistry and Technologies for Energy; National Research Council,2,1
+https://openalex.org/A5051045021,Monica Macrì,https://orcid.org/0000-0002-1068-1319,University of Calabria,1,1
+https://openalex.org/A5079909253,Monica Roascio,https://orcid.org/0000-0002-4522-1574,University of Genoa,1,1
+https://openalex.org/A5101384521,Mostafa A. L. Abdel-Salam,,,0,1
+https://openalex.org/A5109548633,Muhammad Adnan,,Universidad Carlos III de Madrid; University of Genoa,2,1
+https://openalex.org/A1828770254,Muhammad Adnan,https://orcid.org/0000-0001-5035-7567,University of Genoa,1,1
+https://openalex.org/A5060698708,Muhammad Farhan Humayun,https://orcid.org/0000-0002-1160-813X,University of Genoa,1,1
+https://openalex.org/A5103148548,Muhammad Hassan Raza,https://orcid.org/0000-0001-9857-1909,University of Genoa,1,1
+https://openalex.org/A5088727388,Muhammad Tabish Bilal,https://orcid.org/0000-0002-2573-5121,University of Genoa,1,1
+https://openalex.org/A5119098674,Natalia Giraldo Vásquez,https://orcid.org/0000-0002-7480-439X,,0,1
+https://openalex.org/A5062082537,Natalia Sokół,https://orcid.org/0000-0002-0269-1701,,0,1
+https://openalex.org/A5065435110,Natan Orzechowski,https://orcid.org/0000-0001-7350-9519,Warsaw University of Technology,1,1
+https://openalex.org/A5039564070,Nhat Minh Dinh Le,https://orcid.org/0000-0001-8304-8584,University of Da Nang,1,1
+https://openalex.org/A5052343420,Niccolò Casiddu,https://orcid.org/0000-0002-5010-038X,,0,1
+https://openalex.org/A5057584942,Nicola Coppedé,https://orcid.org/0000-0001-5715-4236,Institute of Materials for Electronics and Magnetism; National Research Council,2,1
+https://openalex.org/A5037953836,Nicola Loglisci,,CIMA Research Foundation,1,1
+https://openalex.org/A5038454882,Nicola Smania,https://orcid.org/0000-0001-7630-1887,University of Verona,1,1
+https://openalex.org/A5015964435,Nicola Traverso,https://orcid.org/0000-0002-0306-8647,University of Genoa,1,1
+https://openalex.org/A5114797972,Nicola Valentino Canessa,https://orcid.org/0000-0002-4537-7210,,0,1
+https://openalex.org/A5041674466,Nicola Valè,https://orcid.org/0000-0002-2364-5990,University of Verona,1,1
+https://openalex.org/A5013375566,Nicolas Mayot,https://orcid.org/0000-0003-4255-5939,,0,1
+https://openalex.org/A5040255823,Nicoló Boccardo,https://orcid.org/0000-0002-3460-7068,Italian Institute of Technology,1,1
+https://openalex.org/A5010853051,Ninghui Li,https://orcid.org/0000-0002-2068-4425,McGill University,1,1
+https://openalex.org/A5015469645,Oliver Díaz,https://orcid.org/0000-0001-8259-8381,,0,1
+https://openalex.org/A5013828170,Oliver Díaz,https://orcid.org/0000-0001-6789-5177,Universitat de Barcelona,1,1
+https://openalex.org/A5051688791,Oliver Kiersnowski,https://orcid.org/0000-0001-6016-0514,Ospedale Policlinico San Martino,1,1
+https://openalex.org/A5068038161,Orazio Aiello,https://orcid.org/0000-0002-6938-9806,University of Genoa,1,1
+https://openalex.org/A5005839943,Paola Bassani,https://orcid.org/0000-0003-2567-9913,Institute of Condensed Matter Chemistry and Technologies for Energy; National Research Council,2,1
+https://openalex.org/A5042057537,Paola Cecere,,Italian Institute of Technology,1,1
+https://openalex.org/A5000319308,Paola Cutugno,,Institute for Computational Linguistics “A. Zampolli”; National Research Council,2,1
+https://openalex.org/A5057279396,Paola Giannini,https://orcid.org/0000-0003-2239-9529,,0,1
+https://openalex.org/A5032251695,Paola Imbrici,https://orcid.org/0000-0001-9140-5350,University of Bari Aldo Moro,1,1
+https://openalex.org/A5085970742,Paola Lova,https://orcid.org/0000-0002-5634-6321,University of Genoa,1,1
+https://openalex.org/A5017596699,Paolo Di Lillo,https://orcid.org/0000-0003-2083-1883,Università degli studi di Cassino e del Lazio Meridionale,1,1
+https://openalex.org/A5072177023,Paolo Dondero,https://orcid.org/0000-0002-9185-9413,,0,1
+https://openalex.org/A5072981900,Paolo Lugli,https://orcid.org/0000-0002-2511-5643,Free University of Bozen-Bolzano,1,1
+https://openalex.org/A5074242102,Paolo Merciadri,,Ospedale Policlinico San Martino,1,1
+https://openalex.org/A5065139752,Paolo Moretti,https://orcid.org/0000-0002-9840-282X,,0,1
+https://openalex.org/A5084790176,Paolo Motto Ros,https://orcid.org/0000-0002-6955-3098,Polytechnic University of Turin,1,1
+https://openalex.org/A5055197261,Paolo Nicolardi,,Esaote (Italy),1,1
+https://openalex.org/A5114829637,Parnian Govahi,https://orcid.org/0009-0005-5281-4000,Institute of Condensed Matter Chemistry and Technologies for Energy; National Research Council,2,1
+https://openalex.org/A5078710181,Patricia Baena,,,0,1
+https://openalex.org/A5025214492,Patrizia Schettino,https://orcid.org/0009-0006-9564-5929,,0,1
+https://openalex.org/A5058964943,Pier Paolo Pompa,https://orcid.org/0000-0001-7549-0612,Italian Institute of Technology; Zhejiang University,2,1
+https://openalex.org/A5016189819,Pierangela Bruno,https://orcid.org/0000-0002-0832-0151,University of Calabria,1,1
+https://openalex.org/A5064854371,Pierpaolo Baglietto,https://orcid.org/0000-0003-4467-5424,University of Genoa,1,1
+https://openalex.org/A5119985954,Pierumberto Mortola,,University of Genoa,1,1
+https://openalex.org/A5031191206,Pietro Fiaschi,https://orcid.org/0000-0002-6034-5524,Ospedale Policlinico San Martino; University of Genoa,2,1
+https://openalex.org/A5078835388,Pietro Ibba,https://orcid.org/0000-0002-2137-1957,Free University of Bozen-Bolzano,1,1
+https://openalex.org/A5099978869,Pietro Squeri,,,0,1
+https://openalex.org/A5061833989,Pilar M. Ferraro,https://orcid.org/0000-0002-5008-2791,Ospedale Policlinico San Martino,1,1
+https://openalex.org/A5050122472,Quan Khanh Luu,https://orcid.org/0000-0002-8544-7260,Japan Advanced Institute of Science and Technology,1,1
+https://openalex.org/A5099774812,Quinn Dyer‐Hawes,https://orcid.org/0009-0003-8968-6423,McGill University,1,1
+https://openalex.org/A1973504355,R. Chemello,,University of Palermo,1,1
+https://openalex.org/A5079061140,R. Minciardi,https://orcid.org/0000-0001-7402-6535,,0,1
+https://openalex.org/A5112384697,R. Novaković,https://orcid.org/0000-0001-9569-3820,Institute of Condensed Matter Chemistry and Technologies for Energy; National Research Council,2,1
+https://openalex.org/A5107883672,R. Wolff,https://orcid.org/0000-0002-3758-6194,Italian Institute of Technology,1,1
+https://openalex.org/A5034004961,Rabab Haider,https://orcid.org/0000-0002-5409-9769,Georgia Institute of Technology,1,1
+https://openalex.org/A5065937143,Rachele Garella,https://orcid.org/0000-0003-3194-7603,University of Florence,1,1
+https://openalex.org/A5003736024,Rafael Misoczki,,,0,1
+https://openalex.org/A5051046532,Raffaella Barbieri,https://orcid.org/0000-0001-8254-9758,Instituto di Biofisica,1,1
+https://openalex.org/A5105789652,Raffaella De Vita,,"Istituto Nazionale di Fisica Nucleare, Sezione di Genova",1,1
+https://openalex.org/A5059058911,Rainer Kiko,https://orcid.org/0000-0002-7851-9107,Centre National de la Recherche Scientifique; GEOMAR Helmholtz Centre for Ocean Research Kiel; Laboratoire d’Océanographie de Villefranche; Sorbonne Université,4,1
+https://openalex.org/A5101456749,Rakesh Srivastava,https://orcid.org/0000-0002-5345-532X,,0,1
+https://openalex.org/A5056343752,Renato Buzio,https://orcid.org/0000-0001-5632-5531,Superconducting and other Innovative Materials and Devices Institute,1,1
+https://openalex.org/A5022185440,Riccardo Pecori,https://orcid.org/0000-0002-5948-5845,,0,1
+https://openalex.org/A5069609619,Riccardo Scarfiello,https://orcid.org/0000-0002-6277-1252,Center for Biomolecular Nanotechnologies; Istituto di Nanotecnologia; Italian Institute of Technology,3,1
+https://openalex.org/A5014725683,Richard Osuala,https://orcid.org/0000-0003-1835-8564,,0,1
+https://openalex.org/A2027629218,Robert Wolff,https://orcid.org/0000-0003-3270-7791,,0,1
+https://openalex.org/A5110090485,Roberta Squecco,,University of Florence,1,1
+https://openalex.org/A5093732261,Robin Arbaud,https://orcid.org/0009-0002-1314-3396,Ingegneria dei Sistemi (Italy); Italian Institute of Technology,2,1
+https://openalex.org/A4283924101,"Romanengo, Chiara",,,0,1
+https://openalex.org/A5083842969,Rosaria Ester Musumeci,https://orcid.org/0000-0002-1022-0571,,0,1
+https://openalex.org/A5031972762,Rosella Trò,https://orcid.org/0000-0002-4915-5295,University of Genoa,1,1
+https://openalex.org/A5031871733,Ruiwen He,https://orcid.org/0000-0002-5381-6068,Vinci (France),1,1
+https://openalex.org/A5055899268,Rémi Laxenaire,https://orcid.org/0000-0001-5157-1821,Centre National de la Recherche Scientifique; Florida State University; Laboratoire de l'Atmosphère et des Cyclones; Météo-France,4,1
+https://openalex.org/A5051665095,S. Fiameni,https://orcid.org/0000-0003-1316-5368,Institute of Condensed Matter Chemistry and Technologies for Energy; National Research Council,2,1
+https://openalex.org/A5029100710,S. Gamba,,Azienda Sanitaria Locale N. 2 Savonese; Ospedale Santa Corona,2,1
+https://openalex.org/A5109476504,S. Grazzi,,"Istituto Nazionale di Fisica Nucleare, Sezione di Genova; University of Messina",2,1
+https://openalex.org/A5073584870,S. Mandraccia,,Azienda Sanitaria Locale N. 2 Savonese; Ospedale Santa Corona,2,1
+https://openalex.org/A5067795727,S. Massucco,https://orcid.org/0000-0002-9053-9549,University of Genoa,1,1
+https://openalex.org/A5004216357,S. Sigismondi,,,0,1
+https://openalex.org/A5081523515,Sabrina Brigadoi,https://orcid.org/0000-0003-3032-7381,University of Padua,1,1
+https://openalex.org/A5072036957,Sabrina Speich,https://orcid.org/0000-0002-5452-8287,Laboratoire de Météorologie Dynamique; École Normale Supérieure - PSL,2,1
+https://openalex.org/A5065599261,Saleh Hamed,https://orcid.org/0000-0003-1128-5489,Free University of Bozen-Bolzano; Italian Institute of Technology,2,1
+https://openalex.org/A5037191058,Sandra Zecchi‐Orlandini,https://orcid.org/0000-0002-5932-7118,University of Florence,1,1
+https://openalex.org/A5101700553,Sara Bertelli,https://orcid.org/0000-0002-8662-7482,,0,1
+https://openalex.org/A5118955130,Sara Giordanino,,Italian Institute of Technology,1,1
+https://openalex.org/A5117884906,Sara Labbate,,National Research Council,1,1
+https://openalex.org/A5081092121,Sara Massucco,https://orcid.org/0009-0003-9938-8163,University of Genoa,1,1
+https://openalex.org/A5062750313,Sara Mongile,https://orcid.org/0000-0003-3611-2752,Italian Institute of Technology; University of Genoa,2,1
+https://openalex.org/A5052504172,Sarà Uccella,https://orcid.org/0000-0003-4164-2125,,0,1
+https://openalex.org/A5080849684,Sauro Manenti,https://orcid.org/0000-0002-5467-9640,University of Pavia,1,1
+https://openalex.org/A5082153691,Sen Deng,https://orcid.org/0000-0002-2999-1843,Changsha University of Science and Technology,1,1
+https://openalex.org/A5002268263,Sergio Altomonte,https://orcid.org/0000-0002-2518-0234,,0,1
+https://openalex.org/A5008952664,Sergio Sibilio,https://orcid.org/0000-0002-8750-5401,,0,1
+https://openalex.org/A5101963578,Shahzad Ali,https://orcid.org/0000-0002-0608-9515,Ospedale Policlinico San Martino; University of Bologna,2,1
+https://openalex.org/A5082532885,Shahzad Ali,https://orcid.org/0000-0002-1302-1316,Istituti di Ricovero e Cura a Carattere Scientifico; Ospedale Policlinico San Martino; University of Bologna; University of Education; University of Okara,5,1
+https://openalex.org/A5034593191,Shehzaib Shafique,https://orcid.org/0000-0001-9567-163X,Italian Institute of Technology,1,1
+https://openalex.org/A5040022385,Sheng H. Wang,https://orcid.org/0000-0002-6226-6213,Aalto University; Commissariat à l'Énergie Atomique et aux Énergies Alternatives; Inria Saclay - Île de France; University of Helsinki,4,1
+https://openalex.org/A5065099720,Silvia Maria Deambrosis,https://orcid.org/0000-0002-3186-232X,Institute of Condensed Matter Chemistry and Technologies for Energy; National Research Council,2,1
+https://openalex.org/A5075193155,Silvia Pericu,https://orcid.org/0000-0001-7023-0432,,0,1
+https://openalex.org/A5000964976,Silvio Scaravonati,https://orcid.org/0000-0003-0339-1193,University of Parma,1,1
+https://openalex.org/A5116743860,Simmaco Di Lillo,,University of Rome Tor Vergata,1,1
+https://openalex.org/A5080563616,Simona Barison,https://orcid.org/0000-0002-6324-0859,Institute of Condensed Matter Chemistry and Technologies for Energy; National Research Council,2,1
+https://openalex.org/A5001789052,Simona Perotto,https://orcid.org/0000-0003-2994-7516,Politecnico di Milano,1,1
+https://openalex.org/A5049150711,Simone Balocco,https://orcid.org/0000-0002-7149-7806,,0,1
+https://openalex.org/A5039293712,Simone Battiston,https://orcid.org/0000-0002-3667-4176,Institute of Condensed Matter Chemistry and Technologies for Energy; National Research Council,2,1
+https://openalex.org/A5060010305,Simone Caruso,https://orcid.org/0000-0002-2724-4342,University of Genoa,1,1
+https://openalex.org/A5025256676,Simone Cutini,https://orcid.org/0000-0001-6332-3219,University of Padua,1,1
+https://openalex.org/A5008528810,Simone Marini,https://orcid.org/0000-0003-0665-7815,Istituto di Scienze Marine del Consiglio Nazionale delle Ricerche; National Research Council; Stazione Zoologica Anton Dohrn; University of Palermo,4,1
+https://openalex.org/A5104333605,Soha Sadeghi,,,0,1
+https://openalex.org/A4221864915,"Sorgente, Tommaso",,,0,1
+https://openalex.org/A5114567345,Stefano Avola,,University of Genoa,1,1
+https://openalex.org/A5063406778,Stefano Buccelli,https://orcid.org/0000-0002-3453-8971,Italian Institute of Technology,1,1
+https://openalex.org/A5007585669,Stefano Caneva,https://orcid.org/0000-0002-4064-6936,University of Genoa,1,1
+https://openalex.org/A5070903717,Stefano Fasolin,https://orcid.org/0000-0001-7029-2772,Institute of Condensed Matter Chemistry and Technologies for Energy; National Research Council,2,1
+https://openalex.org/A5076110819,Stefano Grisanti,https://orcid.org/0000-0002-6293-9756,Ospedale Santa Corona,1,1
+https://openalex.org/A5003212054,Stefano Maludrottu,,Italian Institute of Technology,1,1
+https://openalex.org/A5077175905,Stefano Poni,https://orcid.org/0000-0002-7238-2613,,0,1
+https://openalex.org/A5010133857,Stefano Raffa,,Ospedale Policlinico San Martino,1,1
+https://openalex.org/A5115871305,Stefano Ravera,,Ingegneria dei Sistemi (Italy); University of Genoa,2,1
+https://openalex.org/A5001502953,Susanna Mezzarobba,https://orcid.org/0000-0002-2576-4491,University of Genoa,1,1
+https://openalex.org/A2809764315,Süleyman Mahircan Demir,https://orcid.org/0000-0002-6384-4062,,0,1
+https://openalex.org/A5032791958,T Nagorna,,"Istituto Nazionale di Fisica Nucleare, Sezione di Genova",1,1
+https://openalex.org/A5092449737,T. Vittorini,https://orcid.org/0009-0002-4390-5670,"Istituto Nazionale di Fisica Nucleare, Sezione di Genova; University of Genoa",2,1
+https://openalex.org/A5072050834,Taher Yacoub,https://orcid.org/0009-0006-1542-1264,Conservatoire National des Arts et Métiers,1,1
+https://openalex.org/A5115714752,Teresa Jurado Parras,,Instituto Cajal,1,1
+https://openalex.org/A5044219642,Teresita Aloè,https://orcid.org/0009-0000-7779-1590,Ospedale Policlinico San Martino,1,1
+https://openalex.org/A5077478008,Thomas Bowman,https://orcid.org/0000-0002-9268-3915,Don Carlo Gnocchi Foundation,1,1
+https://openalex.org/A5094116418,Timoteo Galia,,Osservatorio Astronomico di Cagliari,1,1
+https://openalex.org/A5117579015,Tin Barisin,,Phoenix Contact (Germany),1,1
+https://openalex.org/A5079844094,Tiziana Lencioni,https://orcid.org/0000-0003-3821-6256,Don Carlo Gnocchi Foundation,1,1
+https://openalex.org/A2570762935,Tobias Egle,https://orcid.org/0000-0002-4765-2415,,0,1
+https://openalex.org/A5101460319,Tuan-Anh Yang,https://orcid.org/0009-0005-3140-8046,Ho Chi Minh City University of Science; Vietnam National University Ho Chi Minh City,2,1
+https://openalex.org/A5117579017,Udo Göbel,,Phoenix Contact (Germany),1,1
+https://openalex.org/A5120184196,Ulises Torrella,,,0,1
+https://openalex.org/A1969087002,V. Catania,,University of Palermo,1,1
+https://openalex.org/A5010326662,V. Mascagna,https://orcid.org/0000-0003-3612-1608,"Istituto Nazionale di Fisica Nucleare, Sezione di Pavia; University of Brescia",2,1
+https://openalex.org/A5026366485,Valentina Pennazio,https://orcid.org/0000-0002-3915-1880,,0,1
+https://openalex.org/A5117095607,Valentina Vit,,Institute of Materials for Electronics and Magnetism; National Research Council,2,1
+https://openalex.org/A5057050130,Valentina Zin,https://orcid.org/0000-0002-6126-3467,Institute of Condensed Matter Chemistry and Technologies for Energy; National Research Council,2,1
+https://openalex.org/A5064565049,Valeria Falzarano,https://orcid.org/0000-0002-6040-1020,,0,1
+https://openalex.org/A5017894654,Valeria Sarno,https://orcid.org/0009-0001-9497-1144,Piaggio (Italy); University of Pisa,2,1
+https://openalex.org/A5077880770,Valerio Belcamino,https://orcid.org/0000-0002-9264-8191,University of Genoa,1,1
+https://openalex.org/A5060870212,Valerio Gower,https://orcid.org/0000-0002-2803-8647,Don Carlo Gnocchi Foundation,1,1
+https://openalex.org/A2009595497,Valter Tucci,https://orcid.org/0000-0002-3796-3826,,0,1
+https://openalex.org/A5018678116,Valter Tucci,https://orcid.org/0000-0002-3796-3826,Italian Institute of Technology,1,1
+https://openalex.org/A5007406858,Van Anh Ho,https://orcid.org/0000-0002-4519-0448,Japan Advanced Institute of Science and Technology,1,1
+https://openalex.org/A5013135864,Vanessa Checchetto,https://orcid.org/0000-0001-8911-6146,,0,1
+https://openalex.org/A5020682503,Vardan Galstyan,https://orcid.org/0000-0002-0615-3097,Institute of Materials for Electronics and Magnetism,1,1
+https://openalex.org/A5086647789,Veronica Asta,,,0,1
+https://openalex.org/A5099393643,Veronica Carpanese,https://orcid.org/0009-0009-7080-4868,,0,1
+https://openalex.org/A5053796179,Veronica Garcia-Hansen,https://orcid.org/0000-0001-5934-5554,,0,1
+https://openalex.org/A5086426608,Victor Barasuol,https://orcid.org/0000-0003-4966-5743,Italian Institute of Technology,1,1
+https://openalex.org/A5011863591,Vincent Taillandier,https://orcid.org/0000-0001-6922-0229,,0,1
+https://openalex.org/A5042147591,Vincenza Cinzia Santoro,https://orcid.org/0000-0003-2875-2805,,0,1
+https://openalex.org/A2482881159,Vincenzo Mariano Mastronardi,,,0,1
+https://openalex.org/A5038963943,Vinicio Tincani,,Italian Institute of Technology,1,1
+https://openalex.org/A5041998590,Vinícius Rosa Cota,https://orcid.org/0000-0002-2338-5949,Italian Institute of Technology,1,1
+https://openalex.org/A5077663474,Violet Ka I Pun,https://orcid.org/0000-0002-8763-5548,,0,1
+https://openalex.org/A5065992827,Virginia Casella,https://orcid.org/0009-0008-3136-468X,University of Genoa,1,1
+https://openalex.org/A5093612476,Virginia Pelagotti,,University of Genoa,1,1
+https://openalex.org/A5083368342,Vladislav Myrov,https://orcid.org/0000-0001-5147-2727,Aalto University,1,1
+https://openalex.org/A5019587799,Wendy Kreshpa,https://orcid.org/0009-0004-6810-4815,University of Genoa,1,1
+https://openalex.org/A5099073554,Wilhem Riom,,,0,1
+https://openalex.org/A5038936472,Xiongchuan Huang,https://orcid.org/0000-0002-7581-2084,Fudan University,1,1
+https://openalex.org/A5100385601,Yang Li,https://orcid.org/0000-0001-9003-6282,Shenzhen University,1,1
+https://openalex.org/A5085109752,Yannick Bornat,https://orcid.org/0000-0003-4758-7227,Centre National de la Recherche Scientifique; Institut Polytechnique de Bordeaux; Université de Bordeaux,3,1
+https://openalex.org/A5027066788,Yelena Tonoyan,https://orcid.org/0000-0002-6141-1933,Italian Institute of Technology,1,1
+https://openalex.org/A5071244072,Youssef Amin,https://orcid.org/0000-0001-7550-6143,Italian Institute of Technology,1,1
+https://openalex.org/A5111340740,Youssef Attia,,,0,1
+https://openalex.org/A5008917271,Yuki Kagaya,https://orcid.org/0000-0003-0146-1709,Purdue University West Lafayette,1,1
+https://openalex.org/A5026477234,Yuxu Peng,,Changsha University of Science and Technology,1,1
+https://openalex.org/A5093251743,Zoe Betta,,University of Genoa,1,1
+https://openalex.org/A5081494185,Zoi Kokkini,https://orcid.org/0000-0002-5557-6141,Istituto di Scienze Marine del Consiglio Nazionale delle Ricerche; National Research Council,2,1
+https://openalex.org/A5076619315,Édouard Leymarie,https://orcid.org/0000-0001-9705-407X,Centre National de la Recherche Scientifique; Laboratoire d’Océanographie de Villefranche; Sorbonne Université,3,1
