@@ -1,9 +1,9 @@
 d3.csv("data/openalex_works_full.csv").then(rows => {
   const container = "#topics_wordcloud";
-  const W = 675;
-  const H = 650;
+  const W = 570;
+  const H = 450;
 
-  const margin = { top: 150, right: 30, bottom: 40, left: 10 };
+  const margin = { top: 35, right: 30, bottom: 40, left: 10 };
   const width = W;
   const height = H;
 
