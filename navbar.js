@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     navLinks.forEach(link => {
         const linkPath = link.getAttribute("href");
-        if (linkPath === currentPath || (currentPath === "" && linkPath === "home.html")) {
+        if (linkPath === currentPath || (currentPath === "" && linkPath === "index.html")) {
             link.style.backgroundColor = "#34495e";
             link.style.color = "#ffffff";
         }
@@ -28,6 +28,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const header = document.getElementById("toggleHeader");
     const sidebar = document.getElementById("mySidebar");
+
+    if (currentPath === "index.html" || currentPath === "") {
+        sidebar.classList.add("collapsed");
+    }
 
     header.addEventListener("click", function() {
         sidebar.classList.toggle("collapsed");
