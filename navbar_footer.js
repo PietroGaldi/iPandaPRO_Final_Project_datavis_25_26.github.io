@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
     <footer>
             <p>University of Genova: Data Visualization Final Project 2025/2026</p>
             <p>Group: iPanda PRO</p>
-            <p>Evolution of research in the RAISE ecosystem</p>
+            <p>Mapping the RAISE ecosystem</p>
     </footer>
     `;
 

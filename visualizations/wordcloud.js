@@ -10,8 +10,8 @@ d3.csv("data/openalex_works_full.csv").then(rows => {
   const BG = "#ffffff";
 
   const palette = [
-    "#0072B2", "#E69F00", "#009E73", "#D55E00",
-    "#CC79A7", "#56B4E9", "#F0E442", "#000000", "#7f7f7f"
+    "#025f94", "#bf8302", "#038965", "#b45004",
+    "#ae5285", "#2f8bc0", "#c5b803", "#000000", "#4e4d4d"
   ];
 
   function safeJsonParse(s) {
