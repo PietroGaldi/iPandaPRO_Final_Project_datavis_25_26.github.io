@@ -3,11 +3,11 @@
 
 <head>
     <link rel="stylesheet" href="stylesheet.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css">
     <Title>Mapping the RAISE ecosystem</Title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
 
-    <script src="navbar.js"></script>
+    <script src="navbar_footer.js"></script>
 </head>
 
 <body>
@@ -27,16 +27,26 @@
                     <p>Word Cloud per Topic</p>
                     <p>Waffle Chart per Type</p>
 
-                    <p>3 Bubble that links to the other pagesq</p>
+                    <div class="bubble_container">
+                        <a href="people.html" class="home_button">
+                            <i class="fa-solid fa-people-arrows"></i>
+                            <span>People</span>
+                        </a>
+
+                        <a href="institutions.html" class="home_button">
+                            <i class="fa-solid fa-building-columns"></i>
+                            <span>Institutions</span>
+                        </a>
+
+                        <a href="collaborations.html" class="home_button">
+                            <i class="fa-solid fa-hexagon-nodes"></i>
+                            <span>Collaborations</span>
+                        </a>
+                    </div>
                 </div>
             </main>
         </div>
     </div>
-    <footer>
-        <p>University of Genova: Data Visualization Final Project 2025/2026</p>
-        <p>Group: iPanda PRO</p>
-        <p>Evolution of reasearch in the RAISE ecosystem</p>
-    </footer>
 </body>
 
 

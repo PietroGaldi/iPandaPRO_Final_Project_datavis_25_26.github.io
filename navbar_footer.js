@@ -7,9 +7,9 @@ document.addEventListener("DOMContentLoaded", function() {
         
         <div class="nav-links-container">
             <a href="index.html" class="nav-item"><i class="fa-solid fa-house"></i> The RAISE Project</a>
-            <a href="#" class="nav-item"><i class="fa-solid fa-chart-line"></i> People</a>
-            <a href="#" class="nav-item"><i class="fa-solid fa-users"></i> Institutions</a>
-            <a href="#" class="nav-item"><i class="fa-solid fa-circle-info"></i> Collaborations</a>
+            <a href="people.html" class="nav-item"><i class="fa-solid fa-people-arrows"></i> People</a>
+            <a href="institutions.html" class="nav-item"><i class="fa-solid fa-building-columns"></i> Institutions</a>
+            <a href="collaborations.html" class="nav-item"><i class="fa-solid fa-hexagon-nodes"></i> Collaborations</a>
         </div>
     </nav>`;
 
@@ -21,8 +21,8 @@ document.addEventListener("DOMContentLoaded", function() {
     navLinks.forEach(link => {
         const linkPath = link.getAttribute("href");
         if (linkPath === currentPath || (currentPath === "" && linkPath === "index.html")) {
-            link.style.backgroundColor = "#34495e";
-            link.style.color = "#ffffff";
+            link.style.backgroundColor = "#ffffff";
+            link.style.color = "#ff0007";
         }
     });
 
@@ -37,4 +37,16 @@ document.addEventListener("DOMContentLoaded", function() {
         sidebar.classList.toggle("collapsed");
     });
 
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const footerHTML = `
+    <footer>
+            <p>University of Genova: Data Visualization Final Project 2025/2026</p>
+            <p>Group: iPanda PRO</p>
+            <p>Evolution of research in the RAISE ecosystem</p>
+    </footer>
+    `;
+
+    document.body.insertAdjacentHTML('beforeend', footerHTML);
 });
