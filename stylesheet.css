@@ -111,22 +111,6 @@ body {
     transition: padding-top 0.3s ease;
 }
 
-main {
-    flex: 1;
-}
-
-main p {
-    margin-bottom: 2rem;
-}
-
-main h1 {
-    margin-top: 3rem;
-}
-
-main h2 {
-    margin-bottom: 1rem;
-}
-
 h1,
 h2,
 h3 {

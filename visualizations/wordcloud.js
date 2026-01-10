@@ -1,9 +1,9 @@
 d3.csv("data/openalex_works_full.csv").then(rows => {
   const container = "#topics_wordcloud";
-  const W = 1300;
-  const H = 500;
+  const W = 675;
+  const H = 650;
 
-  const margin = { top: 70, right: 30, bottom: 40, left: 30 };
+  const margin = { top: 150, right: 30, bottom: 40, left: 10 };
   const width = W;
   const height = H;
 
@@ -54,7 +54,7 @@ d3.csv("data/openalex_works_full.csv").then(rows => {
 
   const sizeScale = d3.scaleSqrt()
     .domain([minCount, maxCount])
-    .range([10, 64]);
+    .range([10, 54]);
 
   const color = d3.scaleOrdinal()
     .domain(items.map(d => d.text))
@@ -87,7 +87,6 @@ d3.csv("data/openalex_works_full.csv").then(rows => {
   d3.layout.cloud()
     .size([width - margin.left - margin.right, height - margin.top - margin.bottom])
     .words(words)
-    .padding(2)
     .rotate(() => (Math.random() < 0.18 ? 90 : 0))
     .font("system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif")
     .fontSize(d => d.size)

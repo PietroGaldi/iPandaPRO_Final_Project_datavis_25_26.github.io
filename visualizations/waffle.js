@@ -34,14 +34,14 @@ d3.csv("data/openalex_works_full.csv").then(rows => {
     });
 
 
-    const fileWidth = 370; 
-    const fileHeight = 540;
+    const fileWidth = 300; 
+    const fileHeight = 450;
     const foldSize = 70;   
-    const cornerRadius = 20;
+    const cornerRadius = 25;
     const filePadding = 40; 
     
     const headerHeight = 100; 
-    const margin = { top: 60, right: 320, bottom: 60, left: 60 };
+    const margin = { top: 60, right: 220, bottom: 60, left: 60 };
     const width = fileWidth + margin.right + margin.left;
     const height = fileHeight + margin.top + margin.bottom;
 
@@ -57,15 +57,6 @@ d3.csv("data/openalex_works_full.csv").then(rows => {
         .range(palette);
 
     d3.select("#pubtype_waffle").selectAll("*").remove();
-
-    const tip = d3.select("body").selectAll("div.waffle-tip")
-        .data([null]).join("div").attr("class", "waffle-tip")
-        .style("position", "absolute").style("pointer-events", "none")
-        .style("padding", "10px 14px").style("background", "rgba(10, 10, 40, 0.95)")
-        .style("color", "#fff").style("border-radius", "8px")
-        .style("font-family", "sans-serif").style("font-size", "13px")
-        .style("box-shadow", "0 8px 20px rgba(0,0,0,0.25)")
-        .style("opacity", 0);
 
     const svg = d3.select("#pubtype_waffle")
         .append("svg")
@@ -137,7 +128,7 @@ d3.csv("data/openalex_works_full.csv").then(rows => {
         .attr("x", fileWidth / 2 - 25)
         .attr("y", 60)
         .attr("text-anchor", "middle")
-        .style("font-size", "24px")
+        .style("font-size", "20px")
         .style("font-weight", "700")
         .style("font-family", "'Roboto', sans-serif")
         .text("Publication types");
@@ -190,13 +181,13 @@ d3.csv("data/openalex_works_full.csv").then(rows => {
         .style("cursor", "pointer");
 
     legendItem.append("circle")
-        .attr("r", 9).attr("cx", 0).attr("cy", 0)
+        .attr("r",7).attr("cx", 0).attr("cy", 0)
         .attr("fill", d => color(d.type));
 
     legendItem.append("text")
-        .attr("x", 20).attr("y", 5)
+        .attr("x", 13).attr("y", 3)
         .style("font-family", "'Roboto', sans-serif")
-        .style("font-size", "15px")
+        .style("font-size", "12px")
         .style("font-weight", "500")
         .style("fill", "#2c3e50")
         .text(d => `${d.type} (${d.count.toLocaleString()})`);
@@ -210,17 +201,6 @@ d3.csv("data/openalex_works_full.csv").then(rows => {
         legendItem.transition().duration(250)
             .attr("opacity", d => selectedType && d.type !== selectedType ? 0.3 : 1);
     }
-
-    cells.on("mouseenter", (event, d) => {
-            if(!selectedType) d3.select(event.currentTarget).transition().duration(100).attr("stroke", "rgba(0,0,0,0.2)");
-            tip.style("opacity", 1).html(`<strong>${d.type}</strong><br>${d.count} works`)
-               .style("left", (event.pageX + 15) + "px").style("top", (event.pageY - 15) + "px");
-        })
-        .on("mouseleave", (event) => {
-            if(!selectedType) d3.select(event.currentTarget).transition().duration(100).attr("stroke", "white");
-            tip.style("opacity", 0);
-        })
-        .on("click", (event, d) => { selectedType = (selectedType === d.type) ? null : d.type; updateView(); });
 
     legendItem.on("mouseenter", (event, d) => { if (!selectedType) cells.attr("opacity", c => c.type === d.type ? 1 : 0.2); })
         .on("mouseleave", () => { if (!selectedType) cells.attr("opacity", 1); })
