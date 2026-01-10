@@ -1,288 +1,232 @@
 d3.csv("data/openalex_works_full.csv").then(rows => {
 
-  const counts = d3.rollup(
-    rows,
-    v => v.length,
-    d => (d.type && d.type.trim() ? d.type.trim() : "unknown")
-  );
-
-  let data = Array.from(counts, ([type, count]) => ({ type, count }))
-    .sort((a, b) => d3.descending(a.count, b.count));
-
-  const total = d3.sum(data, d => d.count);
-
-  const N_CELLS = 236;
-
-  data.forEach(d => {
-    d.rawCells = (d.count / total) * N_CELLS;
-    d.cells = Math.floor(d.rawCells);
-    d.remainder = d.rawCells - d.cells;
-    d.pct = (d.count / total) * 100;
-  });
-
-  let assigned = d3.sum(data, d => d.cells);
-  let remaining = N_CELLS - assigned;
-
-  data
-    .slice()
-    .sort((a, b) => d3.descending(a.remainder, b.remainder))
-    .slice(0, remaining)
-    .forEach(d => d.cells += 1);
-
-  const cellSize = 18;
-  const cellGap = 3;
-
-  const waffleCols = 20;
-  const waffleRows = 12;
-
-  const waffleWidth = waffleCols * (cellSize + cellGap) - cellGap;
-  const waffleHeight = waffleRows * (cellSize + cellGap) - cellGap;
-
-  const margin = { top: 70, right: 36, bottom: 140, left: 36 };
-  const width = margin.left + waffleWidth + margin.right;
-  const height = margin.top + waffleHeight + margin.bottom;
-
-  const palette = d3.schemeTableau10.concat(d3.schemeSet3);
-  const color = d3.scaleOrdinal()
-    .domain(data.map(d => d.type))
-    .range(palette);
-
-  const typeByCellIndex = [];
-  let cursor = 0;
-  data.forEach(d => {
-    for (let i = 0; i < d.cells; i++) {
-      typeByCellIndex[cursor++] = d.type;
-    }
-  });
-
-  const cellsData = d3.range(N_CELLS).map(i => {
-    const row = Math.floor(i / waffleCols);
-    const col = i % waffleCols;
-    return {
-      row,
-      col,
-      type: typeByCellIndex[i],
-      i: i
-    };
-  });
-
-  d3.select("#pubtype_waffle").selectAll("*").remove();
-
-  const tip = d3.select("body")
-    .selectAll("div.waffle-tip")
-    .data([null])
-    .join("div")
-    .attr("class", "waffle-tip")
-    .style("position", "absolute")
-    .style("pointer-events", "none")
-    .style("padding", "8px 10px")
-    .style("background", "rgba(20,20,20,0.9)")
-    .style("color", "#ffffff")
-    .style("border-radius", "8px")
-    .style("font-size", "12px")
-    .style("box-shadow", "0 6px 18px rgba(0,0,0,0.2)")
-    .style("opacity", 0);
-
-  // SVG
-  const svg = d3.select("#pubtype_waffle")
-    .append("svg")
-    .attr("width", width)
-    .attr("height", height);
-
-  // Title
-  const title = svg.append("text")
-    .attr("x", width / 2)
-    .attr("y", 30)
-    .attr("text-anchor", "middle")
-    .style("font-size", "20px")
-    .style("font-weight", "700")
-    .text("Publication types");
-
-  const subtitle = svg.append("text")
-    .attr("x", width / 2)
-    .attr("y", 52)
-    .attr("text-anchor", "middle")
-    .style("font-size", "12px")
-    .style("fill", "#666")
-    .text("Dataset size: " + total.toLocaleString() + " works, waffle cells: " + N_CELLS);
-
-  const g = svg.append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-  g.append("rect")
-    .attr("x", -14)
-    .attr("y", -14)
-    .attr("width", waffleWidth + 28)
-    .attr("height", waffleHeight + 28)
-    .attr("fill", "#fafafa")
-    .attr("stroke", "#e0e0e0")
-    .attr("rx", 12);
-
-  let selectedType = null;
-
-  function setSubtitleForType(type) {
-    if (!type) {
-      subtitle.text("Dataset size: " + total.toLocaleString() + " works, waffle cells: " + N_CELLS);
-      return;
-    }
-    const meta = data.find(x => x.type === type);
-    subtitle.text(
-      "Selected: " + meta.type +
-      " | " + meta.count.toLocaleString() + " works" +
-      " | " + meta.pct.toFixed(1) + " percent" +
-      " | click again to reset"
+    const counts = d3.rollup(
+        rows,
+        v => v.length,
+        d => (d.type && d.type.trim() ? d.type.trim() : "unknown")
     );
-  }
 
-  function applySelection() {
-    cells
-      .transition()
-      .duration(150)
-      .attr("opacity", d => {
-        if (!selectedType) return 1;
-        return d.type === selectedType ? 1 : 0.15;
-      })
-      .attr("stroke-width", d => {
-        if (!selectedType) return 1;
-        return d.type === selectedType ? 2 : 1;
-      })
-      .attr("stroke", d => {
-        if (!selectedType) return "#ffffff";
-        return d.type === selectedType ? "rgba(0,0,0,0.25)" : "#ffffff";
-      });
-  }
+    let data = Array.from(counts, ([type, count]) => ({ type, count }))
+        .sort((a, b) => d3.descending(a.count, b.count));
 
-  const cells = g.selectAll("rect.cell")
-    .data(cellsData)
-    .enter()
-    .append("rect")
-    .attr("class", "cell")
-    .attr("x", d => d.col * (cellSize + cellGap))
-    .attr("y", d => d.row * (cellSize + cellGap))
-    .attr("width", cellSize)
-    .attr("height", cellSize)
-    .attr("rx", 4)
-    .attr("fill", d => d.type ? color(d.type) : "#eeeeee")
-    .attr("stroke", "#ffffff")
-    .attr("stroke-width", 1)
-    .style("cursor", "pointer");
+    const total = d3.sum(data, d => d.count);
+    const N_CELLS = 236; 
 
-  cells
-    .on("mouseenter", function (event, d) {
-      if (!d.type) return;
+    data.forEach(d => {
+        d.rawCells = (d.count / total) * N_CELLS;
+        d.cells = Math.floor(d.rawCells);
+        d.remainder = d.rawCells - d.cells;
+    });
 
-      d3.select(this)
-        .raise()
-        .attr("stroke", "rgba(0,0,0,0.35)")
-        .attr("stroke-width", 2);
-    })
-    .on("mousemove", (event, d) => {
-      if (!d.type) return;
-      const meta = data.find(x => x.type === d.type);
+    let assigned = d3.sum(data, d => d.cells);
+    let remaining = N_CELLS - assigned;
+    data.slice()
+        .sort((a, b) => d3.descending(a.remainder, b.remainder))
+        .slice(0, remaining)
+        .forEach(d => d.cells += 1);
 
-      tip
-        .style("opacity", 1)
-        .html(
-          "<strong>" + meta.type + "</strong><br>" +
-          meta.count.toLocaleString() + " works<br>" +
-          meta.pct.toFixed(1) + " percent<br>" +
-          "Click to filter"
-        )
-        .style("left", (event.pageX + 12) + "px")
-        .style("top", (event.pageY - 12) + "px");
-    })
-    .on("mouseleave", function (event, d) {
-      tip.style("opacity", 0);
-
-      if (!selectedType) {
-        d3.select(this)
-          .attr("stroke", "#ffffff")
-          .attr("stroke-width", 1);
-      } else {
-        if (d.type === selectedType) {
-          d3.select(this)
-            .attr("stroke", "rgba(0,0,0,0.25)")
-            .attr("stroke-width", 2);
-        } else {
-          d3.select(this)
-            .attr("stroke", "#ffffff")
-            .attr("stroke-width", 1);
+    const typeByCellIndex = [];
+    let cursor = 0;
+    data.forEach(d => {
+        for (let i = 0; i < d.cells; i++) {
+            typeByCellIndex[cursor++] = d.type;
         }
-      }
     });
 
-  cells.on("click", (event, d) => {
-    if (!d.type) return;
 
-    if (selectedType === d.type) {
-      selectedType = null;
-      setSubtitleForType(null);
-    } else {
-      selectedType = d.type;
-      setSubtitleForType(selectedType);
+    const fileWidth = 370; 
+    const fileHeight = 540;
+    const foldSize = 70;   
+    const cornerRadius = 20;
+    const filePadding = 40; 
+    
+    const headerHeight = 100; 
+    const margin = { top: 60, right: 320, bottom: 60, left: 60 };
+    const width = fileWidth + margin.right + margin.left;
+    const height = fileHeight + margin.top + margin.bottom;
+
+    const cols = 13; 
+    const availableWidth = fileWidth - (filePadding * 2);
+    const cellSize = Math.floor(availableWidth / cols); 
+    const cellGap = 6; 
+    const actualCellSize = cellSize - cellGap;
+
+    const palette = d3.schemeTableau10.concat(d3.schemeSet3);
+    const color = d3.scaleOrdinal()
+        .domain(data.map(d => d.type))
+        .range(palette);
+
+    d3.select("#pubtype_waffle").selectAll("*").remove();
+
+    const tip = d3.select("body").selectAll("div.waffle-tip")
+        .data([null]).join("div").attr("class", "waffle-tip")
+        .style("position", "absolute").style("pointer-events", "none")
+        .style("padding", "10px 14px").style("background", "rgba(10, 10, 40, 0.95)")
+        .style("color", "#fff").style("border-radius", "8px")
+        .style("font-family", "sans-serif").style("font-size", "13px")
+        .style("box-shadow", "0 8px 20px rgba(0,0,0,0.25)")
+        .style("opacity", 0);
+
+    const svg = d3.select("#pubtype_waffle")
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    const defs = svg.append("defs");
+    const filter = defs.append("filter")
+        .attr("id", "drop-shadow-soft")
+        .attr("height", "150%")
+        .attr("y", "-20%");
+    filter.append("feGaussianBlur")
+        .attr("in", "SourceAlpha")
+        .attr("stdDeviation", 6)
+        .attr("result", "blur");
+    filter.append("feOffset")
+        .attr("in", "blur")
+        .attr("dx", 0).attr("dy", 4)
+        .attr("result", "offsetBlur");
+    filter.append("feComponentTransfer")
+        .append("feFuncA").attr("type", "linear").attr("slope", 0.2);
+    const feMerge = filter.append("feMerge");
+    feMerge.append("feMergeNode");
+    feMerge.append("feMergeNode").attr("in", "SourceGraphic");
+
+    const g = svg.append("g")
+        .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+    function getFilePath(w, h, r, f) {
+        return `
+            M ${r},0 
+            L ${w - f},0           
+            L ${w},${f}            
+            L ${w},${h - r}        
+            a ${r},${r} 0 0 1 -${r},${r} 
+            L ${r},${h}            
+            a ${r},${r} 0 0 1 -${r},-${r}
+            L 0,${r}               
+            a ${r},${r} 0 0 1 ${r},-${r}
+            Z
+        `;
     }
-    applySelection();
-  });
 
-  const legend = svg.append("g")
-    .attr("transform", "translate(" + margin.left + "," + (margin.top + waffleHeight + 40) + ")");
+    function getFoldPath(w, f) {
+        return `
+            M ${w - f},0 
+            L ${w - f},${f - 10} 
+            a 10,10 0 0 0 10,10 
+            L ${w},${f} 
+            Z
+        `;
+    }
 
-  const itemsPerRow = 2;
-  const colW = 300;
-  const rowH = 22;
+    g.append("path")
+        .attr("d", getFilePath(fileWidth, fileHeight, cornerRadius, foldSize))
+        .attr("fill", "#ffffff")
+        .attr("stroke", "#cfd8dc")
+        .attr("stroke-width", 1.5)
+        .style("filter", "url(#drop-shadow-soft)");
 
-  const legendItem = legend.selectAll("g.item")
-    .data(data)
-    .enter()
-    .append("g")
-    .attr("class", "item")
-    .attr("transform", (d, i) => {
-      const col = i % itemsPerRow;
-      const row = Math.floor(i / itemsPerRow);
-      return "translate(" + (col * colW) + "," + (row * rowH) + ")";
-    })
-    .style("cursor", "pointer");
+    g.append("path")
+        .attr("d", getFoldPath(fileWidth, foldSize))
+        .attr("fill", "#f1f3f4")
+        .attr("stroke", "#cfd8dc")
+        .attr("stroke-width", 1.5)
+        .attr("stroke-linejoin", "round");
 
-  legendItem.append("circle")
-    .attr("r", 6)
-    .attr("cy", 0)
-    .attr("cx", 6)
-    .attr("fill", d => color(d.type));
+    g.append("text")
+        .attr("x", fileWidth / 2 - 25)
+        .attr("y", 60)
+        .attr("text-anchor", "middle")
+        .style("font-size", "24px")
+        .style("font-weight", "700")
+        .style("font-family", "'Roboto', sans-serif")
+        .text("Publication types");
 
-  legendItem.append("text")
-    .attr("x", 18)
-    .attr("y", 3)
-    .style("font-size", "12px")
-    .text(d => d.type + " - " + d.pct.toFixed(1) + "%");
+    const slots = [];
+    let r = 0, c = 0;
+    const startY = headerHeight; 
 
-  legendItem
-    .on("mouseenter", (event, d) => {
-      cells
-        .attr("opacity", c => (c.type === d.type ? 1 : (selectedType ? (c.type === selectedType ? 1 : 0.15) : 0.12)));
-    })
-    .on("mouseleave", () => {
-      applySelection();
+    while (slots.length < N_CELLS) {
+        const xPos = filePadding + (c * cellSize);
+        const yPos = startY + (r * cellSize);
+        const inFoldArea = (xPos > (fileWidth - foldSize - filePadding)) && (yPos < (foldSize + 10));
+
+        if (!inFoldArea) {
+            slots.push({ r, c, x: xPos, y: yPos });
+        }
+        c++;
+        if (c >= cols) { c = 0; r++; }
+    }
+
+    const cellsData = slots.map((pos, i) => ({...pos, type: typeByCellIndex[i], i: i}));
+
+
+    let selectedType = null;
+
+    const cells = g.selectAll(".cell")
+        .data(cellsData)
+        .enter()
+        .append("rect")
+        .attr("class", "cell")
+        .attr("x", d => d.x)
+        .attr("y", d => d.y)
+        .attr("width", actualCellSize)
+        .attr("height", actualCellSize)
+        .attr("rx", 5)
+        .attr("fill", d => color(d.type))
+        .style("cursor", "pointer")
+        .attr("stroke", "white")
+        .attr("stroke-width", 0.5);
+
+    const legendX = fileWidth + 50; 
+    const legendY = 120; 
+    const itemHeight = 36;
+
+    const legend = g.append("g").attr("transform", `translate(${legendX}, ${legendY})`);
+    const legendItem = legend.selectAll(".legend-item")
+        .data(data).enter().append("g")
+        .attr("class", "legend-item")
+        .attr("transform", (d, i) => `translate(0, ${i * itemHeight})`)
+        .style("cursor", "pointer");
+
+    legendItem.append("circle")
+        .attr("r", 9).attr("cx", 0).attr("cy", 0)
+        .attr("fill", d => color(d.type));
+
+    legendItem.append("text")
+        .attr("x", 20).attr("y", 5)
+        .style("font-family", "'Roboto', sans-serif")
+        .style("font-size", "15px")
+        .style("font-weight", "500")
+        .style("fill", "#2c3e50")
+        .text(d => `${d.type} (${d.count.toLocaleString()})`);
+
+
+    function updateView() {
+        cells.transition().duration(250).ease(d3.easeQuadOut)
+            .attr("opacity", d => selectedType && d.type !== selectedType ? 0.2 : 1)
+            .attr("transform", d => selectedType && d.type === selectedType ? "scale(0.90)" : "scale(1)")
+            .style("transform-origin", d => `${d.x + actualCellSize/2}px ${d.y + actualCellSize/2}px`);
+        legendItem.transition().duration(250)
+            .attr("opacity", d => selectedType && d.type !== selectedType ? 0.3 : 1);
+    }
+
+    cells.on("mouseenter", (event, d) => {
+            if(!selectedType) d3.select(event.currentTarget).transition().duration(100).attr("stroke", "rgba(0,0,0,0.2)");
+            tip.style("opacity", 1).html(`<strong>${d.type}</strong><br>${d.count} works`)
+               .style("left", (event.pageX + 15) + "px").style("top", (event.pageY - 15) + "px");
+        })
+        .on("mouseleave", (event) => {
+            if(!selectedType) d3.select(event.currentTarget).transition().duration(100).attr("stroke", "white");
+            tip.style("opacity", 0);
+        })
+        .on("click", (event, d) => { selectedType = (selectedType === d.type) ? null : d.type; updateView(); });
+
+    legendItem.on("mouseenter", (event, d) => { if (!selectedType) cells.attr("opacity", c => c.type === d.type ? 1 : 0.2); })
+        .on("mouseleave", () => { if (!selectedType) cells.attr("opacity", 1); })
+        .on("click", (event, d) => { selectedType = (selectedType === d.type) ? null : d.type; updateView(); });
+
+    svg.on("click", (event) => {
+        if (!event.target.closest(".cell") && !event.target.closest(".legend-item")) { selectedType = null; updateView(); }
     });
-
-  legendItem.on("click", (event, d) => {
-    if (selectedType === d.type) {
-      selectedType = null;
-      setSubtitleForType(null);
-    } else {
-      selectedType = d.type;
-      setSubtitleForType(selectedType);
-    }
-    applySelection();
-  });
-
-  svg.on("click", (event) => {
-    const t = event.target;
-    const clickedCell = t && t.classList && t.classList.contains("cell");
-    const clickedLegend = t && t.closest && t.closest("g.item");
-    if (clickedCell || clickedLegend) return;
-
-    selectedType = null;
-    setSubtitleForType(null);
-    applySelection();
-  });
 });
