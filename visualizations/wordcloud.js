@@ -8,9 +8,6 @@ d3.csv("data/openalex_works_full.csv").then(rows => {
   const height = H;
 
   const BG = "#ffffff";
-  const TEXT = "#1f2937";
-  const MUTED = "#6b7280";
-  const BORDER = "#e5e7eb";
 
   const palette = [
     "#0072B2", "#E69F00", "#009E73", "#D55E00",
@@ -65,21 +62,6 @@ d3.csv("data/openalex_works_full.csv").then(rows => {
 
   d3.select(container).selectAll("*").remove();
 
-  const tip = d3.select("body")
-    .selectAll("div.wordcloud-tip")
-    .data([null])
-    .join("div")
-    .attr("class", "wordcloud-tip")
-    .style("position", "absolute")
-    .style("pointer-events", "none")
-    .style("padding", "8px 10px")
-    .style("background", "rgba(17,24,39,0.92)")
-    .style("color", "#ffffff")
-    .style("border-radius", "8px")
-    .style("font-size", "12px")
-    .style("box-shadow", "0 6px 18px rgba(0,0,0,0.2)")
-    .style("opacity", 0);
-
   const svg = d3.select(container)
     .append("svg")
     .attr("width", width)
@@ -95,25 +77,6 @@ d3.csv("data/openalex_works_full.csv").then(rows => {
 
   const cloudG = svg.append("g")
     .attr("transform", "translate(" + (width / 2) + "," + ((margin.top + (height - margin.bottom)) / 2) + ")");
-
-  let selected = null;
-
-  function applySelection(wordSel) {
-    wordSel.attr("opacity", d => {
-      if (!selected) return 1;
-      return d.text === selected ? 1 : 0.15;
-    });
-  }
-
-  function setSubtitleForSelection() {
-    if (!selected) {
-      subtitle.text("Hover for counts. Click a topic to pin highlight. Click again to reset.");
-      return;
-    }
-    const m = items.find(x => x.text === selected);
-    if (!m) return;
-    subtitle.text("Selected: " + m.text + " | occurrences: " + m.count.toLocaleString() + " | click again to reset");
-  }
 
   const words = items.map(d => ({
     text: d.text,
@@ -132,7 +95,7 @@ d3.csv("data/openalex_works_full.csv").then(rows => {
     .start();
 
   function draw(layoutWords) {
-    const wordSel = cloudG.selectAll("text.word")
+    cloudG.selectAll("text.word")
       .data(layoutWords, d => d.text)
       .enter()
       .append("text")
@@ -142,39 +105,6 @@ d3.csv("data/openalex_works_full.csv").then(rows => {
       .style("fill", d => color(d.text))
       .attr("text-anchor", "middle")
       .attr("transform", d => "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")")
-      .text(d => d.text)
-      .style("cursor", "pointer");
-
-    wordSel
-      .on("mouseenter", function () {
-        d3.select(this).attr("opacity", 0.85);
-      })
-      .on("mousemove", (event, d) => {
-        tip
-          .style("opacity", 1)
-          .html("<strong>" + d.text + "</strong><br>occurrences: " + d.count.toLocaleString() + "<br>click to pin")
-          .style("left", (event.pageX + 12) + "px")
-          .style("top", (event.pageY - 12) + "px");
-      })
-      .on("mouseleave", function () {
-        tip.style("opacity", 0);
-        if (!selected) d3.select(this).attr("opacity", 1);
-        else d3.select(this).attr("opacity", d3.select(this).text() === selected ? 1 : 0.15);
-      })
-      .on("click", (event, d) => {
-        event.stopPropagation();
-        if (selected === d.text) selected = null;
-        else selected = d.text;
-        setSubtitleForSelection();
-        applySelection(wordSel);
-      });
-
-    applySelection(wordSel);
-
-    svg.on("click", () => {
-      selected = null;
-      setSubtitleForSelection();
-      applySelection(wordSel);
-    });
+      .text(d => d.text);
   }
 });
