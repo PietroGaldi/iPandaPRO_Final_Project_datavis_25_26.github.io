@@ -80,22 +80,24 @@ body {
 
 .sidebar.collapsed .sidebar_header {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 120px;
-    height: 120px;
+    top: 15px; 
+    left: 15px;
+    width: 100px;  
+    height: 100px; 
     background-color: #0a0a28;
-    border-bottom-right-radius: 15px;
+    border-radius: 50%; 
     z-index: 1000;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
 }
 
 .sidebar.collapsed .group_logo {
-    width: 100px;
-    transition: 0.3s;
+    width: 90px;
+    height: auto;
+    margin: 0 !important;
 }
 
 .content_wrapper {
@@ -203,4 +205,25 @@ footer {
     transform: translateY(-5px);
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
     color: #ffffff
+}
+
+.bubble_text {
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 50px;
+    padding: 0 20px;
+}
+
+.bubble_text h2 {
+    color: #0a0a28;
+    font-size: 28px;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.bubble_text p {
+    color: #666;
+    font-size: 16px;
+    max-width: 600px;
+    margin: 0 auto;
 }
