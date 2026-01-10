@@ -1,0 +1,6 @@
+
+.graph1, .graph2, .graph3 {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}

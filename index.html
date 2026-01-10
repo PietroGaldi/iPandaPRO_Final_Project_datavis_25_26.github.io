@@ -3,9 +3,11 @@
 
 <head>
     <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="graphs.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <Title>Mapping the RAISE ecosystem</Title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/d3-cloud/build/d3.layout.cloud.js"></script>
 
     <script src="navbar.js"></script>
 </head>
@@ -29,6 +31,8 @@
 
                     <p>3 Bubble that links to the other pagesq</p>
                 </div>
+                <div id="topics_wordcloud"></div>
+                <div id="pubtype_waffle" class="graph1"></div>
             </main>
         </div>
     </div>
@@ -38,6 +42,8 @@
         <p>Evolution of reasearch in the RAISE ecosystem</p>
     </footer>
 </body>
+<script src="visualizations/waffle.js"></script>
+<script src="visualizations/wordcloud.js"></script>
 
 
 
