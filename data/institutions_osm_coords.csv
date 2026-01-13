@@ -1,12 +1,12 @@
 display_name,id,coords,country_code,ror,type
 National Research Council,https://openalex.org/I4210155236,"41.9003705, 12.5126063",IT,https://ror.org/04zaypm56,nonprofit
-University of Palermo,https://openalex.org/I900890020,"54.0808542, 13.4172247",IT,https://ror.org/https://ror.org/044k9ta02,education
+University of Palermo,https://openalex.org/I900890020,"38.117838418366674, 13.370416481784385",IT,https://ror.org/https://ror.org/044k9ta02,education
 University of Genoa,https://openalex.org/I83816512,"44.4148861, 8.9266707",IT,https://ror.org/0107c5v14,education
 Ospedale Policlinico San Martino,https://openalex.org/I4210146472,"44.4094689, 8.9730883",IT,https://ror.org/04d7es448,healthcare
 "University of California, Berkeley",https://openalex.org/I95457486,"37.8754996, -122.2390685",US,https://ror.org/01an7q238,education
 University of Turin,https://openalex.org/I55143463,"45.051165, 7.6811479",IT,https://ror.org/048tbm396,education
-University of Calabria,https://openalex.org/I45204951,"32.8656594, -117.2043944",IT,https://ror.org/02rc97e94,education
-Italian Institute of Technology,https://openalex.org/I30771326,"45.5660722, 12.4265453",IT,https://ror.org/042t93s57,facility
+University of Calabria,https://openalex.org/I45204951,"39.36189011734958, 16.22608677964078",IT,https://ror.org/02rc97e94,education
+Italian Institute of Technology,https://openalex.org/I30771326,"44.47504600551611, 8.906580099043186",IT,https://ror.org/042t93s57,facility
 Ingegneria dei Sistemi (Italy),https://openalex.org/I4210139705,"43.652933, 10.4366005",IT,https://ror.org/03spsm219,company
 Simons Foundation,https://openalex.org/I4210107338,,US,https://ror.org/01cmst727,nonprofit
 University of Padua,https://openalex.org/I138689650,"45.4066496, 11.8774407",IT,https://ror.org/00240q980,education
@@ -15,7 +15,7 @@ Laboratoire d’Océanographie de Villefranche,https://openalex.org/I4210158228,
 Sorbonne Université,https://openalex.org/I39804081,"48.8379885, 2.3611216",FR,https://ror.org/02en5vm52,education
 Institute of Structure of Matter,https://openalex.org/I4210114374,,IT,https://ror.org/01zz9wh30,facility
 Istituto di Scienze Marine del Consiglio Nazionale delle Ricerche,https://openalex.org/I4210114340,,IT,https://ror.org/02hdf6119,facility
-Météo-France,https://openalex.org/I4210113730,"-20.8968987, 55.4952362",FR,https://ror.org/0233st365,other
+Météo-France,https://openalex.org/I4210113730,"44.38669148658399, 1.4941403509777924",FR,https://ror.org/0233st365,other
 Laboratoire de l'Atmosphère et des Cyclones,https://openalex.org/I4210131264,,RE,https://ror.org/03wsemq03,facility
 Florida State University,https://openalex.org/I103163165,"30.442216, -84.297453",US,https://ror.org/05g3dte14,education
 Laboratoire de Météorologie Dynamique,https://openalex.org/I4210087306,,FR,https://ror.org/000ehr937,facility
@@ -52,7 +52,7 @@ Technical University of Munich,https://openalex.org/I62916508,"48.2654976, 11.66
 Azienda Ospedaliera Nazionale SS. Antonio e Biagio e Cesare Arrigo,https://openalex.org/I4210157726,,IT,https://ror.org/04yxyzj48,healthcare
 Ente Ospedaliero Ospedali Galliera,https://openalex.org/I3018768319,"44.399525, 8.9415855",IT,https://ror.org/05bs6ak67,healthcare
 University of Bologna,https://openalex.org/I9360294,"44.4982886, 11.354457",IT,https://ror.org/01111rn36,education
-University of Siena,https://openalex.org/I102064193,"40.1997901, -75.2352761",IT,https://ror.org/01tevnk56,education
+University of Siena,https://openalex.org/I102064193,"43.31931061329305, 11.33279917991311",IT,https://ror.org/01tevnk56,education
 Amsterdam University Medical Centers,https://openalex.org/I4210151833,,NL,https://ror.org/05grdyy37,healthcare
 Vrije Universiteit Amsterdam,https://openalex.org/I865915315,"52.3340539, 4.8651882",NL,https://ror.org/008xxew50,education
 Massachusetts General Hospital,https://openalex.org/I4210087915,"42.3628605, -71.068753",US,https://ror.org/002pd6e78,healthcare
@@ -107,7 +107,7 @@ Université Savoie Mont Blanc,https://openalex.org/I70900168,"45.559718, 5.91245
 Hospital Clínic de Barcelona,https://openalex.org/I4210115097,"41.3894459, 2.1522761",ES,https://ror.org/02a2kzf50,healthcare
 Ospedale Santa Chiara,https://openalex.org/I4210088115,"46.0563032, 11.1321441",IT,https://ror.org/007x5wz81,healthcare
 Polytechnic University of Turin,https://openalex.org/I177477856,,IT,https://ror.org/00bgk9508,education
-Innovation Engineering (Italy),https://openalex.org/I4210096856,"41.8689936, -87.650465",IT,https://ror.org/00sxjp357,company
+Innovation Engineering (Italy),https://openalex.org/I4210096856,"41.94913160149183, 12.465598837488042",IT,https://ror.org/00sxjp357,company
 Institut de Ciències del Mar,https://openalex.org/I4210151560,"41.3855339, 2.1959959",ES,https://ror.org/05ect0289,facility
 Stazione Zoologica Anton Dohrn,https://openalex.org/I2802779139,"40.8327245, 14.2356296",IT,https://ror.org/03v5jj203,facility
 Consorzio Roma Ricerche,https://openalex.org/I4210144062,,IT,https://ror.org/03jvpn714,nonprofit
@@ -125,7 +125,7 @@ University of Da Nang,https://openalex.org/I3129492623,"14.3610764, 107.9986846"
 Japan Advanced Institute of Science and Technology,https://openalex.org/I177738480,"36.4436614, 136.5923335",JP,https://ror.org/03frj4r98,education
 University of Modena and Reggio Emilia,https://openalex.org/I122346577,,IT,https://ror.org/02d4c4y02,education
 "Istituto di Scienza e Tecnologie dell'Informazione ""Alessandro Faedo""",https://openalex.org/I122991210,,IT,https://ror.org/05kacka20,facility
-University of Verona,https://openalex.org/I119439378,"43.0238334, -89.5452777",IT,https://ror.org/039bp8j42,education
+University of Verona,https://openalex.org/I119439378,"45.436629054018034, 11.003166151232223",IT,https://ror.org/039bp8j42,education
 Camelot Biomedical Systems (Italy),https://openalex.org/I4210157111,,IT,https://ror.org/04pjbp005,company
 University of Pavia,https://openalex.org/I25217355,"45.1869266, 9.1568768",IT,https://ror.org/00s6t1f81,education
 "University of Campania ""Luigi Vanvitelli""",https://openalex.org/I197809005,,IT,https://ror.org/02kqnpp86,education
