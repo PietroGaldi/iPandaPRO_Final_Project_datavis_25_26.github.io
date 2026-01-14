@@ -134,3 +134,55 @@
     z-index: 20;
     transition: opacity 0.15s ease-out;
 }
+
+
+.pict_wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#pictorial {
+    background: white;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+/* --- Scrollbar Styling --- */
+.modern-scroll::-webkit-scrollbar { 
+    width: 6px; 
+}
+.modern-scroll::-webkit-scrollbar-track { 
+    background: transparent; 
+}
+.modern-scroll::-webkit-scrollbar-thumb { 
+    background-color: #cbd5e1; 
+    border-radius: 20px; 
+}
+.modern-scroll::-webkit-scrollbar-thumb:hover { 
+    background-color: #94a3b8; 
+}
+
+/* --- Animations --- */
+.fade-in { 
+    animation: fadeIn 0.4s ease-out forwards; 
+}
+@keyframes fadeIn { 
+    from { opacity: 0; transform: translateY(10px); } 
+    to { opacity: 1; transform: translateY(0); } 
+}
+
+/* --- Form Controls Focus State --- */
+.control-input:focus { 
+    border-color: #3b82f6 !important; 
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+}
+
+/* --- Card Hover Effects --- */
+/* Note: The base transition is handled in JS or can be added here: transition: all 0.2s ease; */
+.inst-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+}
