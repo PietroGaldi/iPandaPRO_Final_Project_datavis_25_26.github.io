@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <a href="people.html" class="nav-item"><i class="fa-solid fa-people-arrows"></i> People</a>
             <a href="institutions.html" class="nav-item"><i class="fa-solid fa-building-columns"></i> Institutions</a>
             <a href="collaborations.html" class="nav-item"><i class="fa-solid fa-hexagon-nodes"></i> Collaborations</a>
+            <a href="methodology.html" class="nav-item"><i class="fa-solid fa-database"></i> Methodology </a>
         </div>
     </nav>`;
 
