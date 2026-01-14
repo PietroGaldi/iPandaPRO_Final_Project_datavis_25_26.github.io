@@ -50,7 +50,8 @@ const svg = container
     .attr("width", width)
     .attr("height", height)
     .style("background", colorBg)
-    .style("display", "block");
+    .style("display", "block")
+    .style("touch-action", "none");
 
 Promise.all([
     d3.csv("data/openalex_works_full.csv"),
@@ -58,9 +59,8 @@ Promise.all([
     d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json")
 ]).then(([worksRows, coordsRows, worldData]) => {
 
-    // --- STEP A: PROCESS COORDINATES WITH JITTER ---
     const instMap = new Map();
-    const coordTracker = new Set(); // Tracks occupied locations
+    const coordTracker = new Set();
 
     coordsRows.forEach(row => {
         if (row.coords && row.id) {
@@ -109,7 +109,6 @@ Promise.all([
         }
     });
 
-    // --- STEP B: PROCESS FLOWS (Unchanged) ---
     const allPairs = [];
     worksRows.forEach(row => {
         if (!row.raw_json) return;
@@ -150,6 +149,31 @@ Promise.all([
     const opacityScale = d3.scaleLinear().domain([1, maxCount]).range([0.3, 0.6]);
 
     const g = svg.append("g");
+
+    let currentZoom = 1;
+    const zoom = d3.zoom()
+        .scaleExtent([1, 8])
+        .translateExtent([[0, 0], [width, height]])
+        .on("zoom", (event) => {
+            const transform = event.transform;
+            currentZoom = transform.k;
+            g.attr("transform", transform);
+            linkElements.attr("stroke-width", d => strokeScale(d.value) / currentZoom);
+            mapPath.attr("stroke-width", 0.5 / currentZoom);
+
+            nodeElements
+                .attr("r", d => {
+                    const isSelected = (d.id === selectedNodeId);
+                    const baseR = isSelected ? 8 : (d.isMajor ? 6 : 4);
+                    return baseR / currentZoom;
+                })
+                .attr("stroke-width", 1.5 / currentZoom);
+        });
+
+    svg.call(zoom)
+        .style("touch-action", "none")
+        .on("wheel", event => event.preventDefault());
+
 
     const countries = topojson.feature(worldData, worldData.objects.countries);
     const mapPath = g.append("g").selectAll("path")
@@ -196,6 +220,8 @@ Promise.all([
 
     regionSelect.on("change", function () {
         const settings = regions[d3.select(this).property("value")];
+        currentZoom = 1;
+        svg.transition().duration(1500).call(zoom.transform, d3.zoomIdentity);
         d3.transition().duration(1500)
             .tween("projection", () => {
                 const ix = d3.interpolate(projection.scale(), settings.scale);
@@ -214,14 +240,18 @@ Promise.all([
     let selectedNodeId = null;
 
     function updateHighlight() {
+        const strokeWidth = 1.5 / currentZoom;
+
         if (selectedNodeId) {
             linkElements.transition().duration(200)
                 .attr("stroke", d => (d.source.id === selectedNodeId || d.target.id === selectedNodeId) ? colorHover : colorFlow)
-                .attr("stroke-opacity", d => (d.source.id === selectedNodeId || d.target.id === selectedNodeId) ? 1 : 0.05);
+                .attr("stroke-opacity", d => (d.source.id === selectedNodeId || d.target.id === selectedNodeId) ? 1 : 0.05)
+                .attr("stroke-width", d => strokeScale(d.value) / currentZoom);
 
             nodeElements.transition().duration(200)
                 .attr("fill", d => (d.id === selectedNodeId ? colorHover : (d.isMajor ? colorMajor : colorNode)))
-                .attr("r", d => d.id === selectedNodeId ? 8 : (d.isMajor ? 6 : 4))
+                .attr("r", d => (d.id === selectedNodeId ? 8 : (d.isMajor ? 6 : 4)) / currentZoom)
+                .attr("stroke-width", strokeWidth)
                 .attr("opacity", d => {
                     if (d.id === selectedNodeId) return 1;
                     const isNeighbor = linksData.some(l =>
@@ -232,11 +262,13 @@ Promise.all([
         } else {
             linkElements.transition().duration(200)
                 .attr("stroke", colorFlow)
-                .attr("stroke-opacity", d => opacityScale(d.value));
+                .attr("stroke-opacity", d => opacityScale(d.value))
+                .attr("stroke-width", d => strokeScale(d.value) / currentZoom);
 
             nodeElements.transition().duration(200)
                 .attr("fill", d => d.isMajor ? colorMajor : colorNode)
-                .attr("r", d => d.isMajor ? 6 : 4)
+                .attr("r", d => (d.isMajor ? 6 : 4) / currentZoom)
+                .attr("stroke-width", strokeWidth)
                 .attr("opacity", 1);
         }
     }
@@ -259,21 +291,38 @@ Promise.all([
 
     nodeElements.on("mouseenter", (event, d) => {
         tooltip.transition().duration(100).style("opacity", 1);
-        tooltip.html(`<b>${d.name}</b>`).style("left", (event.pageX + 10) + "px").style("top", (event.pageY - 28) + "px");
+        tooltip.html(`<b>${d.name}</b>`)
+            .style("left", (event.pageX + 10) + "px")
+            .style("top", (event.pageY - 28) + "px");
 
         if (selectedNodeId) {
-            d3.select(event.target).transition().duration(100).attr("fill", colorHover).attr("r", 8).attr("opacity", 1);
+            d3.select(event.target).transition().duration(100)
+                .attr("fill", colorHover)
+                .attr("r", 8 / currentZoom)
+                .attr("opacity", 1);
         } else {
-            d3.select(event.target).transition().duration(100).attr("fill", colorHover).attr("r", 8).style("filter", "url(#glow)");
-            linkElements.transition().duration(100).attr("stroke", l => (l.source.id === d.id || l.target.id === d.id) ? colorHover : colorFlow).attr("stroke-opacity", l => (l.source.id === d.id || l.target.id === d.id) ? 0.8 : 0.1);
+            d3.select(event.target).transition().duration(100)
+                .attr("fill", colorHover)
+                .attr("r", 8 / currentZoom)
+                .style("filter", "url(#glow)");
+
+            linkElements.transition().duration(100)
+                .attr("stroke", l => (l.source.id === d.id || l.target.id === d.id) ? colorHover : colorFlow)
+                .attr("stroke-opacity", l => (l.source.id === d.id || l.target.id === d.id) ? 0.8 : 0.1);
         }
     }).on("mouseleave", (event, d) => {
         tooltip.transition().duration(200).style("opacity", 0);
         if (selectedNodeId) {
             updateHighlight();
         } else {
-            d3.select(event.target).transition().duration(200).attr("fill", d.isMajor ? colorMajor : colorNode).attr("r", d.isMajor ? 6 : 4).style("filter", d.isMajor ? "url(#glow)" : "none");
-            linkElements.transition().duration(200).attr("stroke", colorFlow).attr("stroke-opacity", d => opacityScale(d.value));
+            d3.select(event.target).transition().duration(200)
+                .attr("fill", d.isMajor ? colorMajor : colorNode)
+                .attr("r", (d.isMajor ? 6 : 4) / currentZoom)
+                .style("filter", d.isMajor ? "url(#glow)" : "none");
+
+            linkElements.transition().duration(200)
+                .attr("stroke", colorFlow)
+                .attr("stroke-opacity", d => opacityScale(d.value));
         }
     });
 
@@ -321,8 +370,8 @@ Promise.all([
         legendGroup.append("text")
             .text(() => {
                 if (val === maxCount) return `${val}+ works`;
-                if (val === 1) return "1 work";              
-                return `${val} works`;                       
+                if (val === 1) return "1 work";
+                return `${val} works`;
             })
             .attr("x", 55)
             .attr("y", yOffset + 4)
