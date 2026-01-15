@@ -139,7 +139,7 @@
 
 
 .pict_wrapper {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
     text-align: center;
 }
@@ -309,4 +309,264 @@ select.bubblechart_control-input {
 circle {
     transform-box: fill-box;
     transform-origin: center;
+}
+
+/* --- Layout & Containers --- */
+#leaderboard {
+    font-family: 'Fira Sans', sans-serif;
+    color: #1e293b;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.lb_grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+    height: 700px;
+}
+
+.lb_card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+}
+
+/* --- Header Area --- */
+.lb_header {
+    padding: 24px;
+    border-bottom: 1px solid #f1f5f9;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background: #ffffff;
+}
+
+.lb_title_row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lb_title {
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: -0.01em;
+}
+
+/* --- Inputs --- */
+.lb_search {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.2s ease;
+    background: #f8fafc;
+    box-sizing: border-box;
+}
+
+.lb_search:focus {
+    background: #ffffff;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.lb_search::placeholder {
+    color: #94a3b8;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+/* --- Legend --- */
+.lb_legend_container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.lb_legend_item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+}
+
+.lb_legend_item:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.lb_legend_text {
+    font-size: 12px;
+    font-weight: 500;
+    color: #475569;
+}
+
+/* --- List Area --- */
+.lb_scroll_area {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.lb_row {
+    display: flex;
+    align-items: center;
+    padding: 16px 24px;
+    cursor: pointer;
+    border-bottom: 1px solid #f8fafc;
+    transition: background 0.15s ease;
+}
+
+.lb_row:hover {
+    background: #f8fafc;
+}
+
+.lb_rank {
+    width: 35px;
+    font-size: 14px;
+    color: #94a3b8;
+    font-weight: 600;
+    font-family: 'Roboto Slab', serif;
+}
+
+.lb_row_info {
+    flex-grow: 1;
+}
+
+.lb_row_name {
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #1e293b;
+    margin-bottom: 6px;
+}
+
+.lb_bar_container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.lb_count_text {
+    font-size: 12px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+/* --- Profile Details --- */
+.lb_details_content {
+    padding: 30px 24px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.lb_empty_state {
+    text-align: center;
+    color: #94a3b8;
+    margin-top: 50%;
+    transform: translateY(-50%);
+    font-style: italic;
+    font-size: 14px;
+}
+
+.lb_profile_header {
+    text-align: center;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.lb_avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto Slab', serif;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 auto 16px auto;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.lb_profile_name {
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.2;
+}
+
+.lb_profile_meta {
+    font-size: 13px;
+    color: #64748b;
+    margin-top: 6px;
+    font-weight: 500;
+}
+
+.lb_section_label {
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+}
+
+.lb_topic_row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    padding: 4px 0;
+}
+
+.lb_topic_name {
+    color: #334155;
+    max-width: 65%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.lb_topic_bar_wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.lb_topic_track {
+    width: 60px;
+    height: 6px;
+    background: #f1f5f9;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.lb_topic_count {
+    font-weight: 600;
+    color: #64748b;
+    font-size: 11px;
+    width: 24px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
 }

@@ -3,7 +3,6 @@
     const chartHeight = 600;
 
     const colorBg = "#f1f5f9";
-    const colorCard = "#ffffff";
     const colorText = "#1e293b";
     const colorSubText = "#64748b";
     const colorIcon = "#0a0a28";
@@ -40,7 +39,7 @@
         .style("font-size", "20px")
         .style("color", "#0f172a")
         .style("letter-spacing", "-0.025em")
-        .text("People and their publications");
+        .text("Researcher and their publications");
 
     const subTitle = titleGroup.append("div")
         .attr("class", "bubblechart_text")
