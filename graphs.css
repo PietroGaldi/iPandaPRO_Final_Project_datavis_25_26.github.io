@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600&family=Roboto+Slab:wght@700&display=swap');
+
 .graph1,
 .graph2,
 .graph3 {
@@ -150,7 +152,7 @@
     overflow-x: auto;
 }
 
-/* --- Scrollbar Styling --- */
+
 .modern-scroll::-webkit-scrollbar { 
     width: 6px; 
 }
@@ -165,7 +167,7 @@
     background-color: #94a3b8; 
 }
 
-/* --- Animations --- */
+
 .fade-in { 
     animation: fadeIn 0.4s ease-out forwards; 
 }
@@ -174,15 +176,137 @@
     to { opacity: 1; transform: translateY(0); } 
 }
 
-/* --- Form Controls Focus State --- */
 .control-input:focus { 
     border-color: #3b82f6 !important; 
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
 }
 
-/* --- Card Hover Effects --- */
-/* Note: The base transition is handled in JS or can be added here: transition: all 0.2s ease; */
 .inst-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+#bubblechart {
+    font-family: 'Fira Sans', sans-serif;
+    color: #1e293b;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.bubblechart_wrapper {
+    background: #f1f5f9;
+}
+
+.bubblechart_header {
+    background: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+}
+
+.bubblechart_title {
+    font-family: 'Roboto Slab', sans-serif;
+    font-weight: 700;
+}
+
+.bubblechart_text {
+    font-family: 'Fira Sans', sans-serif;
+}
+
+.bubblechart_control-group {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s ease;
+}
+
+.bubblechart_control-group:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.bubblechart_control-input {
+    font-family: 'Fira Sans', sans-serif;
+    color: #334155 !important;
+    background-color: transparent !important;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.bubblechart_control-input:focus {
+    outline: none !important;
+    background-color: #ffffff !important;
+    box-shadow: 0 0 0 2px rgba(10, 10, 40, 0.1);
+}
+
+.bubblechart_control-input::placeholder {
+    color: #94a3b8;
+    opacity: 1;
+}
+
+select.bubblechart_control-input {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0 center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2rem !important;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.bubblechart_tooltip {
+    background: rgba(15, 23, 42, 0.95) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 12px !important;
+    padding: 16px 20px !important; 
+
+    box-shadow: 
+        0 10px 15px -3px rgba(0, 0, 0, 0.4),
+        0 4px 6px -2px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    
+    color: #f8fafc !important;
+    line-height: 1.6;
+    font-family: 'Fira Sans', sans-serif !important;
+}
+
+.bubblechart_tooltip strong {
+    color: #fff;
+    font-weight: 600;
+}
+
+.bubblechart_scroll::-webkit-scrollbar {
+    width: 4px;
+}
+.bubblechart_scroll::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+.bubblechart_scroll::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+.bubblechart_scroll::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.bubblechart_legend text {
+    font-family: 'Fira Sans', sans-serif;
+    text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+}
+
+.bubblechart_close-hint {
+    opacity: 0.7;
+    letter-spacing: 0.02em;
+    transition: opacity 0.2s;
+    font-family: 'Fira Sans', sans-serif;
+}
+.bubblechart_close-hint:hover {
+    opacity: 1;
+}
+
+circle {
+    transform-box: fill-box;
+    transform-origin: center;
 }
