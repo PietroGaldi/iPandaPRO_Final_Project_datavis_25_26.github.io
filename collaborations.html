@@ -15,26 +15,37 @@
 <body>
     <div class="main_area">
         <div class="content_wrapper">
-            <header>
-                <h1>Collaborations in the RAISE ecosystem</h1>
-            </header>
 
-            <main>
-                <!-- HO AGGIUNTO QUESTI COSì NON FACCIAMO CASINI CON I MERGE-->
-                <div class="network_people_wrap">
-                    <p>Network people</p>
+            <main>              
+                <div id="author_network" class="net-wrap">
+                    <h2>Network of author collaborations for RAISE publications</h2>
+                    <div class="net-controls">
+                        <label>Author:</label>
+                        <input id="authorSearch" list="authorList" placeholder="Type a name..." />
+                        <datalist id="authorList"></datalist>
+                        <button id="resetBtn" type="button">Reset</button>
+                        <span id="meta" class="meta"></span>
+                    </div>
+                    <section class="net-section">
+                    <div class="net-wrap">
+                        <!-- controls -->
+                        <svg id="netSvg"></svg>
+                        <div id="tip" class="tip"></div>
+                    </div>
+                    </section>
                 </div>
 
                 <div class="flow_institutions_wrap">
                     <h2>Map of institutes collaborations for RAISE publications</h2>
                     <div id="flow_map"></div>
                 </div>
+
             </main>
         </div>
     </div>
 </body>
 <script src="visualizations/flowmap.js"></script>
-
+<script src="visualizations/network.js"></script>
 
 
 </html>
