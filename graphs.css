@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600&family=Roboto+Slab:wght@700&display=swap');
+
 .graph1,
 .graph2,
 .graph3 {
@@ -137,7 +139,7 @@
 
 
 .pict_wrapper {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
     text-align: center;
 }
@@ -150,9 +152,9 @@
     overflow-x: auto;
 }
 
-/* --- Scrollbar Styling --- */
-.modern-scroll::-webkit-scrollbar {
-    width: 6px;
+
+.modern-scroll::-webkit-scrollbar { 
+    width: 6px; 
 }
 .modern-scroll::-webkit-scrollbar-track {
     background: transparent;
@@ -165,98 +167,406 @@
     background-color: #94a3b8;
 }
 
-/* --- Animations --- */
-.fade-in {
-    animation: fadeIn 0.4s ease-out forwards;
+
+.fade-in { 
+    animation: fadeIn 0.4s ease-out forwards; 
 }
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); } 
     to { opacity: 1; transform: translateY(0); } 
 }
 
-/* --- Form Controls Focus State --- */
-.control-input:focus {
-    border-color: #3b82f6 !important;
+.control-input:focus { 
+    border-color: #3b82f6 !important; 
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
 }
 
-/* --- Card Hover Effects --- */
-/* Note: The base transition is handled in JS or can be added here: transition: all 0.2s ease; */
 .inst-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
 }
 
-.net-section {
+#bubblechart {
+    font-family: 'Fira Sans', sans-serif;
+    color: #1e293b;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.bubblechart_wrapper {
+    background: #f1f5f9;
+}
+
+.bubblechart_header {
+    background: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+}
+
+.bubblechart_title {
+    font-family: 'Roboto Slab', sans-serif;
+    font-weight: 700;
+}
+
+.bubblechart_text {
+    font-family: 'Fira Sans', sans-serif;
+}
+
+.bubblechart_control-group {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s ease;
+}
+
+.bubblechart_control-group:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.bubblechart_control-input {
+    font-family: 'Fira Sans', sans-serif;
+    color: #334155 !important;
+    background-color: transparent !important;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.bubblechart_control-input:focus {
+    outline: none !important;
+    background-color: #ffffff !important;
+    box-shadow: 0 0 0 2px rgba(10, 10, 40, 0.1);
+}
+
+.bubblechart_control-input::placeholder {
+    color: #94a3b8;
+    opacity: 1;
+}
+
+select.bubblechart_control-input {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0 center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2rem !important;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.bubblechart_tooltip {
+    background: rgba(15, 23, 42, 0.95) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 12px !important;
+    padding: 16px 20px !important; 
+
+    box-shadow: 
+        0 10px 15px -3px rgba(0, 0, 0, 0.4),
+        0 4px 6px -2px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    
+    color: #f8fafc !important;
+    line-height: 1.6;
+    font-family: 'Fira Sans', sans-serif !important;
+}
+
+.bubblechart_tooltip strong {
+    color: #fff;
+    font-weight: 600;
+}
+
+.bubblechart_scroll::-webkit-scrollbar {
+    width: 4px;
+}
+.bubblechart_scroll::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+.bubblechart_scroll::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+.bubblechart_scroll::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.bubblechart_legend text {
+    font-family: 'Fira Sans', sans-serif;
+    text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+}
+
+.bubblechart_close-hint {
+    opacity: 0.7;
+    letter-spacing: 0.02em;
+    transition: opacity 0.2s;
+    font-family: 'Fira Sans', sans-serif;
+}
+.bubblechart_close-hint:hover {
+    opacity: 1;
+}
+
+circle {
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+/* --- Layout & Containers --- */
+#leaderboard {
+    font-family: 'Fira Sans', sans-serif;
+    color: #1e293b;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.lb_grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+    height: 700px;
+}
+
+.lb_card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+}
+
+/* --- Header Area --- */
+.lb_header {
+    padding: 24px;
+    border-bottom: 1px solid #f1f5f9;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background: #ffffff;
+}
+
+.lb_title_row {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    min-height: 85vh;
+}
+
+.lb_title {
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: -0.01em;
+}
+
+/* --- Inputs --- */
+.lb_search {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.2s ease;
+    background: #f8fafc;
     box-sizing: border-box;
 }
 
-.net-wrap {
+.lb_search:focus {
+    background: #ffffff;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.lb_search::placeholder {
+    color: #94a3b8;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+/* --- Legend --- */
+.lb_legend_container {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.lb_legend_item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+}
+
+.lb_legend_item:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.lb_legend_text {
+    font-size: 12px;
+    font-weight: 500;
+    color: #475569;
+}
+
+/* --- List Area --- */
+.lb_scroll_area {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.lb_row {
+    display: flex;
+    align-items: center;
+    padding: 16px 24px;
+    cursor: pointer;
+    border-bottom: 1px solid #f8fafc;
+    transition: background 0.15s ease;
+}
+
+.lb_row:hover {
+    background: #f8fafc;
+}
+
+.lb_rank {
+    width: 35px;
+    font-size: 14px;
+    color: #94a3b8;
+    font-weight: 600;
+    font-family: 'Roboto Slab', serif;
+}
+
+.lb_row_info {
+    flex-grow: 1;
+}
+
+.lb_row_name {
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #1e293b;
+    margin-bottom: 6px;
+}
+
+.lb_bar_container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.lb_count_text {
+    font-size: 12px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+/* --- Profile Details --- */
+.lb_details_content {
+    padding: 30px 24px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.lb_empty_state {
+    text-align: center;
+    color: #94a3b8;
+    margin-top: 50%;
+    transform: translateY(-50%);
+    font-style: italic;
+    font-size: 14px;
+}
+
+.lb_profile_header {
+    text-align: center;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.lb_avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    display: flex;
     align-items: center;
     justify-content: center;
+    font-family: 'Roboto Slab', serif;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 auto 16px auto;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-.net-controls {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    margin: 10px 0 2px 0;
-    flex-wrap: wrap;
+.lb_profile_name {
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.2;
 }
 
-.net-controls label {
+.lb_profile_meta {
     font-size: 13px;
+    color: #64748b;
+    margin-top: 6px;
+    font-weight: 500;
+}
+
+.lb_section_label {
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+}
+
+.lb_topic_row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    padding: 4px 0;
+}
+
+.lb_topic_name {
+    color: #334155;
+    max-width: 65%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.lb_topic_bar_wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.lb_topic_track {
+    width: 60px;
+    height: 6px;
+    background: #f1f5f9;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.lb_topic_count {
     font-weight: 600;
-    color: #111827;
-}
-
-.net-controls input {
-    padding: 8px 10px;
-    border: 1px solid #e5e7eb;
-    border-radius: 10px;
-    min-width: 260px;
-    outline: none;
-}
-
-.net-controls button {
-    padding: 8px 10px;
-    border: 1px solid #e5e7eb;
-    border-radius: 10px;
-    background: #fff;
-    cursor: pointer;
-}
-
-.meta {
-    font-size: 12px;
-    color: #6b7280;
-    margin-left: 6px;
-}
-
-#netSvg {
-    width: 1100px;
-    height: 650px;
-    display: block;
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
-}
-
-.tip {
-    position: absolute;
-    pointer-events: none;
-    opacity: 0;
-    background: rgba(17, 24, 39, 0.92);
-    color: #fff;
-    padding: 8px 10px;
-    border-radius: 10px;
-    font-size: 12px;
-    line-height: 1.25;
-    transform: translate(10px, -12px);
+    color: #64748b;
+    font-size: 11px;
+    width: 24px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
 }

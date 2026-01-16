@@ -26,7 +26,7 @@ container.selectAll("*").remove();
 const mainWrapper = container.append("div")
     .style("max-width", `${width}px`)
     .style("margin", "0 auto")
-    .style("font-family", "'Inter', system-ui, -apple-system, sans-serif")
+    .style("font-family", "'Fira Sans', system-ui, -apple-system, sans-serif")
     .style("background", colorBg)
     .style("border-radius", "16px")
     .style("box-shadow", "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)")
@@ -44,6 +44,7 @@ const header = mainWrapper.append("div")
 
 const titleGroup = header.append("div");
 titleGroup.append("div")
+    .style("font-family", "'Roboto Slab', sans-serif")
     .style("font-size", "20px")
     .style("font-weight", "700")
     .style("color", "#0f172a")
@@ -86,6 +87,7 @@ const regionSelect = regionWrapper.append("select")
     .style("padding", "6px 2px")
     .style("border", "none")
     .style("background", "transparent")
+    .style("font-family", "'Fira Sans', sans-serif")
     .style("font-size", "14px")
     .style("font-weight", "600")
     .style("color", colorText)
@@ -103,6 +105,7 @@ const searchInput = controls.append("input")
     .style("padding", "8px 12px")
     .style("border", "none")
     .style("background", "transparent")
+    .style("font-family", "'Fira Sans', sans-serif")
     .style("font-size", "14px")
     .style("width", "200px")
     .style("outline", "none")
@@ -209,7 +212,6 @@ Promise.all([
         } 
         
         chartBody.style("display", "grid");
-        chartBody.style("height", `${chartHeight}px`); 
 
         const cards = chartBody.selectAll(".inst-card")
             .data(filteredData, d => d.name);
@@ -293,7 +295,7 @@ Promise.all([
         .style("color", "white")
         .style("padding", "8px 12px")
         .style("border-radius", "8px")
-        .style("font-family", "'Inter', sans-serif")
+        .style("font-family", "'Fira Sans', sans-serif")
         .style("font-size", "12px")
         .style("box-shadow", "0 10px 15px -3px rgba(0, 0, 0, 0.3)")
         .style("pointer-events", "none")
