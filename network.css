@@ -1,0 +1,73 @@
+.net-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 85vh;
+    box-sizing: border-box;
+}
+
+.net-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.net-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin: 10px 0 2px 0;
+    flex-wrap: wrap;
+}
+
+.net-controls label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.net-controls input {
+    padding: 8px 10px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    min-width: 260px;
+    outline: none;
+}
+
+.net-controls button {
+    padding: 8px 10px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    background: #fff;
+    cursor: pointer;
+}
+
+.meta {
+    font-size: 12px;
+    color: #6b7280;
+    margin-left: 6px;
+}
+
+#netSvg {
+    width: 1100px;
+    height: 650px;
+    display: block;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+.tip {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    background: rgba(17, 24, 39, 0.92);
+    color: #fff;
+    padding: 8px 10px;
+    border-radius: 10px;
+    font-size: 12px;
+    line-height: 1.25;
+    transform: translate(10px, -12px);
+}
