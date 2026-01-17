@@ -1,0 +1,195 @@
+.raise_institutions_main{
+    margin-left: 5rem;
+    margin-right: 5rem;;
+}
+
+#raise_controls {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin: 10px 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+#raise_years {
+    display: inline-flex;
+    gap: 6px;
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 999px;
+    padding: 4px;
+}
+.ybtn {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    padding: 6px 14px;
+    border-radius: 99px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #555;
+    transition: all 0.2s ease;
+}
+
+.ybtn:hover {
+    background: #f5f5f5;
+}
+
+.ybtn.active {
+    background: #222;
+    color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.raise-search-wrapper {
+    flex: 1;
+    min-width: 340px;
+    position: relative;
+}
+
+.raise-search-box {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 999px;
+    padding: 6px 10px;
+}
+
+.raise-search-label {
+    font-size: 12px;
+    color: #555;
+    white-space: nowrap;
+}
+
+#raise_inp {
+    border: 0;
+    outline: 0;
+    min-width: 160px;
+    flex: 1;
+    font-size: 13px;
+    color: #333;
+}
+
+#raise_pills {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.raise-pill {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #bce;
+    background: #eef6ff;
+    border-radius: 99px;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #2563eb;
+    margin-right: 4px;
+    transition: background 0.2s;
+}
+
+.raise-pill:hover {
+    background: #dbeafe;
+}
+
+.raise-pill .close-icon {
+    margin-left: 6px;
+    opacity: 0.6;
+    font-weight: bold;
+}
+
+#raise_clear {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    font-size: 14px;
+    color: #666;
+    visibility: hidden;
+}
+
+#raise_clear.visible {
+    visibility: visible;
+}
+
+#raise_dd {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 44px;
+    z-index: 20;
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 12px;
+    box-shadow: 0 10px 22px rgba(0,0,0,0.08);
+    max-height: 260px;
+    overflow: auto;
+}
+
+#raise_dd.open {
+    display: block;
+}
+
+.raise-dd-item {
+    display: block;
+    width: 100%;
+    text-align: left;
+    border: 0;
+    background: transparent;
+    padding: 10px 14px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #333;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.1s;
+}
+
+.raise-dd-item:hover {
+    background: #f9fafb;
+}
+
+
+#sqTreemapSvg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.chart-title {
+    font-size: 15px;
+    font-weight: 700;
+    fill: #111;
+}
+
+.label-main {
+    pointer-events: none;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.label-sub {
+    pointer-events: none;
+    font-size: 10px;
+    opacity: 0.8;
+}
+
+#sqTreemapTip {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    background: #111;
+    color: #fff;
+    padding: 7px 9px;
+    border-radius: 10px;
+    font-size: 12px;
+    max-width: 320px;
+    z-index: 10;
+    transition: opacity 0.2s;
+}

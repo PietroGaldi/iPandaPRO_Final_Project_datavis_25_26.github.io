@@ -4,10 +4,11 @@
 <head>
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="stylesheet" href="graphs.css">
+    <link rel="stylesheet" href="institutions.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css">
     <Title>Mapping the RAISE ecosystem: institutions</Title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/d3-sankey@0.12.3/dist/d3-sankey.min.js"></script>
     <script src="navbar_footer.js"></script>
 </head>
 
@@ -18,12 +19,38 @@
                 <h1>Institutions in the RAISE ecosystem</h1>
             </header>
 
-            <main>
-            </main>
+            <div class="raise_institutions_main">
+                <div id="raise_controls">
+
+                    <div id="raise_years">
+                        <button class="ybtn" data-y="Total">Total</button>
+                        <button class="ybtn" data-y="2023">2023</button>
+                        <button class="ybtn" data-y="2024">2024</button>
+                        <button class="ybtn" data-y="2025">2025</button>
+                    </div>
+
+                    <div class="raise-search-wrapper">
+                        <div class="raise-search-box">
+                            <span class="raise-search-label">Highlight:</span>
+                            <div id="raise_pills"></div>
+                            <input id="raise_inp" placeholder="Search institution..." autocomplete="off">
+                            <button id="raise_clear" title="Clear">x</button>
+                        </div>
+
+                        <div id="raise_dd"></div>
+                    </div>
+                </div>
+
+                <div class="raise-chart-container" style="position: relative;">
+                    <svg id="sqTreemapSvg"></svg>
+                    <div id="sqTreemapTip"></div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
-
+<script src="visualizations/sankey.js"></script>
+<script src="visualizations/treemap.js"></script>
 
 
 
