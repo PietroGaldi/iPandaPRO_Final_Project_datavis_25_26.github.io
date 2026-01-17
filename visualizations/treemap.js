@@ -14,11 +14,20 @@
   const OTHERS_COLOR = "#e5e7eb"; 
   const OTHERS_TEXT  = "#6b7280";
   
-  const PALETTE = [
-    "#4e79a7", "#f28e2b", "#e15759", "#76b7b2", "#59a14f",
-    "#edc949", "#af7aa1", "#ff9da7", "#9c755f", "#bab0ab",
-    "#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd"
-  ];
+    const PALETTE = [
+        "#5e96f0", 
+        "#ef4444", 
+        "#10b981", 
+        "#f59e0b", 
+        "#4749d1", 
+        "#ec4899", 
+        "#8b5cf6", 
+        "#13d1bb", 
+        "#f97316", 
+        "#84cc16", 
+        "#119ab2", 
+        "#64748b"  
+    ];
 
   const svg = d3.select("#sqTreemapSvg");
   const btns = [...document.querySelectorAll("#raise_years .ybtn")];
@@ -26,6 +35,29 @@
   const pillsEl = document.getElementById("raise_pills");
   const clearBtn = document.getElementById("raise_clear");
   const dd = document.getElementById("raise_dd");
+
+  // --- TOOLTIP SETUP ---
+  const tooltip = d3.select(".pictorial-tooltip").empty() 
+    ? d3.select("body").append("div").attr("class", "pictorial-tooltip")
+    : d3.select(".pictorial-tooltip");
+
+  tooltip
+    .style("position", "absolute")
+    .style("background", "rgba(15, 23, 42, 0.95)")
+    .style("backdrop-filter", "blur(8px)")
+    .style("color", "white")
+    .style("padding", "8px 12px")
+    .style("border-radius", "8px")
+    .style("font-family", "'Fira Sans', sans-serif")
+    .style("font-size", "12px")
+    .style("box-shadow", "0 10px 15px -3px rgba(0, 0, 0, 0.3)")
+    .style("pointer-events", "none")
+    .style("opacity", 0)
+    .style("z-index", 1000)
+    .style("border", "1px solid rgba(255,255,255,0.1)");
+  
+  const colorHoverText = "#f59e0b"; 
+  // ---------------------
 
   const J = s => { try { return JSON.parse(s) } catch { return null } };
   const norm = s => (s || "").trim().replace(/\s+/g, " ");
@@ -41,8 +73,8 @@
     return out.filter(Boolean);
   };
 
-  const hash = s => { let h = 2166136261; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619) } return h >>> 0 };
-  const col = s => s === OTHERS_LABEL ? OTHERS_COLOR : PALETTE[hash(s) % PALETTE.length];
+  const colorScale = d3.scaleOrdinal(PALETTE);
+  const col = s => s === OTHERS_LABEL ? OTHERS_COLOR : colorScale(s);
   
   const getTextColor = (bgColor) => {
     if (bgColor === OTHERS_COLOR) return OTHERS_TEXT;
@@ -53,7 +85,6 @@
 
   const W = () => Math.max(720, Math.min(1200, (svg.node()?.parentElement?.getBoundingClientRect().width || 900)));
 
-  // Imposta Total come default
   const state = { year: "Total", terms: [] };
   let COUNTS = null, ALL_INST = [];
 
@@ -66,16 +97,24 @@
 
   function renderPills() {
     pillsEl.innerHTML = "";
+    const container = document.querySelector(".tm_pills_container");
+
     state.terms.forEach((t, i) => {
       const p = document.createElement("button");
       p.type = "button";
-      p.className = "raise-pill"; 
-      p.innerHTML = `<span>${t}</span> <span class="close-icon">×</span>`;
+      p.className = "tm_pill"; 
+      p.innerHTML = `<span>${t}</span> <span class="close-icon">x</span>`;
       p.onclick = () => removeTerm(i);
       pillsEl.appendChild(p);
     });
-    if(state.terms.length) clearBtn.classList.add("visible");
-    else clearBtn.classList.remove("visible");
+
+    if(state.terms.length) {
+        clearBtn.classList.add("visible");
+        if (container) container.style.display = "block"; 
+    } else {
+        clearBtn.classList.remove("visible");
+        if (container) container.style.display = "none";
+    }
   }
 
   function setYear(y) {
@@ -97,7 +136,7 @@
       const row = document.createElement("button");
       row.type = "button";
       row.textContent = name;
-      row.className = "raise-dd-item"; 
+      row.className = "tm-dd-item"; 
       row.onclick = () => { addTerm(name); inp.value = ""; closeDD(); inp.focus(); };
       dd.appendChild(row);
     });
@@ -166,12 +205,11 @@
     const t = svg.transition().duration(500).ease(d3.easeCubicOut);
     svg.attr("viewBox", `0 0 ${w} ${H}`).attr("width", w).attr("height", H);
     
-    let title = svg.select("text.chart-title");
+    let title = svg.select("text.tm_chart_title");
     if(title.empty()) {
-        title = svg.append("text").attr("class", "chart-title")
-           .attr("y", 18).attr("text-anchor", "middle");
+        title = svg.append("text").attr("class", "tm_chart_title")
+           .attr("y", 25).attr("text-anchor", "middle");
     }
-    title.attr("x", w / 2).text(`Institutional Output ${y}`);
 
     let g = svg.select("g.main-group");
     if(g.empty()) {
@@ -219,6 +257,7 @@
       .style("opacity", 0);
 
     nodesEnter.append("rect")
+      .attr("class", "tm_node_rect")
       .attr("rx", 6).attr("ry", 6)
       .attr("width", d => Math.max(0, d.x1 - d.x0))
       .attr("height", d => Math.max(0, d.y1 - d.y0));
@@ -228,12 +267,39 @@
       .attr("preserveAspectRatio", "xMidYMid meet");
 
     nodesEnter.append("text")
-      .attr("class", "label-main");
+      .attr("class", "tm_label_main");
       
     nodesEnter.append("text")
-       .attr("class", "label-sub");
+       .attr("class", "tm_label_sub");
 
     const nodesMerge = nodesEnter.merge(nodes);
+
+    // --- UPDATED TOOLTIP LOGIC ---
+    nodesMerge
+      .on("mousemove", function(event, d) {
+          // Calculate current width and height
+          const width = d.x1 - d.x0;
+          const height = d.y1 - d.y0;
+
+          // Only show tooltip if text is HIDDEN (height < 35 OR width < 50)
+          if (height < 35 || width < 50) {
+              tooltip.transition().duration(100).style("opacity", 1);
+              tooltip
+                .html(`
+                    <div style="font-weight:600; color:${colorHoverText}">${d.data.inst}</div>
+                    <div style="margin-top:2px;">${d.value} publications</div>
+                `)
+                .style("left", (event.pageX + 10) + "px")
+                .style("top", (event.pageY - 20) + "px");
+          } else {
+              // Otherwise, ensure it is hidden
+              tooltip.style("opacity", 0);
+          }
+      })
+      .on("mouseleave", function() {
+          tooltip.transition().duration(200).style("opacity", 0);
+      });
+    // -----------------------------
 
     nodesMerge.transition(t)
       .attr("transform", d => `translate(${d.x0},${d.y0})`)
@@ -263,11 +329,12 @@
            .attr("height", s);
       });
 
-    nodesMerge.select("text.label-main")
+    nodesMerge.select("text.tm_label_main")
       .each(function(d) {
         const txt = d3.select(this);
         const w = d.x1 - d.x0, h = d.y1 - d.y0;
         
+        // Hide if too small (Tooltip handles this case now)
         if (h < 35 || w < 50) { txt.attr("display", "none"); return; } 
         txt.attr("display", "block");
 
@@ -293,15 +360,15 @@
             line = [word];
             if ((lineNumber + 1) * 14 > h - 30) { break; } 
             tspan = txt.append("tspan")
-                       .attr("x", 6)
-                       .attr("y", 18)
-                       .attr("dy", ++lineNumber * lineHeight + "em")
-                       .text(word);
+                        .attr("x", 6)
+                        .attr("y", 18)
+                        .attr("dy", ++lineNumber * lineHeight + "em")
+                        .text(word);
           }
         }
       });
       
-    nodesMerge.select("text.label-sub")
+    nodesMerge.select("text.tm_label_sub")
       .each(function(d) {
         const txt = d3.select(this);
         const w = d.x1 - d.x0, h = d.y1 - d.y0;
@@ -330,9 +397,7 @@
       
       const set = new Set(insts(r));
       for (const s of set) { 
-          // Aggiungi all'anno specifico
           mYear.set(s, (mYear.get(s) || 0) + 1);
-          // Aggiungi al Totale
           mTotal.set(s, (mTotal.get(s) || 0) + 1);
           setAll.add(s); 
       }
