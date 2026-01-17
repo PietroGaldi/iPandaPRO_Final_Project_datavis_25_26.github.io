@@ -19,6 +19,27 @@
                 <h1>Institutions in the RAISE ecosystem</h1>
             </header>
 
+            <section id="choropleth_section">
+                <div class="chl_header">
+                    <div class="chl_title">
+                        <h2>Institutions by country</h2>
+                        <p>number of distinct institutions of a country</p>
+                    </div>
+                </div>
+
+                <div class="chl_main">
+                    <div class="chl_map_wrap">
+                        <svg id="chl_svg"></svg>
+                        <div id="chl_legend"></div>
+                        <div id="chl_tip"></div>
+                    </div>
+
+                    <div id="chl_panel">
+                        <div id="chl_panel_body">Click a country to see details</div>
+                    </div>
+                </div>
+            </section>
+
             <div class="raise_institutions_main">
                 <div id="raise_controls">
 
@@ -45,11 +66,12 @@
                     <svg id="sqTreemapSvg"></svg>
                     <div id="sqTreemapTip"></div>
                 </div>
+
             </div>
         </div>
     </div>
 </body>
-<script src="visualizations/sankey.js"></script>
+<script src="visualizations/choropleth.js"></script>
 <script src="visualizations/treemap.js"></script>
 
 
