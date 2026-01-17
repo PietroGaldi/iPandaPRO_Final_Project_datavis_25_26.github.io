@@ -14,7 +14,7 @@
 
 <body>
     <div class="main_area">
-        <div class="content_wrapper">
+        <div class="tm_wrapper">
             <header>
                 <h1>Institutions in the RAISE ecosystem</h1>
             </header>
@@ -40,35 +40,35 @@
                 </div>
             </section>
 
-            <div class="raise_institutions_main">
-                <div id="raise_controls">
-
-                    <div id="raise_years">
-                        <button class="ybtn" data-y="Total">Total</button>
-                        <button class="ybtn" data-y="2023">2023</button>
-                        <button class="ybtn" data-y="2024">2024</button>
-                        <button class="ybtn" data-y="2025">2025</button>
+            <div class="tm_card">
+                <div id="tm_controls_header">
+                    <div id="raise_years" class="tm_controls_group">
+                        <button class="tm_year_btn ybtn" data-y="Total">Total</button>
+                        <button class="tm_year_btn ybtn" data-y="2023">2023</button>
+                        <button class="tm_year_btn ybtn" data-y="2024">2024</button>
+                        <button class="tm_year_btn ybtn" data-y="2025">2025</button>
                     </div>
 
-                    <div class="raise-search-wrapper">
-                        <div class="raise-search-box">
-                            <span class="raise-search-label">Highlight:</span>
-                            <div id="raise_pills"></div>
-                            <input id="raise_inp" placeholder="Search institution..." autocomplete="off">
-                            <button id="raise_clear" title="Clear">x</button>
+                    <div class="tm_search_group">
+                        <div class="tm_search_wrapper">
+                            <input type="text" id="raise_inp" class="tm_search_input"
+                                placeholder="Search institution...">
+                            <div id="raise_dd" class="modern-scroll"></div>
                         </div>
-
-                        <div id="raise_dd"></div>
+                        <button id="raise_clear" class="tm_clear_btn" type="button">Clear filters</button>
                     </div>
                 </div>
+            </div>
 
-                <div class="raise-chart-container" style="position: relative;">
-                    <svg id="sqTreemapSvg"></svg>
-                    <div id="sqTreemapTip"></div>
-                </div>
+            <div class="tm_pills_container">
+                <div id="raise_pills" class="tm_pills"></div>
+            </div>
 
+            <div class="raise-chart-container" style="position: relative;">
+                <svg id="sqTreemapSvg"></svg>
             </div>
         </div>
+    </div>
     </div>
 </body>
 <script src="visualizations/choropleth.js"></script>

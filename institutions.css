@@ -105,19 +105,6 @@
     font-weight: bold;
 }
 
-#raise_clear {
-    border: 0;
-    background: transparent;
-    cursor: pointer;
-    font-size: 14px;
-    color: #666;
-    visibility: hidden;
-}
-
-#raise_clear.visible {
-    visibility: visible;
-}
-
 #raise_dd {
     display: none;
     position: absolute;
@@ -190,8 +177,10 @@
     border-radius: 10px;
     font-size: 12px;
     max-width: 320px;
-    z-index: 10;
     transition: opacity 0.2s;
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 #choropleth_section {

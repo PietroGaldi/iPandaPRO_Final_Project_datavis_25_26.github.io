@@ -570,3 +570,277 @@ circle {
     text-align: right;
     font-variant-numeric: tabular-nums;
 }
+
+/* --- Search Input & Wrapper --- */
+.tm_search_wrapper {
+    position: relative;
+    width: 320px; /* Slightly wider for better UX */
+    font-family: 'Fira Sans', sans-serif;
+}
+
+.tm_search_input {
+    width: 100%;
+    padding: 12px 16px;
+    padding-left: 40px; /* Space for a search icon if you add one via CSS pseudo-element */
+    border: 1px solid #e2e8f0;
+    border-radius: 12px; /* Softer, modern corners */
+    background: #f8fafc url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 12px center;
+    background-size: 20px;
+    font-size: 14px;
+    color: #334155;
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    box-sizing: border-box;
+}
+
+.tm_search_input:focus {
+    background-color: #ffffff;
+    border-color: #3b82f6;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+    transform: translateY(-1px);
+}
+
+.tm_search_input::placeholder {
+    color: #94a3b8;
+}
+
+/* --- The Modern Dropdown --- */
+#raise_dd {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px); /* Glassmorphism effect */
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 12px;
+    box-shadow: 
+        0 10px 25px -5px rgba(0, 0, 0, 0.1), 
+        0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    visibility: hidden;
+}
+
+#raise_dd.open {
+    max-height: 320px;
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+    padding: 8px 0; /* Add padding inside the container */
+    overflow-y: auto;
+}
+
+/* Dropdown Items */
+.tm-dd-item {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 10px 16px;
+    background: transparent;
+    border: none;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 14px;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+}
+
+.tm-dd-item:hover {
+    background: #f1f5f9;
+    color: #0f172a;
+    padding-left: 20px; /* Slight slide animation on hover */
+    border-left-color: #3b82f6;
+}
+
+.tm_clear_btn {
+    appearance: none;
+    background: #fff1f2;
+    border: 1px solid #fecaca;
+    color: #e11d48;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 0 16px; /* Use 0 for top/bottom to let height centering work */
+    border-radius: 8px;
+    cursor: pointer;
+    
+    /* Animation & State */
+    opacity: 0;
+    transform: translateX(10px);
+    pointer-events: none; /* Not clickable when hidden */
+    transition: all 0.3s ease;
+    
+    /* Layout */
+    white-space: nowrap;
+    height: 42px; /* Fixed height to match input */
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    
+    /* Ensure it sits on top */
+    position: relative;
+    z-index: 30; 
+}
+
+.tm_clear_btn.visible {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto; /* Re-enable clicks when visible */
+}
+
+/* Ensure hover works by adding !important if necessary, or just high specificity */
+.tm_clear_btn:hover {
+    background: #fee2e2;
+    border-color: #fda4af;
+    color: #be123c;
+    pointer-events: auto; /* Double-check to ensure it stays clickable */
+}
+
+.tm_clear_btn::before {
+    font-size: 16px;
+    line-height: 1;
+    font-weight: bold;
+}
+
+/* --- Treemap Text Labels --- */
+/* These ensure the text is visible and styled correctly */
+
+.tm_label_main {
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px; 
+    pointer-events: none; /* Crucial: allows clicking the rect behind it */
+    fill: white; /* Default fallback */
+}
+
+.tm_label_sub {
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    opacity: 0.9;
+    pointer-events: none;
+}
+
+/* --- Main Layout Container --- */
+.tm_wrapper {
+    display: flex;
+    flex-direction: column; /* Stacks items vertically */
+    gap: 0; /* We will control spacing via margins/padding for finer control */
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 10px 0;
+    box-sizing: border-box;
+}
+
+.tm_card {
+    flex-shrink: 0; /* Prevents card from shrinking */
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+    overflow: visible; 
+    padding: 20px;
+    position: relative; 
+    z-index: 20; 
+    margin-bottom: 10px; /* Default space between Card and Chart */
+}
+
+.tm_pills_container {
+    flex-shrink: 0; /* Allows container to grow vertically without squishing */
+    width: 100%;
+    box-sizing: border-box;
+    /* Transition for smooth sliding (optional) */
+    transition: all 0.2s ease-out;
+    margin-bottom: 10px; /* Space between Pills and Chart */
+}
+
+.tm_pills_container:empty {
+    display: none;
+    margin-bottom: 0;
+}
+
+.tm_pills {
+    display: flex; 
+    gap: 8px; 
+    flex-wrap: wrap;
+}
+
+.tm_pill {
+    appearance: none;
+    border: 1px solid #e2e8f0;
+    background: #f1f5f9; /* Light slate gray */
+    color: #334155;
+    padding: 6px 12px;
+    border-radius: 20px; /* Fully rounded pill shape */
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.tm_pill:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+    border-color: #cbd5e1;
+    transform: translateY(-1px);
+}
+
+.tm_pill .close-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    background: #cbd5e1;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+    transition: background 0.2s;
+}
+
+.tm_pill:hover .close-icon {
+    background: #94a3b8; /* Darker on hover */
+}
+
+.main_area {
+    height: 100vh; 
+    overflow-y: auto;
+}
+
+#tm_controls_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.tm_search_group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.raise-chart-container {
+    flex-grow: 1; /* Allows chart to fill remaining space if needed */
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    /* Ensure no negative margins are pulling it up */
+    margin-top: 0; 
+}
