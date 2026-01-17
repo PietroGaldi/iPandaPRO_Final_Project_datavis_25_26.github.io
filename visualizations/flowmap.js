@@ -103,7 +103,8 @@ Promise.all([
                     id: row.id,
                     name: row.display_name,
                     geoCoords: [lon, lat],
-                    isMajor: majorIds.has(row.id)
+                    isMajor: majorIds.has(row.id),
+                    type: row.type
                 });
             }
         }
@@ -279,7 +280,9 @@ Promise.all([
         updateHighlight();
         if (selectedNodeId) {
             tooltip.transition().duration(200).style("opacity", 1);
-            tooltip.html(`<b>${d.name}</b>`).style("left", (event.pageX + 10) + "px").style("top", (event.pageY - 28) + "px");
+            tooltip.html(`<b>${d.name}</b><br><span style="font-size:11px; color:#ccc;">${d.type || ""}</span>`)
+                .style("left", (event.pageX + 10) + "px")
+                .style("top", (event.pageY - 28) + "px");
         } else {
             tooltip.transition().duration(200).style("opacity", 0);
         }
@@ -291,9 +294,9 @@ Promise.all([
 
     nodeElements.on("mouseenter", (event, d) => {
         tooltip.transition().duration(100).style("opacity", 1);
-        tooltip.html(`<b>${d.name}</b>`)
-            .style("left", (event.pageX + 10) + "px")
-            .style("top", (event.pageY - 28) + "px");
+        tooltip.html(`<b>${d.name}</b><br><span style="font-size:11px; color:#ccc;">${d.type || ""}</span>`)
+                   .style("left", (event.pageX + 10) + "px")
+                   .style("top", (event.pageY - 28) + "px");
 
         if (selectedNodeId) {
             d3.select(event.target).transition().duration(100)
