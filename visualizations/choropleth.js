@@ -24,6 +24,7 @@
   const gRoot = svg.append("g");
   const gMap = gRoot.append("g");
   const gOverlay = gRoot.append("g");
+
   const main = d3.select("#chl_main");
   const tip = d3.select("#chl_tip");
   const legend = d3.select("#chl_legend");
@@ -36,16 +37,22 @@
   const normUp = s => norm(s).toUpperCase();
   const safeJSON = s => { try { return JSON.parse(s); } catch { return null; } };
 
-  function hidePanel() { panel.style("display", "none"); }
+  function hidePanel() {
+    panel.style("display", "none");
+    main.style("grid-template-columns", "1fr");
+  }
+
   function showPanel() {
     main.style("grid-template-columns", "4fr 1fr");
-    panel.style("display", "block");
-    panel.style("border", "1px solid #e5e7eb")
+    panel
+      .style("display", "block")
+      .style("border", "1px solid #e5e7eb")
       .style("border-radius", "14px")
       .style("background", "#fff")
       .style("padding", "12px")
-      .style("min-height", "140px").style("width", "13rem");
-    }
+      .style("min-height", "140px")
+      .style("width", "13rem");
+  }
 
   // Loading
   function toggleLoading(isLoading, msg = "Loading data...") {
@@ -58,21 +65,20 @@
         .style("padding", "20px 40px").style("background", "rgba(0,0,0,0.8)")
         .style("color", "white").style("border-radius", "8px")
         .style("font-family", "system-ui")
-        .style("pointer-events", "none");
+        .style("pointer-events", "none")
+        .style("z-index", "9999");
     }
     loader.text(msg).style("display", isLoading ? "block" : "none");
   }
 
   function iso2FromProps(p) {
     if (!p) return null;
-
     let code = p.ISO_A2 || p.ISO2 || p.iso2 || p.iso_a2 || p.A2 || p["ISO3166-1-Alpha-2"];
     if (code && code !== "-99" && code !== -99) return normUp(code);
 
     const name = (p.ADMIN || p.NAME || p.name || "").toLowerCase();
     if (name === "france") return "FR";
     if (name === "norway") return "NO";
-
     return null;
   }
 
@@ -130,12 +136,11 @@
     const minV = v.length ? v[0] : 1;
 
     if (v.length === 0) {
-      return { scale: d => CONFIG.unknownColor, thresholds: [], colors: [], maxV: 0 };
+      return { scale: _ => CONFIG.unknownColor, thresholds: [], colors: [], maxV: 0 };
     }
 
     const START_IDX = 3;
-    const colorsFull = CONFIG.colors;
-    const colors = colorsFull.slice(START_IDX);
+    const colors = CONFIG.colors.slice(START_IDX);
 
     const logScale = d3.scaleLog()
       .domain([minV, maxV])
@@ -197,15 +202,13 @@
         .attr("stroke-width", 0.5);
     });
 
-    const labelStyle = { fontSize: "8px", fill: "#555", fontFamily: "sans-serif" };
-
     g.append("text")
       .attr("x", 0)
       .attr("y", mt + barHeight + 10)
       .text("0")
       .attr("text-anchor", "start")
-      .style("font-size", labelStyle.fontSize)
-      .attr("fill", labelStyle.fill);
+      .style("font-size", "8px")
+      .attr("fill", "#555");
 
     thresholds.forEach((t, i) => {
       if (i < n - 1) {
@@ -214,8 +217,8 @@
           .attr("y", mt + barHeight + 10)
           .text(t)
           .attr("text-anchor", "middle")
-          .style("font-size", labelStyle.fontSize)
-          .attr("fill", labelStyle.fill);
+          .style("font-size", "8px")
+          .attr("fill", "#555");
       }
     });
 
@@ -224,8 +227,8 @@
       .attr("y", mt + barHeight + 10)
       .text(maxV)
       .attr("text-anchor", "end")
-      .style("font-size", labelStyle.fontSize)
-      .attr("fill", labelStyle.fill);
+      .style("font-size", "8px")
+      .attr("fill", "#555");
   }
 
   // TOOLTIP
@@ -252,7 +255,7 @@
   function hideTip() { tip.style("opacity", 0); }
 
   // PANEL
-  function updatePanel(name, iso2, count, topInst) {
+  function updatePanel(name, iso2, count, instEntriesSorted) {
     if (!iso2) {
       hidePanel();
       panelBody.html("");
@@ -261,29 +264,44 @@
 
     showPanel();
 
-    const listHtml = topInst.length
-      ? topInst.map(([n, c], i) =>
-        `<div style="display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid #eee; font-size:12px;">
-           <span style="font-weight:500; color:#374151; padding-right:8px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${n}">${i + 1}. ${n}</span>
-           <span style="color:#6b7280;">${c}</span>
+    const listHtml = instEntriesSorted.length
+      ? instEntriesSorted.map(([n, c], i) =>
+        `<div style="display:flex; justify-content:space-between; gap:8px; padding:4px 0; border-bottom:1px solid #f3f4f6; font-size:12px;">
+           <span style="font-weight:500; color:#374151; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${n}">${i + 1}. ${n}</span>
+           <span style="color:#6b7280; flex:0 0 auto;">${c}</span>
          </div>`
       ).join("")
       : `<div style="color:#999">No data available</div>`;
 
     panelBody.html(`
-      <div style="border-bottom: 2px solid #e5e7eb; padding-bottom: 8px; margin-bottom: 8px;">
+      <div style="border-bottom: 2px solid #e5e7eb; padding-bottom: 8px; margin-bottom: 10px;">
         <h3 style="margin:0; font-size:18px; color:#111827;">${iso2}</h3>
-        <div style="font-size:12px; color:#6b7280; font-weight:600;">ISO: ${iso2}</div>
+        <div style="font-size:12px; color:#6b7280; font-weight:600;">${name || ""}</div>
       </div>
-      <div style="margin-bottom:12px;">
-        <div style="font-size:11px; text-transform:uppercase; letter-spacing:0.5px; color:#6b7280; margin-bottom:4px;">Total Institutions</div>
+
+      <div style="margin-bottom:10px;">
+        <div style="font-size:11px; text-transform:uppercase; letter-spacing:0.5px; color:#6b7280; margin-bottom:4px;">Total Distinct Institutions</div>
         <div style="font-size:24px; font-weight:700; color:#2563eb;">${count}</div>
       </div>
+
       <div>
-        <div style="font-size:11px; text-transform:uppercase; letter-spacing:0.5px; color:#6b7280; margin-bottom:8px;">Top Institutions According To Publication Number</div>
-        ${listHtml}
+        <div style="font-size:11px; text-transform:uppercase; letter-spacing:0.5px; color:#6b7280; margin-bottom:8px;">
+          Institutions by publication count (${instEntriesSorted.length})
+        </div>
+
+        <div style="
+          max-height: 18.2rem;
+          overflow-y: auto;
+          padding-right: 6px;
+        ">
+          ${listHtml}
+        </div>
       </div>
     `);
+
+    panelBody.selectAll("div")
+      .filter(function () { return (this.style && this.style.overflowY === "auto"); })
+      .style("scrollbar-width", "thin");
   }
 
   // STATE
@@ -308,20 +326,14 @@
         d3.json(CONFIG.geoJsonUrl)
       ]);
 
-      geo.features = geo.features.filter(f => {
-        const iso = iso2FromProps(f.properties);
-        return iso !== "AQ";
-      });
+      geo.features = geo.features.filter(f => iso2FromProps(f.properties) !== "AQ");
 
       const values = [...counts.values()];
       const { scale, thresholds, colors, maxV } = makeDiscreteScale(values);
       drawLegend(scale, thresholds, colors, maxV);
 
       const projection = d3.geoNaturalEarth1()
-        .fitExtent(
-          [[CONFIG.pad, CONFIG.pad], [CONFIG.width - CONFIG.pad, CONFIG.height - CONFIG.pad]],
-          geo
-        );
+        .fitExtent([[CONFIG.pad, CONFIG.pad], [CONFIG.width - CONFIG.pad, CONFIG.height - CONFIG.pad]], geo);
 
       const pathGenerator = d3.geoPath(projection);
 
@@ -389,21 +401,16 @@
             .attr("stroke-width", 2)
             .attr("pointer-events", "none");
 
-          const topList = [];
-          if (instNamesByCC.has(cc)) {
-            const m = instNamesByCC.get(cc);
-            topList.push(...[...m.entries()].sort((a, b) => b[1] - a[1]).slice(0, 10));
-          }
+          const instEntriesSorted = instNamesByCC.has(cc)
+            ? [...instNamesByCC.get(cc).entries()].sort((a, b) => b[1] - a[1])
+            : [];
 
-          updatePanel(name, cc, v, topList);
+          updatePanel(name, cc, v, instEntriesSorted);
         });
 
       const handleSearch = (query) => {
         const q = normUp(query);
-        if (!q) {
-          paths.attr("opacity", 1);
-          return;
-        }
+        if (!q) { paths.attr("opacity", 1); return; }
 
         paths.attr("opacity", d => {
           const n = nameFromProps(d.properties).toUpperCase();
