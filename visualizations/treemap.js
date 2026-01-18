@@ -14,21 +14,20 @@
   const OTHERS_COLOR = "#e5e7eb"; 
   const OTHERS_TEXT  = "#6b7280";
   
-    const PALETTE = [
-        "#5e96f0", 
-        "#ef4444", 
-        "#10b981", 
-        "#f59e0b", 
-        "#4749d1", 
-        "#ec4899", 
-        "#8b5cf6", 
-        "#13d1bb", 
-        "#f97316", 
-        "#84cc16", 
-        "#119ab2", 
-        "#64748b"  
-    ];
-
+  const PALETTE = [
+      "#6a97db", // Blue (balanced)
+      "#e06666", // Red (soft yet bright)
+      "#47c290", // Green (fresh)
+      "#e9ac48", // Amber (warm)
+      "#6d6fe1", // Indigo (mid-tone)
+      "#db6bad", // Pink (orchid)
+      "#996fdd", // Violet (lavender)
+      "#44cbb9", // Teal (aqua)
+      "#ec8643", // Orange (sunset)
+      "#94cb4f", // Lime (leaf)
+      "#4bb4ca", // Cyan (sky)
+      "#798797"  // Slate Gray (neutral)
+  ];
   const svg = d3.select("#sqTreemapSvg");
   const btns = [...document.querySelectorAll("#raise_years .ybtn")];
   const inp = document.getElementById("raise_inp");
