@@ -24,15 +24,28 @@
   const gRoot = svg.append("g");
   const gMap = gRoot.append("g");
   const gOverlay = gRoot.append("g");
-
+  const main = d3.select("#chl_main");
   const tip = d3.select("#chl_tip");
   const legend = d3.select("#chl_legend");
+  const panel = d3.select("#chl_panel");
   const panelBody = d3.select("#chl_panel_body");
   const searchInput = d3.select("#chl_search");
   const resetBtn = d3.select("#chl_reset");
+
   const norm = s => (s || "").trim();
   const normUp = s => norm(s).toUpperCase();
   const safeJSON = s => { try { return JSON.parse(s); } catch { return null; } };
+
+  function hidePanel() { panel.style("display", "none"); }
+  function showPanel() {
+    main.style("grid-template-columns", "4fr 1fr");
+    panel.style("display", "block");
+    panel.style("border", "1px solid #e5e7eb")
+      .style("border-radius", "14px")
+      .style("background", "#fff")
+      .style("padding", "12px")
+      .style("min-height", "140px").style("width", "13rem");
+    }
 
   // Loading
   function toggleLoading(isLoading, msg = "Loading data...") {
@@ -44,7 +57,7 @@
         .style("transform", "translate(-50%, -50%)")
         .style("padding", "20px 40px").style("background", "rgba(0,0,0,0.8)")
         .style("color", "white").style("border-radius", "8px")
-        .style("font-family", "system-ui").style("z-index", "9999")
+        .style("font-family", "system-ui")
         .style("pointer-events", "none");
     }
     loader.text(msg).style("display", isLoading ? "block" : "none");
@@ -54,15 +67,11 @@
     if (!p) return null;
 
     let code = p.ISO_A2 || p.ISO2 || p.iso2 || p.iso_a2 || p.A2 || p["ISO3166-1-Alpha-2"];
-
-    if (code && code !== "-99" && code !== -99) {
-      return normUp(code);
-    }
+    if (code && code !== "-99" && code !== -99) return normUp(code);
 
     const name = (p.ADMIN || p.NAME || p.name || "").toLowerCase();
-
-    if (name === 'france') return 'FR';
-    if (name === 'norway') return 'NO';
+    if (name === "france") return "FR";
+    if (name === "norway") return "NO";
 
     return null;
   }
@@ -240,22 +249,24 @@
       .style("border-radius", "6px")
       .style("pointer-events", "none");
   }
-
   function hideTip() { tip.style("opacity", 0); }
 
   // PANEL
   function updatePanel(name, iso2, count, topInst) {
     if (!iso2) {
-      panelBody.html(`<div style="color:#666; font-style:italic; padding:10px;">Click a country to see details</div>`);
+      hidePanel();
+      panelBody.html("");
       return;
     }
+
+    showPanel();
 
     const listHtml = topInst.length
       ? topInst.map(([n, c], i) =>
         `<div style="display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid #eee; font-size:12px;">
-             <span style="font-weight:500; color:#374151; padding-right:8px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${n}">${i + 1}. ${n}</span>
-             <span style="color:#6b7280;">${c}</span>
-           </div>`
+           <span style="font-weight:500; color:#374151; padding-right:8px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${n}">${i + 1}. ${n}</span>
+           <span style="color:#6b7280;">${c}</span>
+         </div>`
       ).join("")
       : `<div style="color:#999">No data available</div>`;
 
@@ -282,7 +293,8 @@
   function clearPin() {
     pinnedCC = null;
     gOverlay.selectAll("*").remove();
-    updatePanel(null, null, null, []);
+    hidePanel();
+    panelBody.html("");
     gMap.selectAll("path").attr("opacity", 1);
   }
 
@@ -298,7 +310,7 @@
 
       geo.features = geo.features.filter(f => {
         const iso = iso2FromProps(f.properties);
-        return iso !== 'AQ';
+        return iso !== "AQ";
       });
 
       const values = [...counts.values()];
@@ -306,16 +318,17 @@
       drawLegend(scale, thresholds, colors, maxV);
 
       const projection = d3.geoNaturalEarth1()
-        .fitExtent([[CONFIG.pad, CONFIG.pad], [CONFIG.width - CONFIG.pad, CONFIG.height - CONFIG.pad]], geo);
+        .fitExtent(
+          [[CONFIG.pad, CONFIG.pad], [CONFIG.width - CONFIG.pad, CONFIG.height - CONFIG.pad]],
+          geo
+        );
 
       const pathGenerator = d3.geoPath(projection);
 
       zoomBehavior = d3.zoom()
         .scaleExtent([1, 8])
         .translateExtent([[0, 0], [CONFIG.width, CONFIG.height]])
-        .on("zoom", (e) => {
-          gRoot.attr("transform", e.transform);
-        });
+        .on("zoom", (e) => gRoot.attr("transform", e.transform));
 
       svg.call(zoomBehavior);
 
@@ -334,18 +347,17 @@
         .style("transition", "fill 0.2s ease");
 
       paths
-        .on("mouseenter", function (evt, d) {
+        .on("mouseenter", function () {
           if (pinnedCC) return;
           d3.select(this).attr("stroke", "#666").attr("stroke-width", 1).raise();
         })
         .on("mousemove", (evt, d) => {
           if (pinnedCC) return;
           const cc = iso2FromProps(d.properties);
-          const name = nameFromProps(d.properties);
           const v = counts.get(cc) || 0;
 
           showTip(`
-            <div style="font-weight:700; color:#1f2937;">${iso2}</div>
+            <div style="font-weight:700; color:#1f2937;">${cc || "—"}</div>
             <div style="font-size:12px; color:#4b5563;">Institutions: <b>${v}</b></div>
           `, evt);
         })
@@ -398,25 +410,31 @@
           return n.includes(q) ? 1 : 0.1;
         });
 
-        if (d3.event && d3.event.type === 'keydown' && d3.event.key === 'Enter') {
-          const match = geo.features.find(f => nameFromProps(f.properties).toUpperCase().includes(q));
-          if (match) {
-            const [[x0, y0], [x1, y1]] = pathGenerator.bounds(match);
-            const dx = x1 - x0, dy = y1 - y0;
-            const x = (x0 + x1) / 2, y = (y0 + y1) / 2;
-            const scale = Math.max(1, Math.min(8, 0.9 / Math.max(dx / CONFIG.width, dy / CONFIG.height)));
-            const translate = [CONFIG.width / 2 - scale * x, CONFIG.height / 2 - scale * y];
+        const match = geo.features.find(f => nameFromProps(f.properties).toUpperCase().includes(q));
+        if (match) {
+          const [[x0, y0], [x1, y1]] = pathGenerator.bounds(match);
+          const dx = x1 - x0, dy = y1 - y0;
+          const x = (x0 + x1) / 2, y = (y0 + y1) / 2;
+          const s = Math.max(1, Math.min(8, 0.9 / Math.max(dx / CONFIG.width, dy / CONFIG.height)));
+          const t = [CONFIG.width / 2 - s * x, CONFIG.height / 2 - s * y];
 
-            svg.transition().duration(750).call(
-              zoomBehavior.transform,
-              d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale)
-            );
-          }
+          svg.transition().duration(750).call(
+            zoomBehavior.transform,
+            d3.zoomIdentity.translate(t[0], t[1]).scale(s)
+          );
         }
       };
 
-      searchInput.on("input", function () { handleSearch(this.value); });
-      searchInput.on("keydown", function (e) { if (e.key === 'Enter') handleSearch(this.value); });
+      searchInput.on("input", function () {
+        const q = this.value;
+        if (!q) { paths.attr("opacity", 1); return; }
+        const qq = normUp(q);
+        paths.attr("opacity", d => nameFromProps(d.properties).toUpperCase().includes(qq) ? 1 : 0.1);
+      });
+
+      searchInput.on("keydown", function (e) {
+        if (e.key === "Enter") handleSearch(this.value);
+      });
 
       resetBtn.on("click", () => {
         searchInput.property("value", "");
@@ -424,6 +442,9 @@
         clearPin();
         svg.transition().duration(750).call(zoomBehavior.transform, d3.zoomIdentity);
       });
+
+      hidePanel();
+      panelBody.html("");
 
     } catch (err) {
       console.error(err);
