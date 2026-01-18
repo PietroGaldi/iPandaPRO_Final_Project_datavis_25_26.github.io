@@ -289,10 +289,10 @@
           Institutions by publication count (${instEntriesSorted.length})
         </div>
 
-        <div style="
+        <div class="modern-scroll" style="
           max-height: 18.2rem;
           overflow-y: auto;
-          padding-right: 6px;
+          padding-right: 0.7rem;
         ">
           ${listHtml}
         </div>
@@ -328,18 +328,26 @@
 
       geo.features = geo.features.filter(f => iso2FromProps(f.properties) !== "AQ");
 
+      const focusGeo = {
+        type: "FeatureCollection",
+        features: geo.features.filter(f => {
+          const center = d3.geoCentroid(f);
+          return center[1] > -10;
+        })
+      };
+
       const values = [...counts.values()];
       const { scale, thresholds, colors, maxV } = makeDiscreteScale(values);
       drawLegend(scale, thresholds, colors, maxV);
 
       const projection = d3.geoNaturalEarth1()
-        .fitExtent([[CONFIG.pad, CONFIG.pad], [CONFIG.width - CONFIG.pad, CONFIG.height - CONFIG.pad]], geo);
+        .fitExtent([[CONFIG.pad, CONFIG.pad], [CONFIG.width - CONFIG.pad, CONFIG.height - CONFIG.pad]], focusGeo);
 
       const pathGenerator = d3.geoPath(projection);
 
       zoomBehavior = d3.zoom()
         .scaleExtent([1, 8])
-        .translateExtent([[0, 0], [CONFIG.width, CONFIG.height]])
+        .translateExtent([[0, 0], [CONFIG.width, CONFIG.height * 2.5]])
         .on("zoom", (e) => gRoot.attr("transform", e.transform));
 
       svg.call(zoomBehavior);
@@ -423,6 +431,8 @@
           const dx = x1 - x0, dy = y1 - y0;
           const x = (x0 + x1) / 2, y = (y0 + y1) / 2;
           const s = Math.max(1, Math.min(8, 0.9 / Math.max(dx / CONFIG.width, dy / CONFIG.height)));
+
+          // Centro dello schermo
           const t = [CONFIG.width / 2 - s * x, CONFIG.height / 2 - s * y];
 
           svg.transition().duration(750).call(
