@@ -84,7 +84,8 @@
 
   function nameFromProps(p) {
     if (!p) return "Unknown";
-    return norm(p.ADMIN || p.NAME || p.NAME_EN || p.BRK_NAME || p["ISO3166-1-Alpha-2"] || "Region");
+    // Prioritize human-readable names. Added lowercase 'name' and 'admin' just in case.
+    return norm(p.ADMIN || p.NAME || p.name || p.admin || p.NAME_EN || p.BRK_NAME || "Region");
   }
 
   // DATA PROCESSING
@@ -255,6 +256,7 @@
   function hideTip() { tip.style("opacity", 0); }
 
   // PANEL
+  // PANEL
   function updatePanel(name, iso2, count, instEntriesSorted) {
     if (!iso2) {
       hidePanel();
@@ -275,8 +277,7 @@
 
     panelBody.html(`
       <div style="border-bottom: 2px solid #e5e7eb; padding-bottom: 8px; margin-bottom: 10px;">
-        <h3 style="margin:0; font-size:18px; color:#111827;">${iso2}</h3>
-        <div style="font-size:12px; color:#6b7280; font-weight:600;">${name || ""}</div>
+        <h3 style="margin:0; font-size:18px; color:#111827;">${name}</h3>
       </div>
 
       <div style="margin-bottom:10px;">
@@ -298,10 +299,6 @@
         </div>
       </div>
     `);
-
-    panelBody.selectAll("div")
-      .filter(function () { return (this.style && this.style.overflowY === "auto"); })
-      .style("scrollbar-width", "thin");
   }
 
   // STATE
@@ -374,12 +371,14 @@
         .on("mousemove", (evt, d) => {
           if (pinnedCC) return;
           const cc = iso2FromProps(d.properties);
+          const name = nameFromProps(d.properties); // Get the full name
           const v = counts.get(cc) || 0;
 
+          // CHANGED: Display 'name' in the tooltip title instead of 'cc'
           showTip(`
-            <div style="font-weight:700; color:#1f2937;">${cc || "—"}</div>
-            <div style="font-size:12px; color:#4b5563;">Institutions: <b>${v}</b></div>
-          `, evt);
+    <div style="font-weight:700; color:#1f2937;">${name || "—"}</div>
+    <div style="font-size:12px; color:#4b5563;">Institutions: <b>${v}</b></div>
+    `, evt);
         })
         .on("mouseleave", function () {
           if (pinnedCC) return;
