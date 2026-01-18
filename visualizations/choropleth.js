@@ -5,7 +5,7 @@
     width: 1600,
     height: 820,
     pad: 20,
-    colors: d3.schemeBlues[9], 
+    colors: d3.schemeBlues[9],
     unknownColor: "#f3f4f6",
     strokeColor: "#ffffff",
     highlightStroke: "#111827"
@@ -14,7 +14,7 @@
   const svg = d3.select("#chl_svg")
     .attr("viewBox", `0 0 ${CONFIG.width} ${CONFIG.height}`)
     .attr("preserveAspectRatio", "xMidYMid meet");
-  
+
   const gBg = svg.append("rect")
     .attr("width", CONFIG.width)
     .attr("height", CONFIG.height)
@@ -33,7 +33,7 @@
   const norm = s => (s || "").trim();
   const normUp = s => norm(s).toUpperCase();
   const safeJSON = s => { try { return JSON.parse(s); } catch { return null; } };
-  
+
   // Loading
   function toggleLoading(isLoading, msg = "Loading data...") {
     let loader = d3.select("#chl_loader");
@@ -52,18 +52,18 @@
 
   function iso2FromProps(p) {
     if (!p) return null;
-    
+
     let code = p.ISO_A2 || p.ISO2 || p.iso2 || p.iso_a2 || p.A2 || p["ISO3166-1-Alpha-2"];
-    
+
     if (code && code !== "-99" && code !== -99) {
-        return normUp(code);
+      return normUp(code);
     }
 
     const name = (p.ADMIN || p.NAME || p.name || "").toLowerCase();
-    
+
     if (name === 'france') return 'FR';
     if (name === 'norway') return 'NO';
-    
+
     return null;
   }
 
@@ -75,7 +75,7 @@
   // DATA PROCESSING
   async function buildCountryData() {
     const rows = await d3.csv(CONFIG.csvUrl);
-    
+
     const instIdsByCC = new Map();
     const instNamesByCC = new Map();
     let parsedCount = 0;
@@ -110,7 +110,7 @@
 
     const counts = new Map();
     for (const [cc, set] of instIdsByCC.entries()) counts.set(cc, set.size);
-    
+
     console.log(`[Choropleth] Parsed ${parsedCount} rows. Found ${counts.size} countries.`);
     return { counts, instNamesByCC };
   }
@@ -121,21 +121,21 @@
     const minV = v.length ? v[0] : 1;
 
     if (v.length === 0) {
-        return { scale: d => CONFIG.unknownColor, thresholds: [], colors: [], maxV: 0 };
+      return { scale: d => CONFIG.unknownColor, thresholds: [], colors: [], maxV: 0 };
     }
 
-    const colors = CONFIG.colors;
+    const START_IDX = 3;
+    const colorsFull = CONFIG.colors;
+    const colors = colorsFull.slice(START_IDX);
 
     const logScale = d3.scaleLog()
-        .domain([minV, maxV])
-        .range([0, colors.length]);
+      .domain([minV, maxV])
+      .range([0, colors.length]);
 
     let thresholds = [];
     for (let i = 1; i < colors.length; i++) {
-        const val = Math.round(logScale.invert(i));
-        if (!thresholds.includes(val) && val < maxV) {
-            thresholds.push(val);
-        }
+      const val = Math.round(logScale.invert(i));
+      if (!thresholds.includes(val) && val < maxV) thresholds.push(val);
     }
     thresholds.sort((a, b) => a - b);
 
@@ -153,9 +153,9 @@
     legend.selectAll("*").remove();
 
     const width = 220;
-    const height = 40; 
+    const height = 40;
     const barHeight = 8;
-    const mt = 15; 
+    const mt = 15;
 
     const lsvg = legend.append("svg")
       .attr("viewBox", `0 0 ${width} ${height}`)
@@ -167,7 +167,7 @@
     const segW = (width - 10) / n;
 
     const g = lsvg.append("g");
-    
+
     g.append("text")
       .attr("x", 0)
       .attr("y", 9)
@@ -199,15 +199,15 @@
       .attr("fill", labelStyle.fill);
 
     thresholds.forEach((t, i) => {
-        if (i < n - 1) { 
-            g.append("text")
-              .attr("x", (i + 1) * segW) 
-              .attr("y", mt + barHeight + 10)
-              .text(t)
-              .attr("text-anchor", "middle")
-              .style("font-size", labelStyle.fontSize)
-              .attr("fill", labelStyle.fill);
-        }
+      if (i < n - 1) {
+        g.append("text")
+          .attr("x", (i + 1) * segW)
+          .attr("y", mt + barHeight + 10)
+          .text(t)
+          .attr("text-anchor", "middle")
+          .style("font-size", labelStyle.fontSize)
+          .attr("fill", labelStyle.fill);
+      }
     });
 
     g.append("text")
@@ -224,7 +224,7 @@
     const box = svg.node().getBoundingClientRect();
     let x = evt.clientX - box.left + 15;
     let y = evt.clientY - box.top + 15;
-    
+
     if (x > box.width - 200) x -= 220;
     if (y > box.height - 100) y -= 120;
 
@@ -240,7 +240,7 @@
       .style("border-radius", "6px")
       .style("pointer-events", "none");
   }
-  
+
   function hideTip() { tip.style("opacity", 0); }
 
   // PANEL
@@ -250,13 +250,13 @@
       return;
     }
 
-    const listHtml = topInst.length 
-      ? topInst.map(([n, c], i) => 
-          `<div style="display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid #eee; font-size:12px;">
-             <span style="font-weight:500; color:#374151; padding-right:8px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${n}">${i+1}. ${n}</span>
+    const listHtml = topInst.length
+      ? topInst.map(([n, c], i) =>
+        `<div style="display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid #eee; font-size:12px;">
+             <span style="font-weight:500; color:#374151; padding-right:8px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${n}">${i + 1}. ${n}</span>
              <span style="color:#6b7280;">${c}</span>
            </div>`
-        ).join("")
+      ).join("")
       : `<div style="color:#999">No data available</div>`;
 
     panelBody.html(`
@@ -298,7 +298,7 @@
 
       geo.features = geo.features.filter(f => {
         const iso = iso2FromProps(f.properties);
-        return iso !== 'AQ'; 
+        return iso !== 'AQ';
       });
 
       const values = [...counts.values()];
@@ -307,16 +307,16 @@
 
       const projection = d3.geoNaturalEarth1()
         .fitExtent([[CONFIG.pad, CONFIG.pad], [CONFIG.width - CONFIG.pad, CONFIG.height - CONFIG.pad]], geo);
-      
+
       const pathGenerator = d3.geoPath(projection);
 
       zoomBehavior = d3.zoom()
         .scaleExtent([1, 8])
-        .translateExtent([[0,0], [CONFIG.width, CONFIG.height]])
+        .translateExtent([[0, 0], [CONFIG.width, CONFIG.height]])
         .on("zoom", (e) => {
           gRoot.attr("transform", e.transform);
         });
-      
+
       svg.call(zoomBehavior);
 
       const paths = gMap.selectAll("path")
@@ -334,7 +334,7 @@
         .style("transition", "fill 0.2s ease");
 
       paths
-        .on("mouseenter", function(evt, d) {
+        .on("mouseenter", function (evt, d) {
           if (pinnedCC) return;
           d3.select(this).attr("stroke", "#666").attr("stroke-width", 1).raise();
         })
@@ -343,13 +343,13 @@
           const cc = iso2FromProps(d.properties);
           const name = nameFromProps(d.properties);
           const v = counts.get(cc) || 0;
-          
+
           showTip(`
             <div style="font-weight:700; color:#1f2937;">${iso2}</div>
             <div style="font-size:12px; color:#4b5563;">Institutions: <b>${v}</b></div>
           `, evt);
         })
-        .on("mouseleave", function() {
+        .on("mouseleave", function () {
           if (pinnedCC) return;
           d3.select(this).attr("stroke", CONFIG.strokeColor).attr("stroke-width", 0.5);
           hideTip();
@@ -357,7 +357,7 @@
         .on("click", (evt, d) => {
           evt.stopPropagation();
           hideTip();
-          
+
           const cc = iso2FromProps(d.properties);
           const name = nameFromProps(d.properties);
           const v = counts.get(cc) || 0;
@@ -380,9 +380,9 @@
           const topList = [];
           if (instNamesByCC.has(cc)) {
             const m = instNamesByCC.get(cc);
-            topList.push(...[...m.entries()].sort((a,b) => b[1] - a[1]).slice(0, 10));
+            topList.push(...[...m.entries()].sort((a, b) => b[1] - a[1]).slice(0, 10));
           }
-          
+
           updatePanel(name, cc, v, topList);
         });
 
@@ -408,15 +408,15 @@
             const translate = [CONFIG.width / 2 - scale * x, CONFIG.height / 2 - scale * y];
 
             svg.transition().duration(750).call(
-              zoomBehavior.transform, 
+              zoomBehavior.transform,
               d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale)
             );
           }
         }
       };
 
-      searchInput.on("input", function() { handleSearch(this.value); });
-      searchInput.on("keydown", function(e) { if(e.key === 'Enter') handleSearch(this.value); });
+      searchInput.on("input", function () { handleSearch(this.value); });
+      searchInput.on("keydown", function (e) { if (e.key === 'Enter') handleSearch(this.value); });
 
       resetBtn.on("click", () => {
         searchInput.property("value", "");
