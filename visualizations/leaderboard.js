@@ -5,18 +5,18 @@
     container.selectAll("*").remove();
 
     const modernPalette = [
-        "#5e96f0", 
-        "#ef4444", 
-        "#10b981", 
-        "#f59e0b", 
-        "#4749d1", 
-        "#ec4899", 
-        "#8b5cf6", 
-        "#13d1bb", 
-        "#f97316", 
-        "#84cc16", 
-        "#119ab2", 
-        "#64748b"  
+        "#5e96f0",
+        "#ef4444",
+        "#10b981",
+        "#f59e0b",
+        "#4749d1",
+        "#ec4899",
+        "#8b5cf6",
+        "#13d1bb",
+        "#f97316",
+        "#84cc16",
+        "#119ab2",
+        "#64748b"
     ];
 
     const colorScale = d3.scaleOrdinal(modernPalette);
@@ -168,8 +168,12 @@
                 .on("click", function () {
                     if (currentCategoryFilter === cat) {
                         currentCategoryFilter = null;
+                        detailsContent.html(`<div class="lb_empty_state">
+                            Select a researcher to view their topic landscape.
+                        </div>`);
                     } else {
                         currentCategoryFilter = cat;
+                        showCategorySummary(cat);
                     }
                     updateLegendVisuals();
                     applyFilters();
@@ -248,6 +252,39 @@
         barContainer.append("div")
             .attr("class", "lb_count_text")
             .text(d => `${d.totalCount} works`);
+    }
+
+    function showCategorySummary(category) {
+        const relevantAuthors = allAuthors.filter(d => d.primaryCategory === category);
+        const totalAuthors = relevantAuthors.length;
+        const totalPubs = relevantAuthors.reduce((acc, curr) => acc + curr.totalCount, 0);
+
+        const color = colorScale(category);
+
+        let html = `
+        <div class="lb_profile_header" style="border-bottom: 1px solid #e2e8f0;">
+            <div class="lb_avatar" style="background:${color}; width: 56px; height: 56px; font-size: 22px;">
+                ${category.charAt(0)}
+            </div>
+            <div class="lb_profile_name" style="font-size: 18px;">${category}</div>
+        </div>
+
+        <div style="padding: 20px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                <div style="background: #f8fafc; padding: 16px; border-radius: 8px; text-align: center; border: 1px solid #e2e8f0;">
+                    <div style="font-size: 24px; font-weight: 700; color: #334155;">${totalAuthors}</div>
+                    <div style="font-size: 11px; color: #64748b; text-transform: uppercase; font-weight: 600; margin-top: 4px;">Authors</div>
+                </div>
+
+                <div style="background: #f8fafc; padding: 16px; border-radius: 8px; text-align: center; border: 1px solid #e2e8f0;">
+                    <div style="font-size: 24px; font-weight: 700; color: #334155;">${totalPubs}</div>
+                    <div style="font-size: 11px; color: #64748b; text-transform: uppercase; font-weight: 600; margin-top: 4px;">Publications</div>
+                </div>
+            </div>
+        </div>
+        `;
+
+        detailsContent.html(html);
     }
 
     function showProfile(d) {
