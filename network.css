@@ -1,9 +1,15 @@
+/* --- 1. Layout & Alignment (Centered correctly) --- */
 .net-section {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 85vh;
+    width: 100%; /* Ensures full width span */
+    padding: 40px 20px;
     box-sizing: border-box;
+    font-family: 'Fira Sans', sans-serif;
+    /* background: #f8fafc; Optional: match your page background color */
 }
 
 .net-wrap {
@@ -11,58 +17,129 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    max-width: 1200px; /* Prevents it getting too wide on huge screens */
+    margin: 0 auto;    /* Centers the block horizontally */
 }
 
+/* Header Typography (Matches Roboto Slab style) */
+.net-wrap h2 {
+    font-family: 'Roboto Slab', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0f172a; /* Slate 900 */
+    margin-bottom: 30px;
+    text-align: center;
+    width: 100%;
+}
+
+/* --- 2. Controls Toolbar (Light Modern Theme) --- */
+/* Matches the clean style of your Leaderboard inputs */
 .net-controls {
     display: flex;
-    gap: 10px;
+    gap: 12px;
     align-items: center;
-    margin: 10px 0 2px 0;
+    justify-content: center;
     flex-wrap: wrap;
+    
+    /* Clean White Card Style */
+    background: #ffffff;
+    padding: 12px 24px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    z-index: 10;
 }
 
 .net-controls label {
-    font-size: 13px;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 14px;
     font-weight: 600;
-    color: #111827;
+    color: #475569; /* Slate 600 */
 }
 
+/* Modern Input Field */
 .net-controls input {
-    padding: 8px 10px;
-    border: 1px solid #e5e7eb;
-    border-radius: 10px;
+    padding: 10px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
     min-width: 260px;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 14px;
+    color: #334155; /* Slate 700 */
+    background: #f8fafc; /* Light gray background */
     outline: none;
+    transition: all 0.2s ease;
 }
 
+.net-controls input:focus {
+    background: #ffffff;
+    border-color: #3b82f6; /* Blue focus ring */
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.net-controls input::placeholder {
+    color: #94a3b8;
+}
+
+/* Reset Button styling */
 .net-controls button {
-    padding: 8px 10px;
-    border: 1px solid #e5e7eb;
-    border-radius: 10px;
-    background: #fff;
+    padding: 10px 20px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #64748b;
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
     cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.net-controls button:hover {
+    background: #f1f5f9;
+    color: #0f172a;
+    border-color: #cbd5e1;
 }
 
 .meta {
-    font-size: 12px;
-    color: #6b7280;
-    margin-left: 6px;
+    font-size: 13px;
+    color: #94a3b8;
+    margin-left: 10px;
+    font-weight: 500;
 }
 
+/* --- 3. The Graph Container (Light with Dark Border) --- */
 #netSvg {
-    width: 1100px;
-    height: 650px;
     display: block;
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    height: auto;
+    
+    /* LIGHT BACKGROUND */
+    background-color: #ffffff !important; 
+    
+    /* No Border */
+    border: none;
+    border-radius: 12px; /* Keep rounded corners for the shadow */
+    
+    /* INCREASED SHADOW (Deeper, darker, larger blur) */
+    box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.3);
+}
+
+/* Ensure text inside the SVG is dark and performant */
+#netSvg text {
+    fill: #334155 !important; /* Dark slate text */
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 500;
+    pointer-events: none;
+    /* Important: No text-shadow here for performance during simulation */
 }
 
 .tip {
     position: absolute;
     pointer-events: none;
     opacity: 0;
+    /* Original dark background, no border, no blur */
     background: rgba(17, 24, 39, 0.92);
     color: #fff;
     padding: 8px 10px;
@@ -70,4 +147,60 @@
     font-size: 12px;
     line-height: 1.25;
     transform: translate(10px, -12px);
+    z-index: 100; /* Added to ensure it sits on top of the graph lines */
+}
+
+.tip b {
+    color: #ffffff;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+    font-family: 'Roboto Slab', serif;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 4px;
+}
+
+/* Container for Input + Dropdown */
+.net-search-wrapper {
+    position: relative; /* Needed to anchor the dropdown */
+    display: inline-block;
+}
+
+/* The Custom Dropdown */
+.net-dropdown {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    
+    /* HEIGHT CONTROL */
+    max-height: 260px;  /* Stops the list from being too long */
+    overflow-y: auto;   /* Adds internal scrollbar */
+    z-index: 50;        /* Floats above the graph */
+    
+    display: none;      /* Hidden by default */
+}
+
+.net-dropdown.open {
+    display: block;
+}
+
+/* Dropdown Items */
+.net-dd-item {
+    padding: 8px 12px;
+    font-size: 13px;
+    color: #334155;
+    cursor: pointer;
+    border-bottom: 1px solid #f1f5f9;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+.net-dd-item:hover {
+    background: #f1f5f9;
+    color: #0f172a;
+    border-left: 3px solid #3b82f6; /* Blue indicator on hover */
 }

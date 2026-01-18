@@ -13,7 +13,7 @@
     TG = g.append("g");
 
   // zoom
-  const zoom = d3.zoom().scaleExtent([.1, 6]).on("zoom", e => g.attr("transform", e.transform));
+  const zoom = d3.zoom().scaleExtent([.22, 6]).on("zoom", e => g.attr("transform", e.transform));
   svg.call(zoom);
 
   // helpers
@@ -86,18 +86,50 @@
     linksAll.forEach(l => { add(l.source, l.target); add(l.target, l.source); });
 
     // name -> id map for search box
+    // 1. Build the map
     idByName = new Map();
     [...nameById].sort((a, b) => d3.ascending(a[1], b[1]))
       .forEach(([id, nm]) => { if (!idByName.has(nm)) idByName.set(nm, id); });
 
-    d3.select("#authorList").selectAll("option")
-      .data([...idByName.keys()]).join("option").attr("value", d => d);
+    // 2. Custom Dropdown Logic
+    const dd = d3.select("#netDropdown");
+    const allNames = [...idByName.keys()]; // Store all names array
 
-    // UI event handlers
     inp.on("input", function () {
-      const id = idByName.get((this.value || "").trim());
-      if (id) draw(id);
+      const val = (this.value || "").toLowerCase().trim();
+
+      // Clear dropdown if empty
+      if (!val) {
+        dd.classed("open", false).html("");
+        return;
+      }
+
+      // Filter names (Limit to top 50 to keep it fast)
+      const matches = allNames.filter(n => n.toLowerCase().includes(val)).slice(0, 50);
+
+      if (matches.length === 0) {
+        dd.classed("open", false);
+      } else {
+        dd.classed("open", true);
+
+        // Render items
+        dd.selectAll(".net-dd-item")
+          .data(matches)
+          .join("div")
+          .attr("class", "net-dd-item")
+          .text(d => d)
+          .on("click", (e, d) => {
+            e.stopPropagation();
+            inp.property("value", d); // Set input value
+            dd.classed("open", false); // Hide dropdown
+            const id = idByName.get(d);
+            if (id) draw(id); // Trigger graph
+          });
+      }
     });
+
+    // Close dropdown if clicking outside
+    d3.select("body").on("click", () => dd.classed("open", false));
     d3.select("#resetBtn").on("click", () => {
       inp.property("value", "");
       draw(null);
