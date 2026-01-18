@@ -837,10 +837,10 @@ circle {
 }
 
 .raise-chart-container {
-    flex-grow: 1; /* Allows chart to fill remaining space if needed */
+    flex-grow: 1;
     position: relative;
     z-index: 1;
     width: 100%;
-    /* Ensure no negative margins are pulling it up */
     margin-top: 0; 
+    padding-bottom: 20px;
 }
