@@ -17,22 +17,24 @@
     <div class="main_area">
         <div class="content_wrapper">
 
-            <main>              
+            <main>
                 <div id="author_network" class="net-wrap">
                     <h2>Network of author collaborations for RAISE publications</h2>
                     <div class="net-controls">
                         <label>Author:</label>
-                        <input id="authorSearch" list="authorList" placeholder="Type a name..." />
-                        <datalist id="authorList"></datalist>
+                        <div class="net-search-wrapper">
+                            <input id="authorSearch" type="text" placeholder="Type a name..." autocomplete="off" />
+                            <div id="netDropdown" class="net-dropdown modern-scroll"></div>
+                        </div>
                         <button id="resetBtn" type="button">Reset</button>
                         <span id="meta" class="meta"></span>
                     </div>
                     <section class="net-section">
-                    <div class="net-wrap">
-                        <!-- controls -->
-                        <svg id="netSvg"></svg>
-                        <div id="tip" class="tip"></div>
-                    </div>
+                        <div class="net-wrap">
+                            <!-- controls -->
+                            <svg id="netSvg"></svg>
+                            <div id="tip" class="tip"></div>
+                        </div>
                     </section>
                 </div>
 
