@@ -19,6 +19,56 @@
             </header>
 
             <main>
+                <h2>Data sources</h2>
+                <p>The data used to provide the visualizations were recovered from OpenAlex.
+                    <b>MIRCO AIUTO</b>
+                </p>
+                <hr class="section-divider">
+
+                <h2>Data cleaning</h2>
+                <ul>
+                    <li>Creation of institutions.csv and people.csv through python scripts (+raw_json column)</li>
+                    <li>Fix of coordinates for the institutions</li>
+                    <li>Altro?</li>
+                </ul>
+                <hr class="section-divider">
+
+                <h2>Data processing</h2>
+                <ul>
+                    <li>People page</li>
+                    <ul>
+                        <li>Entities: Since the raw data separates authors and works, it's created a link between each
+                            researcher and its publications.
+                            This allows the calculation of metrics such as "Total Works per Researcher" and "Primary
+                            Research
+                            Topic".</li>
+
+                        <li>Topic analysis: The column raw_json of the original full csv contains different levels of
+                            publicaion categorization:
+                            Level 0 (Domain) and Level 1 (Topic). This categorization comes directly from the OpenAlex
+                            structure of the dataset.
+                            Authors are then classified based on the dominance of these concepts in their publication
+                            history, assigning a "Primary Category" to each researcher.</li>
+                    </ul>
+                    <br>
+                    <li>Institutions page</li>
+                    <ul>
+                        <li><b>MIRCO</b></li>
+                    </ul>
+                    <br>
+                    <b>IL PUNTO COLLABORATIONS DEVE ESSERE PIU' ASTRATTO</b>
+                    <li>Collaborations page</li>
+                    <ul>
+                        <li>People Network: <b>MIRCO</b></li>
+                        <li>For the flow map of institutions collaborations, nodes were positioned according to their
+                            geographic coordinates. Links were established by identifying unique pairs of institutions
+                            listed on the same publication, with edge weights representing the aggregated frequency of
+                            collaboration.</li>
+                    </ul>
+                </ul>
+                <hr class="section-divider">
+
+                <h2>Limitations (biases, missing data, uncertainty, methodological constraints)</h2>
             </main>
         </div>
     </div>
