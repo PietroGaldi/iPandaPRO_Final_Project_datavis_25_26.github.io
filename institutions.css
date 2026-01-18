@@ -184,9 +184,9 @@
 }
 
 #choropleth_section {
-    width: calc(100% - 10rem);
+  width: 100%;;
   margin: 0 auto;
-  padding: 24px 0;
+  padding: 5rem 0;
   font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif;
 }
 
