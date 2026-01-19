@@ -53,13 +53,25 @@
                     <br>
                     <li>Institutions page</li>
                     <ul>
-                        <li><b>MIRCO</b></li>
+                        <li>Choropleth map: Geospatial data was integrated with publication records by extracting and
+                            normalizing country codes from institutional affiliations. The processing pipeline
+                            aggregated the count of distinct institutions per country, mapping these values to a
+                            discrete color threshold scale rendered on a natural earth projection.</li>
+                        <li>Treemap: The pipeline processed affiliation data to calculate publication volume per
+                            institution, dynamically separating top-tier entities from aggregated minor contributors. In
+                            the visualization, publication counts determine the area of each rectangle within a
+                            squarified treemap layout, using categorical colors to distinguish specific institutions.
+                        </li>
                     </ul>
                     <br>
                     <b>IL PUNTO COLLABORATIONS DEVE ESSERE PIU' ASTRATTO</b>
                     <li>Collaborations page</li>
                     <ul>
-                        <li>People Network: <b>MIRCO</b></li>
+                        <li>People Network: The pipeline extracted unique author identifiers and
+                            mapped them to their respective institutions. Relationships were quantified by iterating
+                            through publications to identify co-authorship pairs, aggregating the total count of
+                            shared works into edge weights. In the final visualization, these weights determine link
+                            thickness and node colors encode institutional affiliations.</li>
                         <li>For the flow map of institutions collaborations, nodes were positioned according to their
                             geographic coordinates. Links were established by identifying unique pairs of institutions
                             listed on the same publication, with edge weights representing the aggregated frequency of
