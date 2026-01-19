@@ -27,11 +27,22 @@
                             <div id="netDropdown" class="net-dropdown modern-scroll"></div>
                         </div>
                         <button id="resetBtn" type="button">Reset</button>
-                        <span id="meta" class="meta"></span>
+                        <div id="instBox" class="inst-box">
+                            <label>Institution:</label>
+
+                            <div class="net-search-wrapper">
+                                <input id="instSearch" type="text" placeholder="Type an institution..."
+                                    autocomplete="off" />
+                                <div id="instDropdown" class="net-dropdown modern-scroll"></div>
+                            </div>
+
+                            <button id="instClear" type="button">Clear</button>
+                        </div>
+                        <div id="meta" class="meta"></div>
                     </div>
+                    <span id="instChips" class="inst-chips"></span>
                     <section class="net-section">
                         <div class="net-wrap">
-                            <!-- controls -->
                             <svg id="netSvg"></svg>
                             <div id="tip" class="tip"></div>
                         </div>
