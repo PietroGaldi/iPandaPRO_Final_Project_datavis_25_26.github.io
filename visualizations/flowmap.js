@@ -1,7 +1,7 @@
 const width = 1100;
 const height = 650;
 
-const colorBg = "#0a0a28"; //#182441, è più chiaro, alternativa al colore di sfondo attuale
+const colorBg = "#0a0a28";
 const colorLand = "#445879";
 const colorLandStroke = "#334155";
 const colorNode = "#808da0";
