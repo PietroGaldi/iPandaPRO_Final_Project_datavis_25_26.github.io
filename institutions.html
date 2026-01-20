@@ -6,82 +6,111 @@
     <link rel="stylesheet" href="graphs.css">
     <link rel="stylesheet" href="institutions.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css">
-    <Title>Mapping the RAISE ecosystem: institutions</Title>
+    <title>Mapping the RAISE ecosystem: institutions</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/d3-sankey@0.12.3/dist/d3-sankey.min.js"></script>
     <script src="navbar_footer.js"></script>
 </head>
 
 <body>
     <div class="main_area">
-        <div class="tm_wrapper">
-            <header>
+        <div class="content_wrapper">
+
+            <header class="page-header">
                 <h1>Institutions in the RAISE ecosystem</h1>
+                <p class="intro-text">
+                    This section provides an analysis of the institutions participating in the RAISE ecosystem.
+                    The objective is to visualize the organizational landscape across key dimensions: geographic
+                    distribution, temporal participation, and institutional prominence.
+                </p>
             </header>
-            <p>This section provides an analysis of the institutions participating in the RAISE ecosystem. <br>
-                The objective is to visualize the organizational landscape across key dimensions: geographic
-                distribution, temporal
-                participation, and institutional prominence.
-            </p>
 
-            <section id="choropleth_section">
-                <div class="chl_header">
-                    <div class="chl_title">
-                        <h2>Institutions by country</h2>
-                        <p>number of distinct institutions of a country</p>
-                    </div>
-                </div>
-
-                <div class="chl_main">
-                    <div class="chl_map_wrap">
-                        <svg id="chl_svg"></svg>
-                        <div id="chl_legend"></div>
-                        <div id="chl_tip"></div>
+            <main class="inst_page_main">
+                
+                <section class="viz-section">
+                    <div class="text-container">
+                        <h2>Institutions by Country</h2>
+                        <p>
+                            This map explores the global footprint of the institutions participating in the RAISE project.
+                            It's possible to visualize the <strong>number of distinct institutions</strong> contributing from each country. 
+                            Click on a country to see the specific list of organizations.
+                        </p>
                     </div>
 
-                    <div id="chl_panel">
-                        <div id="chl_panel_body">Click a country to see details</div>
-                    </div>
-                </div>
-            </section>
+                    <div class="viz-container">
+                        <div class="inst_chart_wrapper">
+                            
+                            <div id="choropleth_section" class="inst_choropleth_reset">
+                                <div class="chl_header"></div>
 
-            <div class="chl_title">
-                <h2>Institution contributions to RAISE publications</h2>
-            </div>
-            <div class="tm_card">
-                <div id="tm_controls_header">
-                    <div id="raise_years" class="tm_controls_group">
-                        <button class="tm_year_btn ybtn" data-y="Total">Total</button>
-                        <button class="tm_year_btn ybtn" data-y="2023">2023</button>
-                        <button class="tm_year_btn ybtn" data-y="2024">2024</button>
-                        <button class="tm_year_btn ybtn" data-y="2025">2025</button>
-                    </div>
+                                <div class="chl_main">
+                                    <div class="chl_map_wrap">
+                                        <svg id="chl_svg"></svg>
+                                        <div id="chl_legend"></div>
+                                        <div id="chl_tip"></div>
+                                    </div>
 
-                    <div class="tm_search_group">
-                        <div class="tm_search_wrapper">
-                            <input type="text" id="raise_inp" class="tm_search_input"
-                                placeholder="Search institution...">
-                            <div id="raise_dd" class="modern-scroll"></div>
+                                    <div id="chl_panel">
+                                        <div id="chl_panel_body">Click a country to see details</div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
-                        <button id="raise_clear" class="tm_clear_btn" type="button">Clear filters</button>
                     </div>
-                </div>
-            </div>
+                </section>
 
-            <div class="tm_pills_container">
-                <div id="raise_pills" class="tm_pills"></div>
-            </div>
+                <section class="viz-section alt-bg">
+                    <div class="text-container">
+                        <h2>Institution Contributions</h2>
+                        <p>
+                            Which organizations are driving the research output? 
+                            This visualization ranks institutions based on their 
+                            <strong>publication volume</strong>. Use the controls below to filter by year 
+                            or search for specific institutions.
+                        </p>
+                    </div>
 
-            <div class="raise-chart-container">
-                <svg id="sqTreemapSvg"></svg>
-            </div>
+                    <div class="viz-container">
+                        <div class="inst_chart_wrapper">
+                            
+                            <div class="tm_card">
+                                <div id="tm_controls_header">
+                                    <div id="raise_years" class="tm_controls_group">
+                                        <button class="tm_year_btn ybtn" data-y="Total">Total</button>
+                                        <button class="tm_year_btn ybtn" data-y="2023">2023</button>
+                                        <button class="tm_year_btn ybtn" data-y="2024">2024</button>
+                                        <button class="tm_year_btn ybtn" data-y="2025">2025</button>
+                                    </div>
+
+                                    <div class="tm_search_group">
+                                        <div class="tm_search_wrapper">
+                                            <input type="text" id="raise_inp" class="tm_search_input"
+                                                placeholder="Search institution...">
+                                            <div id="raise_dd" class="modern-scroll"></div>
+                                        </div>
+                                        <button id="raise_clear" class="tm_clear_btn" type="button">Clear filters</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tm_pills_container">
+                                <div id="raise_pills" class="tm_pills"></div>
+                            </div>
+
+                            <div class="raise-chart-container">
+                                <svg id="sqTreemapSvg"></svg>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+            </main>
         </div>
     </div>
-    </div>
 </body>
+
 <script src="visualizations/choropleth.js"></script>
 <script src="visualizations/treemap.js"></script>
-
-
 
 </html>
