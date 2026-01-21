@@ -60,6 +60,38 @@
     align-items: center;
 }
 
+/* Tooltip styling */
+.d3-tooltip {
+    position: absolute;
+    text-align: center;
+    padding: 8px 12px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    background: rgba(33, 37, 41, 0.9);
+    color: #fff;
+    border-radius: 4px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 1000;
+    max-width: 200px;
+}
+
+/* Text rendering optimization */
+.waffle-text {
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.legend-item text {
+    transition: fill 0.2s;
+}
+.legend-item:hover text {
+    fill: #000;
+    font-weight: 700;
+}
+
 .flow_institutions_wrap {
     display: flex;
     flex-direction: column;
