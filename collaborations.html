@@ -47,7 +47,7 @@
                                     <label>Author:</label>
                                     <div class="net-search-wrapper">
                                         <input id="authorSearch" type="text" placeholder="Type a name..."
-                                            autocomplete="off" />
+                                            autocomplete="off">
                                         <div id="netDropdown" class="net-dropdown modern-scroll"></div>
                                     </div>
                                     <button id="resetBtn" type="button">Reset</button>
@@ -55,7 +55,7 @@
                                     <div id="meta" class="meta"></div>
                                 </div>
 
-                                <div class="net-color-controls" aria-label="Optional node coloring">
+                                <div class="net-color-controls" role="group" aria-label="Optional node coloring">
                                     <p class="net-color-hint">
                                         Select one or more institutions to color nodes.
                                     </p>
@@ -64,7 +64,7 @@
                                         <div id="instBox" class="inst-box">
                                             <div class="net-search-wrapper">
                                                 <input id="instSearch" type="text" placeholder="Type an institution..."
-                                                    autocomplete="off" />
+                                                    autocomplete="off">
                                                 <div id="instDropdown" class="net-dropdown modern-scroll"></div>
                                             </div>
                                             <button id="instClear" type="button"
@@ -76,13 +76,12 @@
 
                             <div id="instChips" class="inst-chips"></div>
 
-
-                            <section class="net-section">
+                            <div class="net-section">
                                 <div class="net-wrap">
                                     <svg id="netSvg"></svg>
                                     <div id="tip" class="tip"></div>
                                 </div>
-                            </section>
+                            </div>
 
                         </div>
                     </div>
