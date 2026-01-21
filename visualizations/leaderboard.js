@@ -290,6 +290,7 @@
     function showProfile(d) {
         const primaryColor = colorScale(d.primaryCategory);
 
+        // We use d.id here, which contains the full OpenAlex URL (e.g., https://openalex.org/A...)
         let html = `
         <div class="lb_profile_header">
             <div class="lb_avatar" style="background:${primaryColor};">
@@ -299,6 +300,25 @@
             <div class="lb_profile_meta">
                 ${d.primaryCategory}: ${d.totalCount} Publications
             </div>
+            
+            <a href="${d.id}" target="_blank" style="
+                font-size: 12px; 
+                color: #5e96f0; 
+                text-decoration: none; 
+                margin-top: 8px; 
+                display: inline-flex; 
+                align-items: center; 
+                gap: 4px; 
+                font-weight: 500;
+                transition: opacity 0.2s;
+            " onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+                View on OpenAlex
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+            </a>
         </div>
 
         <div class="lb_section_label">

@@ -5,111 +5,135 @@
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="stylesheet" href="graphs.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css">
-    <Title>Mapping the RAISE ecosystem: methodology</Title>
+    <title>Mapping the RAISE ecosystem: methodology</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
-
     <script src="navbar_footer.js"></script>
 </head>
 
 <body>
     <div class="main_area">
         <div class="content_wrapper">
-            <header>
+            
+            <header class="page-header">
                 <h1>Methodology of the project</h1>
+                <p class="intro-text">
+                    This section outlines the data sources, processing pipelines, and design decisions 
+                    behind the visualization of the RAISE ecosystem.
+                </p>
             </header>
 
             <main>
-                <h2>Data sources</h2>
-                <ul>The data used to generate the visualizations were retrieved from OpenAlex, an open catalog of works,
-                    authors, institutions, and related metadata. <br>
-                    Relevant publications were identified by querying funding information associated with RAISE (code
-                    ECS00000035). Unique identifiers linked to these funded outputs were then used to retrieve the
-                    corresponding records from OpenAlex. <br>
-                    This process ensured a consistent and structured dataset covering publications, authorship,
-                    institutional affiliations, venues, and geographic information. <br>
-                    All subsequent data processing, aggregation, and transformation steps were performed on the OpenAlex
-                    metadata to support the analytical and visual components of the project. <br>
-                </ul>
-                <hr class="section-divider">
+                
+                <section class="viz-section">
+                    <div class="text-container">
+                        <h2>Data sources</h2>
+                        <p>
+                            The data used to generate the visualizations were retrieved from <strong>OpenAlex</strong>, 
+                            an open catalog of works, authors, institutions, and related metadata.
+                        </p>
+                        <p>
+                            Relevant publications were identified by querying funding information associated with 
+                            RAISE (code <strong>ECS00000035</strong>). Unique identifiers linked to these funded 
+                            outputs were then used to retrieve the corresponding records from OpenAlex.
+                        </p>
+                        <p>
+                            This process ensured a consistent and structured dataset covering publications, authorship, 
+                            institutional affiliations, venues, and geographic information. All subsequent data 
+                            processing, aggregation, and transformation steps were performed on the OpenAlex metadata 
+                            to support the analytical and visual components of the project.
+                        </p>
+                    </div>
+                </section>
 
-                <h2>Data processing & cleaning</h2>
-                <ul>
-                    The primary dataset is stored in openalex_works_full.csv, which aggregates all information retrieved
-                    via the OpenAlex API, including a raw_json column containing the original raw data.<br>
-                    To optimize data handling, Python scripts were employed to generate two specific CSV files:
-                    <em>openalex_people.csv</em>,
-                    which details the <b>researchers involved in the RAISE project publications</b>, and
-                    <em>institutions_osm_coords.csv</em>, which lists the <b>participating institutions</b>.<br>
-                    Additionally, geographic coordinates were geocoded into the institutions file using OpenStreetMap.
-                    While this automated
-                    process was largely successful, manual corrections were applied to certain entries to ensure
-                    locational accuracy.<br><br>
-                    <li><b>People page</b></li>
-                    <ul>
-                        <li><em>Entities</em> Since the raw data separates authors and works, it's created a link
-                            between each
-                            researcher and its publications.
-                            This allows the calculation of metrics such as "Total Works per Researcher" and "Primary
-                            Research
-                            Topic".</li>
+                <section class="viz-section alt-bg">
+                    <div class="text-container">
+                        <h2>Data processing & cleaning</h2>
+                        <p>
+                            The primary dataset is stored in <code>openalex_works_full.csv</code>, which aggregates 
+                            all information retrieved via the OpenAlex API, including a raw JSON column containing 
+                            the original data.
+                        </p>
+                        <p>
+                            To optimize data handling, Python scripts were employed to generate two specific CSV files:
+                            <em>openalex_people.csv</em>, which details the <strong>researchers involved</strong>, and
+                            <em>institutions_osm_coords.csv</em>, which lists the <strong>participating institutions</strong>.
+                            Geographic coordinates were geocoded into the institutions file using OpenStreetMap, 
+                            with manual corrections applied to ensure locational accuracy.
+                        </p>
 
-                        <li><em>Topic analysis</em> The column raw_json of the original full csv contains different
-                            levels of
-                            publicaion categorization:
-                            Level 0 (Domain) and Level 1 (Topic). This categorization comes directly from the OpenAlex
-                            structure of the dataset.
-                            Authors are then classified based on the dominance of these concepts in their publication
-                            history, assigning a "Primary Category" to each researcher.</li>
-                    </ul>
-                    <br>
-                    <li><b>Institutions page</b></li>
-                    <ul>
-                        <li><em>Choropleth map</em>: Geospatial data was integrated with publication records by
-                            extracting and
-                            normalizing country codes from institutional affiliations. The processing pipeline
-                            aggregated the count of distinct institutions per country, mapping these values to a
-                            discrete color threshold scale rendered on a natural earth projection.</li>
+                        <div style="text-align: left; margin-top: 2rem;">
+                            
+                            <h3>People page</h3>
+                            <ul>
+                                <li>
+                                    <strong>Entities:</strong> Since the raw data separates authors and works, 
+                                    a link was created between each researcher and their publications. 
+                                    This allows the calculation of metrics such as "Total Works per Researcher" 
+                                    and "Primary Research Topic".
+                                </li>
+                                <li>
+                                    <strong>Topic analysis:</strong> The <code>raw_json</code> column contains 
+                                    categorization levels: Level 0 (Domain) and Level 1 (Topic). 
+                                    Authors are classified based on the dominance of these concepts in their 
+                                    publication history.
+                                </li>
+                            </ul>
 
-                        <li><em>Treemap</em>: The pipeline processed affiliation data to calculate publication volume
-                            per
-                            institution, dynamically separating top-tier entities from aggregated minor contributors. In
-                            the visualization, publication counts determine the area of each rectangle within a
-                            squarified treemap layout, using categorical colors to distinguish specific institutions.
-                        </li>
-                    </ul>
-                    <br>
-                    <li><b>Collaborations page</b></li>
-                    <ul>
-                        <li><em>People Network</em>: The pipeline extracted unique author identifiers and
-                            mapped them to their respective institutions. Relationships were quantified by iterating
-                            through publications to identify co-authorship pairs, aggregating the total count of
-                            shared works into edge weights. In the final visualization, these weights determine link
-                            thickness and node colors encode institutional affiliations.</li>
+                            <h3>Institutions page</h3>
+                            <ul>
+                                <li>
+                                    <strong>Choropleth map:</strong> Geospatial data was integrated with publication 
+                                    records by extracting and normalizing country codes. The pipeline aggregated 
+                                    the count of distinct institutions per country.
+                                </li>
+                                <li>
+                                    <strong>Treemap:</strong> The pipeline processed affiliation data to calculate 
+                                    publication volume per institution. The visualization uses a squarified layout 
+                                    where area corresponds to publication count.
+                                </li>
+                            </ul>
 
-                        <li><em>Flow map of institutions collaborations</em>: Nodes were positioned according to their
-                            geographic coordinates. Links were established by identifying unique pairs of institutions
-                            listed on the same publication, with edge weights representing the aggregated frequency of
-                            collaboration.</li>
-                    </ul>
-                </ul>
-                <hr class="section-divider">
+                            <h3>Collaborations page</h3>
+                            <ul>
+                                <li>
+                                    <strong>People Network:</strong> Unique author identifiers were mapped to their 
+                                    institutions. Relationships were quantified by iterating through publications 
+                                    to identify co-authorship pairs.
+                                </li>
+                                <li>
+                                    <strong>Flow map:</strong> Nodes were positioned according to geographic coordinates. 
+                                    Links represent unique pairs of institutions listed on the same publication, 
+                                    weighted by collaboration frequency.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
 
-                <h2>Limitations & Constraints</h2>
-                <ul>
-                    The visualizations presented are subject to data quality limitations inherent to the source,
-                    OpenAlex. Because OpenAlex relies on automated algorithms to aggregate vast amounts of bibliographic
-                    data from diverse repositories, it lacks human manual curation. That is why the dataset contains
-                    noise; for example, the use of author aliases may result in disambiguation errors, where a single physical
-                    researcher is represented by multiple distinct author profiles.<br>
-                    Additionally, the project is subject to temporal constraints. As the RAISE project is currently
-                    ongoing, the data represents a snapshot in time and is necessarily incomplete regarding the final
-                    output of the research.
-                </ul>
+                <section class="viz-section">
+                    <div class="text-container">
+                        <h2>Limitations & Constraints</h2>
+                        <p>
+                            The visualizations presented are subject to data quality limitations inherent to the source, 
+                            OpenAlex. Because OpenAlex relies on automated algorithms to aggregate vast amounts of 
+                            bibliographic data, it lacks human manual curation.
+                        </p>
+                        <p>
+                            Consequently, the dataset contains noise; for example, the use of author aliases may 
+                            result in disambiguation errors, where a single physical researcher is represented by 
+                            multiple distinct author profiles.
+                        </p>
+                        <p>
+                            Additionally, the project is subject to temporal constraints. As the RAISE project is 
+                            currently ongoing, the data represents a snapshot in time and is necessarily incomplete 
+                            regarding the final output of the research.
+                        </p>
+                    </div>
+                </section>
+
             </main>
         </div>
     </div>
 </body>
-
-
 
 </html>
