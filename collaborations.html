@@ -43,28 +43,40 @@
                     <div class="viz-container">
                         <div id="author_network" class="net-wrap card-style">
 
-                            <div class="net-controls">
-                                <label>Author:</label>
-                                <div class="net-search-wrapper">
-                                    <input id="authorSearch" type="text" placeholder="Type a name..."
-                                        autocomplete="off" />
-                                    <div id="netDropdown" class="net-dropdown modern-scroll"></div>
-                                </div>
-                                <button id="resetBtn" type="button">Reset</button>
-
-                                <div id="instBox" class="inst-box">
-                                    <label>Institution:</label>
+                            <div class="top-controls">
+                                <div class="net-controls">
+                                    <label>Author:</label>
                                     <div class="net-search-wrapper">
-                                        <input id="instSearch" type="text" placeholder="Type an institution..."
+                                        <input id="authorSearch" type="text" placeholder="Type a name..."
                                             autocomplete="off" />
-                                        <div id="instDropdown" class="net-dropdown modern-scroll"></div>
+                                        <div id="netDropdown" class="net-dropdown modern-scroll"></div>
                                     </div>
-                                    <button id="instClear" type="button">Clear</button>
+                                    <button id="resetBtn" type="button">Reset</button>
+
+                                    <div id="meta" class="meta"></div>
                                 </div>
-                                <div id="meta" class="meta"></div>
+
+                                <div class="net-color-controls" aria-label="Optional node coloring">
+                                    <p class="net-color-hint">
+                                        Select one or more institutions to color nodes.
+                                    </p>
+
+                                    <div class="net-controls net-controls-color">
+                                        <div id="instBox" class="inst-box">
+                                            <div class="net-search-wrapper">
+                                                <input id="instSearch" type="text" placeholder="Type an institution..."
+                                                    autocomplete="off" />
+                                                <div id="instDropdown" class="net-dropdown modern-scroll"></div>
+                                            </div>
+                                            <button id="instClear" type="button"
+                                                title="Clear institution coloring">Clear</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
-                            <span id="instChips" class="inst-chips"></span>
+                            <div id="instChips" class="inst-chips"></div>
+
 
                             <section class="net-section">
                                 <div class="net-wrap">
@@ -72,6 +84,7 @@
                                     <div id="tip" class="tip"></div>
                                 </div>
                             </section>
+
                         </div>
                     </div>
                 </section>

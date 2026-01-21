@@ -194,14 +194,7 @@
             });
         }
 
-        // default selected
-        const DEFAULT_MATCH = [
-            /italian institute of technology/i,
-            /university of genoa/i,
-            /national research council/i
-        ];
-        for (const inst of allInst) if (DEFAULT_MATCH.some(rx => rx.test(inst))) selectedInst.add(inst);
-
+        selectedInst.clear();
         renderChips();
 
         // pair aggregation: "a|b" -> {count, titles:Set}
@@ -316,8 +309,8 @@
 
         // draw links
         const link = LG.selectAll("line").data(links).join("line")
-            .attr("stroke", "#94a3b8")
-            .attr("stroke-opacity", ego ? .85 : .55)
+            .attr("stroke", "#8a99ad")
+            .attr("stroke-opacity", ego ? .75 : .55)
             .attr("stroke-width", d => w(d.value))
             .attr("stroke-linecap", "round");
 
@@ -392,18 +385,21 @@
 
             gPie.selectAll("circle.centerfill").remove();
 
-            if (!selectedInst.size || ms.length === 0) {
-                gPie.selectAll("path").remove();
-                gPie.selectAll("circle.basefill")
-                    .data([1])
-                    .join("circle")
-                    .attr("class", "basefill")
-                    .attr("r", r)
-                    .attr("fill", "#b5bcc6");
-                return;
-            } else {
-                gPie.selectAll("circle.basefill").remove();
-            }
+            gPie.selectAll("path").remove();
+
+            const baseColor =
+                selectedInst.size > 0 && ms.length === 0
+                    ? "#a9b2bc"
+                    : "#6381b3";
+
+            gPie.selectAll("circle.basefill")
+                .data([1])
+                .join("circle")
+                .attr("class", "basefill")
+                .attr("r", r)
+                .attr("fill", baseColor);
+
+            if (selectedInst.size === 0 || ms.length === 0) return;
 
             const n = ms.length;
             gPie.selectAll("path")
