@@ -36,13 +36,6 @@
     const header = chartCard.append("div")
         .attr("class", "lb_header");
 
-    const titleRow = header.append("div")
-        .attr("class", "lb_title_row");
-
-    titleRow.append("div")
-        .attr("class", "lb_title")
-        .text("Researcher Leaderboard");
-
     const searchInput = header.append("input")
         .attr("type", "text")
         .attr("class", "lb_search")
@@ -289,8 +282,6 @@
 
     function showProfile(d) {
         const primaryColor = colorScale(d.primaryCategory);
-
-        // We use d.id here, which contains the full OpenAlex URL (e.g., https://openalex.org/A...)
         let html = `
         <div class="lb_profile_header">
             <div class="lb_avatar" style="background:${primaryColor};">

@@ -21,7 +21,7 @@
         .style("background", colorBg)
         .style("border-radius", "16px")
         .style("box-shadow", "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)")
-        .style("overflow", "hidden");
+        .style("overflow", "visible");
 
     const header = mainWrapper.append("div")
         .attr("class", "bubblechart_header")
@@ -31,7 +31,9 @@
         .style("flex-wrap", "wrap")
         .style("gap", "20px")
         .style("justify-content", "space-between")
-        .style("align-items", "center");
+        .style("align-items", "center")
+        .style("position", "relative")
+        .style("z-index", "20");
 
     const titleGroup = header.append("div");
     titleGroup.append("div")
@@ -39,7 +41,7 @@
         .style("font-size", "20px")
         .style("color", "#0f172a")
         .style("letter-spacing", "-0.025em")
-        .text("Researcher and their publications");
+        .text("Authors and their publications");
 
     const subTitle = titleGroup.append("div")
         .attr("class", "bubblechart_text")
@@ -85,8 +87,11 @@
         .style("max-width", "250px")
         .style("outline", "none");
 
-    const searchInput = controls.append("input")
-        .attr("class", "bubblechart_control-input")
+    const searchWrapper = controls.append("div")
+        .attr("class", "net-search-wrapper"); 
+
+    const searchInput = searchWrapper.append("input")
+        .attr("class", "bubblechart_control-input") 
         .attr("type", "text")
         .attr("placeholder", "Search person...")
         .style("padding", "8px 12px")
@@ -95,13 +100,18 @@
         .style("font-size", "14px")
         .style("width", "220px")
         .style("outline", "none")
-        .style("color", colorText);
+        .style("color", colorText)
+        .attr("autocomplete", "off");
+
+    const searchDropdown = searchWrapper.append("div")
+        .attr("class", "net-dropdown modern-scroll"); 
 
     const chartBody = mainWrapper.append("div")
         .attr("id", "chart-body")
         .style("height", `${chartHeight}px`)
         .style("position", "relative")
         .style("background", colorBg)
+        .style("z-index", "10")
         .on("click", () => {
             unpinTooltip();
         });
@@ -135,11 +145,61 @@
                 insts.forEach(i => allInstitutionsSet.add(i));
             }
         });
-
         const sortedInstitutions = Array.from(allInstitutionsSet).sort();
         sortedInstitutions.forEach(inst => {
             instSelect.append("option").text(inst).attr("value", inst);
         });
+
+        const uniqueNames = [...new Set(
+            peopleData
+                .map(d => (d.display_name_or_alias || "").trim())
+                .filter(Boolean)
+        )].sort((a, b) => a.localeCompare(b));
+
+        
+        searchInput.on("input", function() {
+            const val = (this.value || "").toLowerCase().trim();
+            
+            if (!val) { 
+                searchDropdown.classed("open", false).html(""); 
+                unpinTooltip();
+                applyVisuals(); 
+                return; 
+            }
+
+            const matches = uniqueNames
+                .filter(n => n.toLowerCase().includes(val))
+                .slice(0, 50);
+
+            if (matches.length === 0) {
+                searchDropdown.classed("open", false);
+            } else {
+                searchDropdown.classed("open", true);
+                
+                searchDropdown.selectAll(".net-dd-item")
+                    .data(matches)
+                    .join("div")
+                    .attr("class", "net-dd-item")
+                    .text(d => d)
+                    .on("click", (e, d) => {
+                        e.stopPropagation();
+                        searchInput.property("value", d);
+                        searchDropdown.classed("open", false);
+                        unpinTooltip(); 
+                        applyVisuals();
+                    });
+            }
+            
+            unpinTooltip();
+            applyVisuals();
+        });
+
+        d3.select("body").on("click.bubble", () => {
+             searchDropdown.classed("open", false);
+        });
+
+        searchWrapper.on("click", (e) => e.stopPropagation());
+
 
         function updateChart() {
             chartBody.selectAll("svg").remove();
@@ -182,66 +242,37 @@
                 .style("transition", "fill 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease");
 
             if (nodes.length > 0) {
-                const maxNode = nodes[0];
-                const k = maxNode.r / Math.sqrt(maxNode.value);
-
-                const maxVal = Math.ceil(maxNode.value);
-                const midVal = Math.round(maxVal / 2);
-                const minVal = Math.max(1, Math.round(d3.min(nodes, d => d.value)));
-
-                const legendValues = [minVal, midVal, maxVal];
-                const uniqueValues = [...new Set(legendValues)].sort((a, b) => a - b);
-
-                const legendGroup = svg.append("g")
+                 const maxNode = nodes[0];
+                 const k = maxNode.r / Math.sqrt(maxNode.value);
+                 const maxVal = Math.ceil(maxNode.value);
+                 const midVal = Math.round(maxVal / 2);
+                 const minVal = Math.max(1, Math.round(d3.min(nodes, d => d.value)));
+                 const legendValues = [minVal, midVal, maxVal];
+                 const uniqueValues = [...new Set(legendValues)].sort((a, b) => a - b);
+                 const legendGroup = svg.append("g")
                     .attr("class", "bubblechart_legend")
                     .attr("transform", `translate(30, 30)`);
-
-                const legendWidth = uniqueValues.length * 50 + 40;
-                legendGroup.append("rect")
-                    .attr("x", -10)
-                    .attr("y", -20)
-                    .attr("width", legendWidth)
-                    .attr("height", 95)
-                    .attr("rx", 8)
-                    .style("fill", "rgba(255, 255, 255, 0.6)")
-                    .style("backdrop-filter", "blur(4px)");
-
-                legendGroup.append("text")
-                    .attr("x", 0)
-                    .attr("y", -5)
-                    .style("font-size", "11px")
-                    .style("fill", "#64748b")
-                    .style("font-weight", "700")
-                    .style("text-transform", "uppercase")
-                    .text("Publications Count");
-
-                let currentX = 10;
-                uniqueValues.forEach((val) => {
+                 const legendWidth = uniqueValues.length * 50 + 40;
+                 legendGroup.append("rect")
+                    .attr("x", -10).attr("y", -20).attr("width", legendWidth).attr("height", 95).attr("rx", 8)
+                    .style("fill", "rgba(255, 255, 255, 0.6)").style("backdrop-filter", "blur(4px)");
+                 legendGroup.append("text")
+                    .attr("x", 0).attr("y", -5).style("font-size", "11px").style("fill", "#64748b")
+                    .style("font-weight", "700").style("text-transform", "uppercase").text("Publications Count");
+                 let currentX = 10;
+                 uniqueValues.forEach((val) => {
                     const r = k * Math.sqrt(val);
                     const diameter = r * 2;
                     const bubbleCenterY = 25;
-
-                    legendGroup.append("circle")
-                        .attr("cx", currentX + r)
-                        .attr("cy", bubbleCenterY)
-                        .attr("r", r)
-                        .style("fill", "#0f172a");
-
-                    legendGroup.append("text")
-                        .attr("x", currentX + r)
-                        .attr("y", bubbleCenterY + r + 14)
-                        .style("text-anchor", "middle")
-                        .style("font-size", "11px")
-                        .style("fill", "#475569")
-                        .style("font-weight", "600")
-                        .text(val);
-
+                    legendGroup.append("circle").attr("cx", currentX + r).attr("cy", bubbleCenterY).attr("r", r).style("fill", "#0f172a");
+                    legendGroup.append("text").attr("x", currentX + r).attr("y", bubbleCenterY + r + 14).style("text-anchor", "middle")
+                        .style("font-size", "11px").style("fill", "#475569").style("font-weight", "600").text(val);
                     currentX += diameter + 25;
-                });
+                 });
             }
 
-            function applyVisuals() {
-                const searchTerm = searchInput.property("value").toLowerCase();
+            window.applyVisuals = function() {
+                const searchTerm = searchInput.property("value").toLowerCase().trim();
                 const currentInst = instSelect.property("value");
 
                 bubbles.each(function (d) {
@@ -264,14 +295,13 @@
                     circle.style("fill", fillColor).style("opacity", opacity);
                 });
             }
-            applyVisuals();
+            window.applyVisuals();
 
             let pinnedNode = null;
 
             bubbles
                 .on("mouseenter", (event, d) => {
                     if (pinnedNode) return;
-
                     const circle = d3.select(event.currentTarget);
                     if (circle.style("opacity") > 0.2) {
                         circle.style("fill", colorHover);
@@ -284,7 +314,7 @@
                 })
                 .on("mouseleave", (event) => {
                     if (pinnedNode) return;
-                    applyVisuals();
+                    window.applyVisuals();
                     tooltip.style("opacity", 0).style("pointer-events", "none");
                 })
                 .on("click", (event, d) => {
@@ -293,7 +323,7 @@
                         unpinTooltip();
                     } else {
                         pinnedNode = d;
-                        applyVisuals();
+                        window.applyVisuals();
                         d3.select(event.currentTarget).style("fill", colorHover).style("opacity", 1);
                         showTooltip(event, d);
                         tooltip.style("pointer-events", "auto");
@@ -314,7 +344,6 @@
                 const personName = d.data.display_name_or_alias;
                 const works = worksByPerson.get(personName) || [];
                 works.sort((a, b) => b.year - a.year);
-
                 const instList = (d.data.institutions || "").split(';').map(s => s.trim()).join('<br>');
 
                 let worksHtml = "";
@@ -353,36 +382,25 @@
                 const tooltipNode = tooltip.node();
                 const tooltipRect = tooltipNode.getBoundingClientRect();
                 const windowHeight = window.innerHeight;
-
                 const potentialBottom = event.pageY + 20 + tooltipRect.height;
-
                 let topPos = event.pageY + 20;
                 let leftPos = event.pageX + 15;
-
                 if (potentialBottom > windowHeight + window.scrollY) {
                     topPos = event.pageY - tooltipRect.height - 20;
                 }
-
-                tooltip
-                    .style("left", leftPos + "px")
-                    .style("top", topPos + "px");
+                tooltip.style("left", leftPos + "px").style("top", topPos + "px");
             }
 
             window.unpinTooltip = function () {
                 pinnedNode = null;
                 tooltip.style("opacity", 0).style("pointer-events", "none");
-                applyVisuals();
+                window.applyVisuals();
             };
 
-            searchInput.on("input", () => {
-                unpinTooltip();
-                applyVisuals();
-            });
-
             instSelect.on("change", () => {
-                unpinTooltip();
+                window.unpinTooltip();
                 updateSubtitle();
-                applyVisuals();
+                window.applyVisuals();
             });
         }
 

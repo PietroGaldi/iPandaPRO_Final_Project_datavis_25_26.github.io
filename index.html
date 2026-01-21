@@ -5,56 +5,69 @@
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="stylesheet" href="graphs.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css">
-    <Title>Mapping the RAISE ecosystem</Title>
+    <title>Mapping the RAISE ecosystem</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="https://unpkg.com/d3-cloud/build/d3.layout.cloud.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/d3-cloud@1.2.5/build/d3.layout.cloud.js"></script>
     <script src="navbar_footer.js"></script>
 </head>
 
 <body>
     <div class="main_area">
         <div class="content_wrapper">
-            <header>
+
+            <header class="page-header">
                 <h1>Mapping collaboration and knowledge production in the RAISE ecosystem</h1>
+                <p class="intro-text">
+                    iPanda PRO: Pietro Galdi, Mirco Senes
+                </p>
             </header>
 
             <main>
-                <div class="home_descr">
-                    <h3>iPanda PRO: Pietro Galdi, Mirco Senes</h3>
 
-                    <section class="split-section">
-                        <div class="text-block">
-                            <h2>The RAISE Ecosystem:<br>Bridging Research and Society</h2>
-                            <p>
-                                <strong>RAISE</strong> (Robotics and AI for Socio-economic Empowerment) is a
-                                strategic
-                                Innovation Ecosystem based in <strong>Liguria</strong>,
-                                funded by the Italian Ministry of University and Research (MUR).
-                            </p>
-                            <p>
-                                Leveraging the region's status as a "Robot Valley," the project unites
-                                <strong>UNIGE, CNR, and IIT</strong>
-                                to transfer advanced <strong>Robotics and AI</strong> solutions from labs to the
-                                market.
-                            </p>
-                            <p class="chart-caption">
-                                <i class="fa-solid fa-arrow-right"></i>
-                                The <strong>Word Cloud</strong> highlights the dominant research topics
-                                driving this mission.
-                            </p>
+                <section class="viz-section">
+                    <div class="text-container">
+                        <h2>The RAISE Ecosystem: Bridging Research and Society</h2>
+                        <p>
+                            <strong>RAISE</strong> (Robotics and AI for Socio-economic Empowerment) is a
+                            strategic Innovation Ecosystem based in <strong>Liguria</strong>,
+                            funded by the Italian Ministry of University and Research (MUR).
+                        </p>
+                        <p>
+                            Leveraging the region's status as a "Robot Valley," the project unites
+                            <strong>UNIGE, CNR, and IIT</strong>
+                            to transfer advanced <strong>Robotics and AI</strong> solutions from labs to the
+                            market.
+                        </p>
+                        <p>
+                            The <strong>Word Cloud</strong> below highlights the dominant research topics
+                            driving this mission.
+                        </p>
+                    </div>
+
+                    <div class="viz-container" style="flex-direction: column; align-items: center; gap: 16px;">
+
+                        <div class="wc-control-container" style="margin-bottom: 0;">
+                            <div class="wc-toggle-group">
+                                <button class="wc-toggle-btn" data-mode="cats">Categories</button>
+                                <button class="wc-toggle-btn active" data-mode="topics">Topics</button>
+                            </div>
                         </div>
-                        <div class="graph-block">
+
+                        <div class="card-style"
+                            style="display: flex; justify-content: center; align-items: center; min-height: 600px; padding: 10px;">
                             <div id="topics_wordcloud"></div>
                         </div>
-                    </section>
 
-                    <hr class="section-divider">
+                    </div>
+                </section>
 
-                    <section class="split-section reverse">
+                <section class="viz-section alt-bg">
+                    <div class="split-section reverse" style="padding: 0; width: 100%; max-width: 1400px;">
+
                         <div class="graph-block">
                             <div id="pubtype_waffle" class="graph1"></div>
                         </div>
+
                         <div class="text-block">
                             <h2>Mapping the<br>Innovation Pulse</h2>
                             <p>
@@ -74,44 +87,41 @@
                                 produced by the partners.
                             </p>
                         </div>
-                    </section>
 
-                    <div id="topics_wordcloud"></div>
-                    <div id="pubtype_waffle" class="graph1"></div>
+                    </div>
+                </section>
 
-                    <hr class="section-divider">
-                    
-                    <div class="bubble_text">
+                <section class="viz-section">
+                    <div class="text-container">
                         <h2>Explore the Ecosystem Data</h2>
                         <p>Select a category below to visualize specific connections within the network</p>
-                        
                     </div>
-                    <div class="bubble_container">
-                        <a href="people.html" class="home_button">
-                            <i class="fa-solid fa-people-arrows"></i>
-                            <span>People</span>
-                        </a>
+                    <div class="viz-container">
+                        <div class="bubble_container">
+                            <a href="researchers.html" class="home_button">
+                                <i class="fa-solid fa-people-arrows"></i>
+                                <span>Researchers</span>
+                            </a>
 
-                        <a href="institutions.html" class="home_button">
-                            <i class="fa-solid fa-building-columns"></i>
-                            <span>Institutions</span>
-                        </a>
+                            <a href="institutions.html" class="home_button">
+                                <i class="fa-solid fa-building-columns"></i>
+                                <span>Institutions</span>
+                            </a>
 
-                        <a href="collaborations.html" class="home_button">
-                            <i class="fa-solid fa-hexagon-nodes"></i>
-                            <span>Collaborations</span>
-                        </a>
+                            <a href="collaborations.html" class="home_button">
+                                <i class="fa-solid fa-hexagon-nodes"></i>
+                                <span>Collaborations</span>
+                            </a>
+                        </div>
                     </div>
-                </div>
+                </section>
 
             </main>
         </div>
     </div>
 </body>
+
 <script src="visualizations/waffle.js"></script>
 <script src="visualizations/wordcloud.js"></script>
-
-
-
 
 </html>

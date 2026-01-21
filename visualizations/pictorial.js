@@ -30,7 +30,7 @@ const mainWrapper = container.append("div")
     .style("background", colorBg)
     .style("border-radius", "16px")
     .style("box-shadow", "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)")
-    .style("overflow", "hidden"); 
+    .style("overflow", "visible"); 
 
 const header = mainWrapper.append("div")
     .style("background", "white")
@@ -40,7 +40,9 @@ const header = mainWrapper.append("div")
     .style("flex-wrap", "wrap")
     .style("gap", "20px")
     .style("justify-content", "space-between")
-    .style("align-items", "center");
+    .style("align-items", "center")
+    .style("position", "relative")
+    .style("z-index", "20");
 
 const titleGroup = header.append("div");
 titleGroup.append("div")
@@ -49,7 +51,7 @@ titleGroup.append("div")
     .style("font-weight", "700")
     .style("color", "#0f172a")
     .style("letter-spacing", "-0.025em")
-    .text("Subdivision of people in RAISE");
+    .text("Researchers involved in RAISE");
 
 const subTitle = titleGroup.append("div")
     .style("font-size", "14px")
@@ -98,7 +100,11 @@ Object.keys(territories).forEach(key => {
     regionSelect.append("option").text(key).attr("value", key);
 });
 
-const searchInput = controls.append("input")
+const searchWrapper = controls.append("div")
+    .attr("class", "net-search-wrapper")
+    .style("text-align", "left"); 
+
+const searchInput = searchWrapper.append("input")
     .attr("class", "control-input")
     .attr("type", "text")
     .attr("placeholder", "Search person...")
@@ -109,7 +115,12 @@ const searchInput = controls.append("input")
     .style("font-size", "14px")
     .style("width", "200px")
     .style("outline", "none")
-    .style("color", colorText);
+    .style("color", colorText)
+    .attr("autocomplete", "off");
+
+const searchDropdown = searchWrapper.append("div")
+    .attr("class", "net-dropdown modern-scroll")
+    .style("text-align", "left"); 
 
 const chartBody = mainWrapper.append("div")
     .attr("id", "chart-body")
@@ -120,7 +131,8 @@ const chartBody = mainWrapper.append("div")
     .style("display", "grid")
     .style("grid-template-columns", "repeat(auto-fill, minmax(320px, 1fr))")
     .style("gap", "20px")
-    .style("align-content", "start");   
+    .style("align-content", "start")
+    .style("z-index", "10");   
 
 
 Promise.all([
@@ -166,6 +178,8 @@ Promise.all([
     const allInstitutions = Array.from(instMap.values())
         .sort((a, b) => b.people.length - a.people.length);
 
+    const allNames = [...new Set(peopleData.map(d => (d.display_name_or_alias || "").trim()).filter(Boolean))].sort();
+
     function updateChart() {
         chartBody.html("");
 
@@ -188,7 +202,7 @@ Promise.all([
         filteredData.forEach(inst => {
             inst.people.forEach(person => uniquePeople.add(person));
         });
-        subTitle.text(`${filteredData.length} Institutions - ${uniquePeople.size} People`);
+        subTitle.text(`${filteredData.length} Institutions - ${uniquePeople.size} Researchers`);
 
         if (filteredData.length === 0) {
             chartBody
@@ -284,6 +298,43 @@ Promise.all([
         attachInteractions(cardsUpdate);
     }
 
+    searchInput.on("input", function() {
+        const val = this.value.toLowerCase().trim();
+        updateChart();
+
+        if (!val) { 
+            searchDropdown.classed("open", false).html(""); 
+            return; 
+        }
+
+        const matches = allNames
+            .filter(n => n.toLowerCase().includes(val));
+
+        if (matches.length === 0) {
+            searchDropdown.classed("open", false);
+        } else {
+            searchDropdown.classed("open", true);
+            searchDropdown.selectAll(".net-dd-item")
+                .data(matches)
+                .join("div")
+                .attr("class", "net-dd-item") 
+                .style("text-align", "left") // Force align items left
+                .text(d => d)
+                .on("click", (e, d) => {
+                    e.stopPropagation();
+                    searchInput.property("value", d);
+                    searchDropdown.classed("open", false);
+                    updateChart();
+                });
+        }
+    });
+
+    d3.select("body").on("click.pictorial", () => {
+         searchDropdown.classed("open", false);
+    });
+    
+    searchWrapper.on("click", (e) => e.stopPropagation());
+
     const tooltip = d3.select(".pictorial-tooltip").empty() 
         ? d3.select("body").append("div").attr("class", "pictorial-tooltip")
         : d3.select(".pictorial-tooltip");
@@ -327,7 +378,6 @@ Promise.all([
     }
 
     regionSelect.on("change", updateChart);
-    searchInput.on("input", updateChart);
 
     regionSelect.property("value", "Italy");
     updateChart();
