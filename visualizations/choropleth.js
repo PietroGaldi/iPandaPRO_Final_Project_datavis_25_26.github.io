@@ -54,23 +54,6 @@
       .style("width", "13rem");
   }
 
-  // Loading
-  function toggleLoading(isLoading, msg = "Loading data...") {
-    let loader = d3.select("#chl_loader");
-    if (loader.empty()) {
-      loader = d3.select("body").append("div")
-        .attr("id", "chl_loader")
-        .style("position", "fixed").style("top", "50%").style("left", "50%")
-        .style("transform", "translate(-50%, -50%)")
-        .style("padding", "20px 40px").style("background", "rgba(0,0,0,0.8)")
-        .style("color", "white").style("border-radius", "8px")
-        .style("font-family", "system-ui")
-        .style("pointer-events", "none")
-        .style("z-index", "9999");
-    }
-    loader.text(msg).style("display", isLoading ? "block" : "none");
-  }
-
   function iso2FromProps(p) {
     if (!p) return null;
     let code = p.ISO_A2 || p.ISO2 || p.iso2 || p.iso_a2 || p.A2 || p["ISO3166-1-Alpha-2"];
@@ -315,7 +298,6 @@
 
   // MAIN RENDER
   async function render() {
-    toggleLoading(true, "Loading data...");
 
     try {
       const [{ counts, instNamesByCC }, geo] = await Promise.all([
@@ -465,9 +447,7 @@
     } catch (err) {
       console.error(err);
       legend.html(`<div style="color:red; font-size:12px;">Error: ${err.message}</div>`);
-    } finally {
-      toggleLoading(false);
-    }
+    } 
   }
 
   render();
