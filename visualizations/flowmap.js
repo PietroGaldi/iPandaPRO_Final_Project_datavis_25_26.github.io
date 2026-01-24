@@ -6,7 +6,7 @@ const colorLand = "#445879";
 const colorLandStroke = "#334155";
 const colorNode = "#808da0";
 const colorMajor = "#38bdf8";
-const colorFlow = "#f472b6";  //#4ade80, è verde ma è una valida alternativa
+const colorFlow = "#f472b6";
 const colorHover = "#fbbf24";
 const colorDim = "#334155";
 

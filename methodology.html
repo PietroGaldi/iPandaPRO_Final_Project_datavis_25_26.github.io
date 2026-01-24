@@ -28,7 +28,7 @@
                     <div class="text-container">
                         <h2>Data sources</h2>
                         <p>
-                            The data used to generate the visualizations were retrieved from <strong>OpenAlex</strong>,
+                            The data used to generate the visualizations were retrieved from <strong>OpenAlex</strong> through API,
                             an open catalog of works, authors, institutions, and related metadata.
                         </p>
                         <p>
@@ -58,8 +58,9 @@
                             <em>openalex_people.csv</em>, which details the <strong>researchers involved</strong>, and
                             <em>institutions_osm_coords.csv</em>, which lists the <strong>participating
                                 institutions</strong>.
-                            Geographic coordinates were geocoded into the institutions file using OpenStreetMap,
-                            with manual corrections applied to ensure locational accuracy.
+                            Geographic coordinates were geocoded into the institutions file using the Python library <em>geopy</em> with
+                            OpenStreetMap as the reference service, with manual corrections applied to ensure locational
+                            accuracy.
                         </p>
 
                         <div style="text-align: left; margin-top: 2rem;">
@@ -74,7 +75,7 @@
                                 </li>
                                 <li>
                                     <strong>Topic analysis:</strong> The <code>raw_json</code> column contains
-                                    categorization levels: Level 0 (Domain) and Level 1 (Topic).
+                                    categorization levels: Level 0 (Category) and Level 1 (Topic).
                                     Authors are classified based on the dominance of these concepts in their
                                     publication history.
                                 </li>

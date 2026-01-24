@@ -270,7 +270,7 @@
 
       <div>
         <div style="font-size:11px; text-transform:uppercase; letter-spacing:0.5px; color:#6b7280; margin-bottom:8px;">
-          Institutions by publication count (${instEntriesSorted.length})
+          Institutions by publication
         </div>
 
         <div class="modern-scroll" style="
