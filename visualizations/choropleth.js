@@ -306,12 +306,11 @@
       ]);
 
       geo.features = geo.features.filter(f => iso2FromProps(f.properties) !== "AQ");
-
       const focusGeo = {
         type: "FeatureCollection",
         features: geo.features.filter(f => {
-          const center = d3.geoCentroid(f);
-          return center[1] > -10;
+          const c = d3.geoCentroid(f);
+          return c[1] > -10 && c[1] < 85;
         })
       };
 
@@ -319,7 +318,7 @@
       const { scale, thresholds, colors, maxV } = makeDiscreteScale(values);
       drawLegend(scale, thresholds, colors, maxV);
 
-      const projection = d3.geoNaturalEarth1()
+      const projection = d3.geoMercator()
         .fitExtent([[CONFIG.pad, CONFIG.pad], [CONFIG.width - CONFIG.pad, CONFIG.height - CONFIG.pad]], focusGeo);
 
       const pathGenerator = d3.geoPath(projection);
@@ -330,6 +329,13 @@
         .on("zoom", (e) => gRoot.attr("transform", e.transform));
 
       svg.call(zoomBehavior);
+      const INITIAL_K = 1;
+      svg.call(
+        zoomBehavior.transform,
+        d3.zoomIdentity
+          .translate(CONFIG.width * (1 - INITIAL_K) / 2, CONFIG.height * (1 - INITIAL_K) / 2)
+          .scale(INITIAL_K)
+      );
 
       const paths = gMap.selectAll("path")
         .data(geo.features)
@@ -346,25 +352,29 @@
         .style("transition", "fill 0.2s ease");
 
       paths
-        .on("mouseenter", function () {
+        .on("pointerenter", function (evt, d) {
           if (pinnedCC) return;
           d3.select(this).attr("stroke", "#666").attr("stroke-width", 1).raise();
+
         })
-        .on("mousemove", (evt, d) => {
+        .on("pointermove", function (evt, d) {
           if (pinnedCC) return;
+
+          const name = nameFromProps(d.properties);
           const cc = iso2FromProps(d.properties);
-          const name = nameFromProps(d.properties); // Get the full name
           const v = counts.get(cc) || 0;
 
-          // CHANGED: Display 'name' in the tooltip title instead of 'cc'
           showTip(`
-    <div style="font-weight:700; color:#1f2937;">${name || "—"}</div>
-    <div style="font-size:12px; color:#4b5563;">Institutions: <b>${v}</b></div>
+      <div style="font-weight:700; color:#1f2937;">${name || "—"}</div>
+      <div style="font-size:12px; color:#4b5563;">Institutions: <b>${v}</b></div>
     `, evt);
         })
-        .on("mouseleave", function () {
-          if (pinnedCC) return;
-          d3.select(this).attr("stroke", CONFIG.strokeColor).attr("stroke-width", 0.5);
+        .on("pointerleave", function () {
+          d3.select(this)
+            .interrupt()
+            .attr("stroke", CONFIG.strokeColor)
+            .attr("stroke-width", 0.5);
+
           hideTip();
         })
         .on("click", (evt, d) => {
@@ -447,7 +457,7 @@
     } catch (err) {
       console.error(err);
       legend.html(`<div style="color:red; font-size:12px;">Error: ${err.message}</div>`);
-    } 
+    }
   }
 
   render();
