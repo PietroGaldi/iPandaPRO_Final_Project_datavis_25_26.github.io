@@ -143,7 +143,7 @@
 }
 
 
-#sqTreemapSvg {
+#sqProportionalSvg {
     display: block;
     width: 100%;
     height: auto;
@@ -165,22 +165,6 @@
     pointer-events: none;
     font-size: 10px;
     opacity: 0.8;
-}
-
-#sqTreemapTip {
-    position: absolute;
-    pointer-events: none;
-    opacity: 0;
-    background: #111;
-    color: #fff;
-    padding: 7px 9px;
-    border-radius: 10px;
-    font-size: 12px;
-    max-width: 320px;
-    transition: opacity 0.2s;
-    width: 100%;
-    height: auto;
-    display: block;
 }
 
 #choropleth_section {
