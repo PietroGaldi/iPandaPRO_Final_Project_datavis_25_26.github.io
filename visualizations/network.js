@@ -16,6 +16,9 @@
     let instClear = d3.select("#instClear");
     if (instClear.empty()) instClear = d3.select("#instBox").append("button").attr("id", "instClear").attr("type", "button").text("Clear");
 
+    // ego-only "View affiliations" button
+    let viewAffBtn = d3.select("#viewAffBtn");
+
     // layers of links, nodes, labels
     const g = svg.append("g"),
         LG = g.append("g"),
@@ -57,22 +60,27 @@
     let instByAuthor = new Map();
     let selectedInst = new Set();
 
-    const INST_FIXED_COLORS = new Map([
-        ["unige", "#2563eb"],
-        ["iit", "#ea6f4d"],
-        ["cnr", "#fab115"]
-    ]);
-
-    const instColor = d3.scaleOrdinal(d3.schemeSet1);
+    // color blind friendly palette
+    const OKABE_ITO = [
+        "#0072B2",
+        "#E69F00",
+        "#009E73",
+        "#D55E00",
+        "#CC79A7",
+        "#56B4E9",
+        "#F0E442",
+        "#000000"
+    ];
+    const TABLEAU10 = d3.schemeTableau10;
+    const PALETTE = [...OKABE_ITO, ...TABLEAU10.filter(c => !OKABE_ITO.includes(c))];
+    const instColor = d3.scaleOrdinal().range(PALETTE);
     const colorForInst = (inst) => {
         const k = (inst || "").toLowerCase();
-        if (/university of genoa/.test(k)) return INST_FIXED_COLORS.get("unige");
-        if (/italian institute of technology/.test(k)) return INST_FIXED_COLORS.get("iit");
-        if (/national research council/.test(k)) return INST_FIXED_COLORS.get("cnr");
         return instColor(inst);
     };
 
     let currentCenter = null;
+    let egoAffiliationsActive = false;
 
     const clear = () => { LG.selectAll("*").remove(); NG.selectAll("*").remove(); TG.selectAll("*").remove(); };
     const zoomOut = () => svg.call(
@@ -88,6 +96,44 @@
         for (const inst of selectedInst) if (s.has(inst)) out.push(inst);
         return out;
     };
+
+    function egoIds(center) {
+        if (!center) return [];
+        const neigh = nb.get(center);
+        return [center, ...(neigh ? Array.from(neigh) : [])];
+    }
+
+    function applyEgoAffiliations(center) {
+        selectedInst.clear();
+        for (const id of egoIds(center)) {
+            const s = instByAuthor.get(id);
+            if (!s || !s.size) continue;
+            for (const inst of s) selectedInst.add(inst);
+        }
+    }
+
+
+    function toggleEgoAffiliations() {
+        if (!currentCenter) return;
+
+        if (!egoAffiliationsActive) {
+            applyEgoAffiliations(currentCenter);
+            egoAffiliationsActive = true;
+        } else {
+            selectedInst.clear();
+            egoAffiliationsActive = false;
+        }
+
+        renderChips();
+        draw(currentCenter);
+    }
+
+    function egoHasAnyAffiliation(center) {
+        for (const id of egoIds(center)) {
+            if (instByAuthor.get(id)?.size) return true;
+        }
+        return false;
+    }
 
     function renderChips() {
         const arr = [...selectedInst].sort(d3.ascending);
@@ -154,7 +200,7 @@
 
         const instList = [...allInst].sort(d3.ascending);
 
-        // --- Institution search dropdown (like Author) ---
+        // institution search dropdown
         instInp.on("input", function () {
             const val = (this.value || "").toLowerCase().trim();
 
@@ -189,10 +235,17 @@
         if (!instClear.empty()) {
             instClear.on("click", () => {
                 selectedInst.clear();
+                egoAffiliationsActive = false;
                 renderChips();
                 draw(currentCenter);
             });
         }
+
+        // ego view affiliations button handler
+        viewAffBtn.on("click", (e) => {
+            e.stopPropagation();
+            toggleEgoAffiliations();
+        });
 
         selectedInst.clear();
         renderChips();
@@ -234,7 +287,15 @@
         // name -> id map for search box
         idByName = new Map();
         [...nameById].sort((a, b) => d3.ascending(a[1], b[1]))
-            .forEach(([id, nm]) => { if (!idByName.has(nm)) idByName.set(nm, id); });
+            .forEach(([id, nm]) => {
+                const prev = idByName.get(nm);
+                if (!prev) return void idByName.set(nm, id);
+
+                const degPrev = (nb.get(prev)?.size || 0);
+                const degCur = (nb.get(id)?.size || 0);
+
+                if (degCur > degPrev) idByName.set(nm, id);
+            });
 
         const dd = d3.select("#netDropdown");
         const allNames = [...idByName.keys()];
@@ -256,22 +317,34 @@
                         e.stopPropagation();
                         inp.property("value", d);
                         dd.classed("open", false);
+                        egoAffiliationsActive = false;
+                        selectedInst.clear();
+                        renderChips();
                         const id = idByName.get(d);
                         if (id) draw(id);
                     });
             }
         });
+
         d3.select("body").on("click", () => {
             dd.classed("open", false);
             instDD.classed("open", false);
         });
         instInp.on("click", (e) => e.stopPropagation());
         d3.select("#instBox").on("click", (e) => e.stopPropagation());
+
         d3.select("#resetBtn").on("click", () => {
             inp.property("value", "");
             currentCenter = null;
+
+            selectedInst.clear();
+            egoAffiliationsActive = false;
+
+            renderChips();
+
             draw(null);
         });
+
         svg.on("click", tipHide);
 
         currentCenter = null;
@@ -281,6 +354,14 @@
     // main draw function
     function draw(center) {
         currentCenter = center || null;
+
+        const showAffBtn =
+            currentCenter &&
+            egoHasAnyAffiliation(currentCenter);
+
+        viewAffBtn
+            .style("display", showAffBtn ? "inline-flex" : "none")
+            .classed("is-active", egoAffiliationsActive);
 
         tipHide();
         if (sim) sim.stop();
@@ -300,7 +381,7 @@
             const keep = new Set([center, ...(nb.get(center) || [])]);
             nodes = [...keep].map(id => ({ id, name: nameById.get(id) || id }));
             links = linksAll.filter(l => l.source === center || l.target === center).map(d => ({ ...d }));
-            meta.text(`Showing: ${nameById.get(center) || center} - links ${links.length}`);
+            meta.text(`${links.length} links`);
             svg.transition().duration(200).call(zoom.transform, d3.zoomIdentity);
         }
 
@@ -374,9 +455,17 @@
             .on("click", (e, d) => {
                 e.stopPropagation();
                 inp.property("value", nameById.get(d.id) || "");
+
+                if (egoAffiliationsActive) {
+                    currentCenter = d.id;
+                    applyEgoAffiliations(currentCenter);
+                    renderChips();
+                    draw(currentCenter);
+                    return;
+                }
+
                 draw(d.id);
             });
-
         node.select("circle.outline").attr("r", R);
         node.each(function (d) {
             const gPie = d3.select(this).select("g.pie");
@@ -384,7 +473,6 @@
             const r = R(d);
 
             gPie.selectAll("circle.centerfill").remove();
-
             gPie.selectAll("path").remove();
 
             const baseColor =
