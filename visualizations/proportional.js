@@ -28,7 +28,7 @@
       "#4bb4ca", // Cyan (sky)
       "#798797"  // Slate Gray (neutral)
   ];
-  const svg = d3.select("#sqTreemapSvg");
+  const svg = d3.select("#sqProportionalSvg");
   const btns = [...document.querySelectorAll("#raise_years .ybtn")];
   const inp = document.getElementById("raise_inp");
   const pillsEl = document.getElementById("raise_pills");
@@ -155,7 +155,7 @@
     return out;
   }
 
-  function processDataForTreemap(itemsMap) {
+  function processDataForProp(itemsMap) {
     let allItems = Array.from(itemsMap.entries()).map(([inst, v]) => ({ inst, v }));
     allItems.sort((a, b) => b.v - a.v);
 
@@ -217,7 +217,7 @@
     g.attr("transform", `translate(${pad},${titleH})`);
 
     const rawMap = COUNTS.get(y) || new Map();
-    const dataItems = processDataForTreemap(rawMap);
+    const dataItems = processDataForProp(rawMap);
     
     if (!dataItems.length) {
       g.selectAll("*").remove();
