@@ -1,24 +1,38 @@
 d3.csv("data/openalex_works_full.csv").then(rows => {
-    
-    // --- Configuration ---
+
     const containerSelector = "#topics_wordcloud";
     const getWidth = () => document.querySelector(containerSelector).getBoundingClientRect().width || 600;
-    
-    const H_TOPICS = 600; 
+
+    const H_TOPICS = 600;
     const H_CATS = 300;
     const MARGIN = { top: 10, right: 10, bottom: 10, left: 10 };
-    
+
     const FONT_FAMILY = "'Fira Sans', sans-serif";
 
-    const modernPalette = [
+    const topicPalette = [
         "#5e96f0", "#ef4444", "#10b981", "#f59e0b", "#4749d1",
         "#ec4899", "#8b5cf6", "#13d1bb", "#f97316", "#84cc16",
         "#119ab2", "#64748b"
     ];
-    
-    const colorScale = d3.scaleOrdinal(modernPalette);
 
-    // --- Helpers ---
+    const catPalette = [
+        "#0e1f7f",
+        "#370617",
+        "#6a040f",
+        "#9d0208",
+        "#d00000",
+        "#dc2f02",
+        "#e85d04",
+        "#f48c06",
+        "#b0822d",
+        "#c99308",
+        "#61abcd",
+        "#1d768c"
+    ];
+
+    const topicColorScale = d3.scaleOrdinal(topicPalette);
+    const catColorScale = d3.scaleOrdinal(catPalette);
+
     function makeSeededRandom(seedStr) {
         let seed = 0;
         for (let i = 0; i < seedStr.length; i++) seed = (seed * 31 + seedStr.charCodeAt(i)) >>> 0;
@@ -38,86 +52,72 @@ d3.csv("data/openalex_works_full.csv").then(rows => {
         }
     }
 
-    // --- Data Processing ---
     const freqCategory = new Map();
     const freqTopic = new Map();
-    
-    // Logic: Exactly matching your Leaderboard
-    // Maps Topic Name -> Category Name based on the first time we see the topic.
-    const topicToCategoryMap = new Map(); 
+    const topicToCategoryMap = new Map();
 
     rows.forEach(r => {
         const obj = safeParseRawJson(r.raw_json);
         if (!obj || !obj.concepts) return;
 
-        // 1. Get Category (Level 0)
-        // Sort by score to find the most relevant L0
         const l0 = obj.concepts
             .filter(c => c.level === 0 && c.display_name)
             .sort((a, b) => (b.score || 0) - (a.score || 0))[0];
-        
+
         const catName = l0 ? String(l0.display_name).trim() : null;
         if (catName) {
             freqCategory.set(catName, (freqCategory.get(catName) || 0) + 1);
         }
 
-        // 2. Get Topics (Level 1)
         const l1s = obj.concepts
             .filter(c => c.level === 1 && c.display_name)
             .map(c => ({ name: String(c.display_name).trim() }));
 
         l1s.forEach(t => {
-            // Count frequency for sizing
             freqTopic.set(t.name, (freqTopic.get(t.name) || 0) + 1);
-            
-            // LEADERBOARD LOGIC:
-            // If we have a category for this paper, and this topic hasn't been assigned a category yet,
-            // assign it now. This effectively "locks" the topic to the first category it appears with.
+
             if (catName && !topicToCategoryMap.has(t.name)) {
                 topicToCategoryMap.set(t.name, catName);
             }
         });
     });
 
-    // Helper to retrieve the assigned category
     function resolveTopicToCategory(topicName) {
         return topicToCategoryMap.get(topicName) || "Unknown";
     }
 
     function getColor(text, mode) {
-        let category = text;
-        // If we are coloring a Topic, look up its mapped parent Category
-        if (mode === "topics") {
-            category = resolveTopicToCategory(text);
+        if (mode === "cats") {
+            return catColorScale(text);
+        } else {
+            const parentCat = resolveTopicToCategory(text);
+            return topicColorScale(parentCat);
         }
-        return colorScale(category);
     }
 
-    // --- Setup D3 ---
     const root = d3.select(containerSelector);
     root.selectAll("*").remove();
 
     const svg = root.append("svg")
         .attr("width", "100%")
-        .attr("height", H_TOPICS) // Start with Topics height (Default)
+        .attr("height", H_TOPICS)
         .style("transition", "height 0.3s ease");
 
     const g = svg.append("g");
 
     const layoutCache = new Map();
-    let currentMode = "topics"; // Default is Topics
+    let currentMode = "topics";
 
-    // --- Main Render Function ---
     async function renderCloud(mode) {
         currentMode = mode;
         const width = getWidth();
-        
+
         const isCats = mode === "cats";
         const H = isCats ? H_CATS : H_TOPICS;
-        const MAX_WORDS = isCats ? 50 : 250; 
+        const MAX_WORDS = isCats ? 50 : 250;
 
         svg.transition().duration(300).attr("height", H);
-        
+
         const sourceMap = isCats ? freqCategory : freqTopic;
         const items = Array.from(sourceMap, ([text, count]) => ({ text, count }))
             .sort((a, b) => b.count - a.count)
@@ -137,8 +137,8 @@ d3.csv("data/openalex_works_full.csv").then(rows => {
 
         const innerW = width - MARGIN.left - MARGIN.right;
         const innerH = H - MARGIN.top - MARGIN.bottom;
-        const cacheKey = `${mode}-${Math.floor(width/50)*50}-${H}`;
-        
+        const cacheKey = `${mode}-${Math.floor(width / 50) * 50}-${H}`;
+
         let layoutWords = layoutCache.get(cacheKey);
 
         if (!layoutWords) {
@@ -147,9 +147,9 @@ d3.csv("data/openalex_works_full.csv").then(rows => {
                 d3.layout.cloud()
                     .size([innerW, innerH])
                     .words(wordsData)
-                    .padding(isCats ? 15 : 4) 
+                    .padding(isCats ? 15 : 4)
                     .rotate(d => {
-                        if (isCats) return 0; 
+                        if (isCats) return 0;
                         return (makeSeededRandom(seedStr + d.text)() > 0.85 ? 90 : 0);
                     })
                     .font("Fira Sans")
@@ -163,7 +163,7 @@ d3.csv("data/openalex_works_full.csv").then(rows => {
         }
 
         g.transition().duration(300)
-         .attr("transform", `translate(${width / 2}, ${H / 2})`);
+            .attr("transform", `translate(${width / 2}, ${H / 2})`);
 
         const sel = g.selectAll("text").data(layoutWords, d => d.text);
 
@@ -190,8 +190,8 @@ d3.csv("data/openalex_works_full.csv").then(rows => {
     }
 
     const btns = d3.selectAll(".wc-toggle-btn");
-    
-    btns.on("click", function() {
+
+    btns.on("click", function () {
         const btn = d3.select(this);
         const mode = btn.attr("data-mode");
         btns.classed("active", false);
