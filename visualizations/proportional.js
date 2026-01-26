@@ -11,22 +11,22 @@
   ];
 
   const OTHERS_LABEL = "Others";
-  const OTHERS_COLOR = "#e5e7eb"; 
-  const OTHERS_TEXT  = "#6b7280";
-  
+  const OTHERS_COLOR = "#e5e7eb";
+  const OTHERS_TEXT = "#6b7280";
+
   const PALETTE = [
-      "#6a97db", // Blue (balanced)
-      "#e06666", // Red (soft yet bright)
-      "#47c290", // Green (fresh)
-      "#e9ac48", // Amber (warm)
-      "#6d6fe1", // Indigo (mid-tone)
-      "#db6bad", // Pink (orchid)
-      "#996fdd", // Violet (lavender)
-      "#44cbb9", // Teal (aqua)
-      "#ec8643", // Orange (sunset)
-      "#94cb4f", // Lime (leaf)
-      "#4bb4ca", // Cyan (sky)
-      "#798797"  // Slate Gray (neutral)
+    "#6a97db", // Blue (balanced)
+    "#e06666", // Red (soft yet bright)
+    "#47c290", // Green (fresh)
+    "#e9ac48", // Amber (warm)
+    "#6d6fe1", // Indigo (mid-tone)
+    "#db6bad", // Pink (orchid)
+    "#996fdd", // Violet (lavender)
+    "#44cbb9", // Teal (aqua)
+    "#ec8643", // Orange (sunset)
+    "#94cb4f", // Lime (leaf)
+    "#4bb4ca", // Cyan (sky)
+    "#798797"  // Slate Gray (neutral)
   ];
   const svg = d3.select("#sqProportionalSvg");
   const btns = [...document.querySelectorAll("#raise_years .ybtn")];
@@ -36,7 +36,7 @@
   const dd = document.getElementById("raise_dd");
 
   // --- TOOLTIP SETUP ---
-  const tooltip = d3.select(".pictorial-tooltip").empty() 
+  const tooltip = d3.select(".pictorial-tooltip").empty()
     ? d3.select("body").append("div").attr("class", "pictorial-tooltip")
     : d3.select(".pictorial-tooltip");
 
@@ -54,8 +54,8 @@
     .style("opacity", 0)
     .style("z-index", 1000)
     .style("border", "1px solid rgba(255,255,255,0.1)");
-  
-  const colorHoverText = "#f59e0b"; 
+
+  const colorHoverText = "#f59e0b";
   // ---------------------
 
   const J = s => { try { return JSON.parse(s) } catch { return null } };
@@ -74,7 +74,7 @@
 
   const colorScale = d3.scaleOrdinal(PALETTE);
   const col = s => s === OTHERS_LABEL ? OTHERS_COLOR : colorScale(s);
-  
+
   const getTextColor = (bgColor) => {
     if (bgColor === OTHERS_COLOR) return OTHERS_TEXT;
     const color = d3.color(bgColor);
@@ -101,18 +101,18 @@
     state.terms.forEach((t, i) => {
       const p = document.createElement("button");
       p.type = "button";
-      p.className = "tm_pill"; 
+      p.className = "tm_pill";
       p.innerHTML = `<span>${t}</span> <span class="close-icon">x</span>`;
       p.onclick = () => removeTerm(i);
       pillsEl.appendChild(p);
     });
 
-    if(state.terms.length) {
-        clearBtn.classList.add("visible");
-        if (container) container.style.display = "block"; 
+    if (state.terms.length) {
+      clearBtn.classList.add("visible");
+      if (container) container.style.display = "block";
     } else {
-        clearBtn.classList.remove("visible");
-        if (container) container.style.display = "none";
+      clearBtn.classList.remove("visible");
+      if (container) container.style.display = "none";
     }
   }
 
@@ -135,7 +135,7 @@
       const row = document.createElement("button");
       row.type = "button";
       row.textContent = name;
-      row.className = "tm-dd-item"; 
+      row.className = "tm-dd-item";
       row.onclick = () => { addTerm(name); inp.value = ""; closeDD(); inp.focus(); };
       dd.appendChild(row);
     });
@@ -166,7 +166,7 @@
     allItems.forEach((item, index) => {
       const name = item.inst;
       const nameL = name.toLowerCase();
-      
+
       const config = getLogoConfig(name);
       const isVip = config && config.isVip;
       const isTop = index < TOP_N_DEFAULT;
@@ -181,9 +181,11 @@
 
     if (othersValue > 0) {
       const cap = visibleItems.length > 0 ? visibleItems[0].v * 0.5 : othersValue;
-      visibleItems.push({ 
-        inst: OTHERS_LABEL, 
-        v: Math.min(othersValue, cap) 
+
+      visibleItems.push({
+        inst: OTHERS_LABEL,
+        v: Math.min(othersValue, cap),
+        vReal: othersValue
       });
     }
 
@@ -203,35 +205,35 @@
 
     const t = svg.transition().duration(500).ease(d3.easeCubicOut);
     svg.attr("viewBox", `0 0 ${w} ${H}`).attr("width", w).attr("height", H);
-    
+
     let title = svg.select("text.tm_chart_title");
-    if(title.empty()) {
-        title = svg.append("text").attr("class", "tm_chart_title")
-           .attr("y", 25).attr("text-anchor", "middle");
+    if (title.empty()) {
+      title = svg.append("text").attr("class", "tm_chart_title")
+        .attr("y", 25).attr("text-anchor", "middle");
     }
 
     let g = svg.select("g.main-group");
-    if(g.empty()) {
-        g = svg.append("g").attr("class", "main-group");
+    if (g.empty()) {
+      g = svg.append("g").attr("class", "main-group");
     }
     g.attr("transform", `translate(${pad},${titleH})`);
 
     const rawMap = COUNTS.get(y) || new Map();
     const dataItems = processDataForProp(rawMap);
-    
+
     if (!dataItems.length) {
       g.selectAll("*").remove();
       g.append("text").attr("x", innerW / 2).attr("y", innerH / 2)
-       .attr("text-anchor", "middle").style("fill", "#666").text("No data available");
+        .attr("text-anchor", "middle").style("fill", "#666").text("No data available");
       return;
     }
 
     const root = d3.hierarchy({ children: dataItems })
       .sum(d => d.v)
       .sort((a, b) => {
-         if (a.data.inst === OTHERS_LABEL) return 1;
-         if (b.data.inst === OTHERS_LABEL) return -1;
-         return b.value - a.value;
+        if (a.data.inst === OTHERS_LABEL) return 1;
+        if (b.data.inst === OTHERS_LABEL) return -1;
+        return b.value - a.value;
       });
 
     d3.treemap()
@@ -267,36 +269,51 @@
 
     nodesEnter.append("text")
       .attr("class", "tm_label_main");
-      
+
     nodesEnter.append("text")
-       .attr("class", "tm_label_sub");
+      .attr("class", "tm_label_sub");
 
     const nodesMerge = nodesEnter.merge(nodes);
 
     // --- UPDATED TOOLTIP LOGIC ---
     nodesMerge
-      .on("mousemove", function(event, d) {
-          // Calculate current width and height
-          const width = d.x1 - d.x0;
-          const height = d.y1 - d.y0;
+      .on("mousemove", function (event, d) {
+        const width = d.x1 - d.x0;
+        const height = d.y1 - d.y0;
 
-          // Only show tooltip if text is HIDDEN (height < 35 OR width < 50)
-          if (height < 35 || width < 50) {
-              tooltip.transition().duration(100).style("opacity", 1);
-              tooltip
-                .html(`
-                    <div style="font-weight:600; color:${colorHoverText}">${d.data.inst}</div>
-                    <div style="margin-top:2px;">${d.value} publications</div>
-                `)
-                .style("left", (event.pageX + 10) + "px")
-                .style("top", (event.pageY - 20) + "px");
-          } else {
-              // Otherwise, ensure it is hidden
-              tooltip.style("opacity", 0);
-          }
+        if (height < 35 || width < 50 || d.data.inst === OTHERS_LABEL) {
+          const realValue =
+            d.data.inst === OTHERS_LABEL && d.data.vReal != null
+              ? d.data.vReal
+              : d.value;
+
+          tooltip
+            .transition().duration(100)
+            .style("opacity", 1);
+
+          tooltip
+            .html(`
+        <div style="font-weight:600; color:${colorHoverText}">
+          ${d.data.inst}
+        </div>
+        <div style="margin-top:2px;">
+          ${realValue} publications
+        </div>
+        ${d.data.inst === OTHERS_LABEL
+                ? `<div style="margin-top:4px; opacity:.8;">
+                 Area rescaled for readability
+               </div>`
+                : ""
+              }
+      `)
+            .style("left", (event.pageX + 10) + "px")
+            .style("top", (event.pageY - 20) + "px");
+        } else {
+          tooltip.style("opacity", 0);
+        }
       })
-      .on("mouseleave", function() {
-          tooltip.transition().duration(200).style("opacity", 0);
+      .on("mouseleave", function () {
+        tooltip.transition().duration(200).style("opacity", 0);
       });
     // -----------------------------
 
@@ -311,30 +328,30 @@
       .attr("fill", d => col(d.data.inst));
 
     nodesMerge.select("image")
-      .each(function(d) {
+      .each(function (d) {
         const img = d3.select(this);
         const lg = getLogoConfig(d.data.inst);
         if (d.data.inst === OTHERS_LABEL || !lg) { img.attr("display", "none"); return; }
-        
+
         const w = d.x1 - d.x0, h = d.y1 - d.y0;
         const s = Math.min(w, h) * 0.55;
         if (s < 20) { img.attr("display", "none"); return; }
 
         img.attr("display", "block")
-           .attr("href", lg.url)
-           .attr("x", (w - s) / 2)
-           .attr("y", (h - s) / 2)
-           .attr("width", s)
-           .attr("height", s);
+          .attr("href", lg.url)
+          .attr("x", (w - s) / 2)
+          .attr("y", (h - s) / 2)
+          .attr("width", s)
+          .attr("height", s);
       });
 
     nodesMerge.select("text.tm_label_main")
-      .each(function(d) {
+      .each(function (d) {
         const txt = d3.select(this);
         const w = d.x1 - d.x0, h = d.y1 - d.y0;
-        
+
         // Hide if too small (Tooltip handles this case now)
-        if (h < 35 || w < 50) { txt.attr("display", "none"); return; } 
+        if (h < 35 || w < 50) { txt.attr("display", "none"); return; }
         txt.attr("display", "block");
 
         const bgColor = col(d.data.inst);
@@ -345,9 +362,9 @@
         const words = d.data.inst.split(/\s+/).reverse();
         let word, line = [];
         let lineNumber = 0;
-        const lineHeight = 1.1; 
+        const lineHeight = 1.1;
         const width = w - 12;
-        
+
         let tspan = txt.append("tspan").attr("x", 6).attr("y", 18).attr("dy", 0);
 
         while (word = words.pop()) {
@@ -357,30 +374,35 @@
             line.pop();
             tspan.text(line.join(" "));
             line = [word];
-            if ((lineNumber + 1) * 14 > h - 30) { break; } 
+            if ((lineNumber + 1) * 14 > h - 30) { break; }
             tspan = txt.append("tspan")
-                        .attr("x", 6)
-                        .attr("y", 18)
-                        .attr("dy", ++lineNumber * lineHeight + "em")
-                        .text(word);
+              .attr("x", 6)
+              .attr("y", 18)
+              .attr("dy", ++lineNumber * lineHeight + "em")
+              .text(word);
           }
         }
       });
-      
+
     nodesMerge.select("text.tm_label_sub")
-      .each(function(d) {
+      .each(function (d) {
         const txt = d3.select(this);
         const w = d.x1 - d.x0, h = d.y1 - d.y0;
+        if (d.data.inst === OTHERS_LABEL) {
+          txt.attr("display", "none").text("");
+          return;
+        }
+
         if (h < 50 || w < 50) { txt.attr("display", "none"); return; }
-        
+
         const bgColor = col(d.data.inst);
         const textColor = getTextColor(bgColor);
-        
+
         txt.attr("display", "block")
-           .attr("x", 6)
-           .attr("y", h - 8) 
-           .style("fill", textColor)
-           .text(d.value + " pubs");
+          .attr("x", 6)
+          .attr("y", h - 8)
+          .style("fill", textColor)
+          .text(d.value + " pubs");
       });
   }
 
@@ -390,23 +412,23 @@
 
     for (const r of rows) {
       const y = year(r); if (!YEARS.includes(y)) continue;
-      
+
       const mYear = COUNTS.get(y);
       const mTotal = COUNTS.get("Total");
-      
+
       const set = new Set(insts(r));
-      for (const s of set) { 
-          mYear.set(s, (mYear.get(s) || 0) + 1);
-          mTotal.set(s, (mTotal.get(s) || 0) + 1);
-          setAll.add(s); 
+      for (const s of set) {
+        mYear.set(s, (mYear.get(s) || 0) + 1);
+        mTotal.set(s, (mTotal.get(s) || 0) + 1);
+        setAll.add(s);
       }
     }
 
     ALL_INST = [...setAll].sort((a, b) => a.localeCompare(b));
 
     btns.forEach(b => b.onclick = () => {
-        const val = b.dataset.y === "Total" ? "Total" : +b.dataset.y;
-        setYear(val);
+      const val = b.dataset.y === "Total" ? "Total" : +b.dataset.y;
+      setYear(val);
     });
 
     setYear("Total");
