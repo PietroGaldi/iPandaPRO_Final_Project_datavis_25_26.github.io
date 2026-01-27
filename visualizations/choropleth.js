@@ -114,37 +114,22 @@
     return { counts, instNamesByCC };
   }
 
-  function makeDiscreteScale(values) {
-    const v = values.filter(x => x > 0).sort((a, b) => a - b);
-    const maxV = v.length ? v[v.length - 1] : 1;
-    const minV = v.length ? v[0] : 1;
+function makeDiscreteScale() {
+  const thresholds = [5, 10, 15, 20, 30, 60];
+  const colors = CONFIG.colors.slice(
+    CONFIG.colors.length - (thresholds.length + 1)
+  );
 
-    if (v.length === 0) {
-      return { scale: _ => CONFIG.unknownColor, thresholds: [], colors: [], maxV: 0 };
-    }
+  const baseScale = d3.scaleThreshold()
+    .domain(thresholds)
+    .range(colors);
 
-    const START_IDX = 3;
-    const colors = CONFIG.colors.slice(START_IDX);
+  const scale = v => baseScale(v - 1e-6);
 
-    const logScale = d3.scaleLog()
-      .domain([minV, maxV])
-      .range([0, colors.length]);
+  const maxV = thresholds[thresholds.length - 1];
 
-    let thresholds = [];
-    for (let i = 1; i < colors.length; i++) {
-      const val = Math.round(logScale.invert(i));
-      if (!thresholds.includes(val) && val < maxV) thresholds.push(val);
-    }
-    thresholds.sort((a, b) => a - b);
-
-    const usedColors = colors.slice(0, thresholds.length + 1);
-
-    const scale = d3.scaleThreshold()
-      .domain(thresholds)
-      .range(usedColors);
-
-    return { scale, thresholds, colors: usedColors, maxV };
-  }
+  return { scale, thresholds, colors, maxV };
+}
 
   // LEGEND
   function drawLegend(scale, thresholds, colors, maxV) {
@@ -209,7 +194,7 @@
     g.append("text")
       .attr("x", n * segW)
       .attr("y", mt + barHeight + 10)
-      .text(maxV)
+      .text(maxV + 20)
       .attr("text-anchor", "end")
       .style("font-size", "8px")
       .attr("fill", "#555");
@@ -315,11 +300,14 @@
       };
 
       const values = [...counts.values()];
-      const { scale, thresholds, colors, maxV } = makeDiscreteScale(values);
+      const { scale, thresholds, colors, maxV } = makeDiscreteScale();
       drawLegend(scale, thresholds, colors, maxV);
 
-      const projection = d3.geoMercator()
-        .fitExtent([[CONFIG.pad, CONFIG.pad], [CONFIG.width - CONFIG.pad, CONFIG.height - CONFIG.pad]], focusGeo);
+      const projection = d3.geoWinkel3()
+        .fitExtent(
+          [[CONFIG.pad, CONFIG.pad], [CONFIG.width - CONFIG.pad, CONFIG.height - CONFIG.pad]],
+          focusGeo
+        );
 
       const pathGenerator = d3.geoPath(projection);
 
