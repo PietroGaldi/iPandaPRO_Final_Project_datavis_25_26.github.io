@@ -209,7 +209,7 @@ Promise.all([
                 .style("display", "flex")
                 .style("justify-content", "center")
                 .style("align-items", "center")
-                .style("height", "100%"); 
+                .style("height", `${chartHeight}px`); 
             
             chartBody.append("div")
                 .style("color", colorSubText)
@@ -225,7 +225,10 @@ Promise.all([
             return;
         } 
         
-        chartBody.style("display", "grid");
+        chartBody
+            .style("display", "grid")
+            .style("height", `${chartHeight}px`)
+            .style("overflow-y", "auto");
 
         const cards = chartBody.selectAll(".inst-card")
             .data(filteredData, d => d.name);
